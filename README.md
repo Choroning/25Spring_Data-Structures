@@ -44,7 +44,7 @@ The course covers fundamental data structures such as arrays, linked lists, stac
 
 | Type | Contents |
 |:----:|:---------|
-|Lecture Notes|PPT slides and handwritten notes provided by instructor (no required textbook)|
+|Lecture Notes|PPT slides and handwritten notes provided by instructor|
 |Reference|"Data Structures and Abstractions with Java, 4th Edition" by F.M. Carrano and T.M. Henry (Pearson)|
 
 <br><a name="prerequisites"></a>
@@ -58,8 +58,8 @@ The course covers fundamental data structures such as arrays, linked lists, stac
 
 | Tool | Company |  OS  | Notes |
 |:-----|:-------:|:----:|:------|
+|Xcode|Apple Inc.|macOS|most used IDE|
 |Visual Studio Code|Microsoft|macOS|    |
-|Xcode|Apple Inc.|macOS|    |
 
 <br><a name="repository-structure"></a>
 ## 🗂 Repository Structure

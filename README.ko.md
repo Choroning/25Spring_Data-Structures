@@ -44,7 +44,7 @@
 
 | 유형 | 내용 |
 |:----:|:---------|
-|강의자료|교수자 제공 PPT 슬라이드 및 필기 노트 (지정 교재 없음)|
+|강의자료|교수자 제공 PPT 슬라이드 및 필기 노트|
 |참고도서|"Data Structures and Abstractions with Java, 4th Edition" by F.M. Carrano and T.M. Henry (Pearson)|
 
 <br><a name="prerequisites"></a>
@@ -58,8 +58,8 @@
 
 | 도구 | 회사 |  운영체제  | 비고 |
 |:-----|:-------:|:----:|:------|
+|Xcode|Apple Inc.|macOS|주 사용 IDE|
 |Visual Studio Code|Microsoft|macOS|    |
-|Xcode|Apple Inc.|macOS|    |
 
 <br><a name="repository-structure"></a>
 ## 🗂 레포지토리 구조
