@@ -38,21 +38,21 @@ The course covers fundamental data structures such as arrays, linked lists, stac
 
 | Course&nbsp;Code| Course            | Type          | Instructor      | Department                              |
 |:----------:|:------------------|:-------------:|:---------------:|:----------------------------------------|
-|`DCCS201-02`|DATA STRUCTURES|Major Required|Prof. Minho&nbsp;Cho|Department of Computer Convergence Software|
+|`DCCS201-02`|DATA STRUCTURES|Major Required|Prof. Minho&nbsp;Jo|Department of Computer Convergence Software|
 
 - **📖 References**
 
 | Type | Contents |
 |:----:|:---------|
-|Textbook|"Data Structures, Algorithms, and Applications in C++" by Sartaj Sahni|
-|Lecture Notes|Slides and handwritten notes provided by instructor|
+|Lecture Notes|PPT slides and handwritten notes provided by instructor (no required textbook)|
+|Reference|"Data Structures and Abstractions with Java, 4th Edition" by F.M. Carrano and T.M. Henry (Pearson)|
 
 <br><a name="prerequisites"></a>
 ## ✅ Prerequisites
 
-- Understanding of C/C++ programming
+- Programming language skills (Python, Java, or C/C++)
 - Familiarity with basic algorithm concepts (time complexity, Big-O notation)
-- C/C++ compiler installed (e.g., GCC, Clang)
+- Python, Java, or C/C++ development environment installed
 
 - **💻 Development Environment**
 

@@ -44,15 +44,15 @@
 
 | 유형 | 내용 |
 |:----:|:---------|
-|교재|"Data Structures, Algorithms, and Applications in C++" by Sartaj Sahni|
-|강의자료|교수자 제공 슬라이드 및 필기 노트|
+|강의자료|교수자 제공 PPT 슬라이드 및 필기 노트 (지정 교재 없음)|
+|참고도서|"Data Structures and Abstractions with Java, 4th Edition" by F.M. Carrano and T.M. Henry (Pearson)|
 
 <br><a name="prerequisites"></a>
 ## ✅ 사전 요구사항
 
-- C/C++ 프로그래밍에 대한 이해
+- 프로그래밍 언어 능력 (Python, Java, 또는 C/C++)
 - 기본적인 알고리즘 개념 숙지 (시간 복잡도, Big-O 표기법)
-- C/C++ 컴파일러 설치 (예: GCC, Clang)
+- Python, Java, 또는 C/C++ 개발 환경 설치
 
 - **💻 개발 환경**
 
