@@ -136,6 +136,6 @@ The course covers fundamental data structures such as arrays, linked lists, stac
 <br><a name="license"></a>
 ## 🤝 License
 
-This repository is released under the [Apache License 2.0](LICENSE).
+This repository is released under the [MIT License](LICENSE).
 
 ---
