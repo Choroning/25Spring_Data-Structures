@@ -24,9 +24,11 @@ This repository organizes and stores data structure implementations written for 
 
 This repository contains code examples and implementations developed for a university-level Data Structures course, including:
 
-- Lecture demonstration codes
-- Assignment solutions (programming homework and quizzes)
-- Additional practice exercises
+- **Concepts.md** files for each chapter with comprehensive explanations of data structures and algorithms
+- **Quiz.md** files for each chapter with review questions and solutions
+- Improved C++ code files with **Doxygen-style headers** documenting purpose, usage, and structure
+- Lecture demonstration codes and assignment solutions
+- Two **term projects** (Database Index Engine and Huffman Coding) designed with references to CS curricula at top universities
 
 The course covers fundamental data structures such as arrays, linked lists, stacks, queues, skip lists, hashing, trees, heaps, and binary search trees, with an emphasis on performance analysis and time complexity.
 
