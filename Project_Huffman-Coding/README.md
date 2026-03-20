@@ -1,8 +1,6 @@
 # Project: Huffman Coding Compression Tool
-
-> **Course:** Data Structures (DCCS201) — Korea University Sejong
-> **Author:** Cheolwon Park
-> **Date:** 2025-06-16
+> **Author:** Cheolwon Park  
+> **Date:** 2025-06-10
 
 ---
 
