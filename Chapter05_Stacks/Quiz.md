@@ -40,7 +40,7 @@
 
 **Answer:** (a) Balanced. (b) Not balanced. (c) Balanced.
 
-**Explanation:** (a) Each closing bracket matches the most recent unmatched opening bracket of the same type. (b) `]` encounters `(` on the stack instead of `[` -- mismatch. (c) All parentheses match correctly.
+**Explanation:** (a) Each closing bracket matches the most recent unmatched opening bracket of the same type. (b) `]` encounters `(` on the stack instead of `[` — mismatch. (c) All parentheses match correctly.
 
 ---
 

@@ -35,7 +35,7 @@ A **stack** is a linear list where insertions and deletions are made at one end 
 | `empty()` | Check if the stack is empty | $O(1)$ |
 | `size()` | Return the number of elements | $O(1)$ |
 
-> **Key Point:** All stack operations are $O(1)$ -- this is what makes stacks efficient.
+> **Key Point:** All stack operations are $O(1)$ — this is what makes stacks efficient.
 
 ---
 
@@ -64,8 +64,8 @@ When the array is full, double its size (amortized $O(1)$ push).
 ### 3.1 Implementation
 
 Use a singly linked list where the top of the stack is the head:
-- `push(x)`: insert new node at head -- $O(1)$
-- `pop()`: remove head node -- $O(1)$
+- `push(x)`: insert new node at head — $O(1)$
+- `pop()`: remove head node — $O(1)$
 
 ### 3.2 Advantages/Disadvantages
 

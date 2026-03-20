@@ -48,8 +48,8 @@ This follows the **FIFO** (First In, First Out) principle.
 
 Using `front` at the left end and `rear` at the right end:
 - `front` always equals zero
-- `push(x)`: `array[++rear] = x` -- $O(1)$
-- `pop()`: shift all elements left -- $O(n)$
+- `push(x)`: `array[++rear] = x` — $O(1)$
+- `pop()`: shift all elements left — $O(n)$
 
 This is inefficient because `pop()` requires $O(n)$ shifts.
 
@@ -58,7 +58,7 @@ This is inefficient because `pop()` requires $O(n)$ shifts.
 Use a modified location formula where `front` can move right:
 $$\text{location}(i) = \text{location}(1) + i - 1$$
 
-- `pop()`: increment `front` by 1 -- $O(1)$
+- `pop()`: increment `front` by 1 — $O(1)$
 - Problem: when `rear = MaxSize - 1` and `front > 0`, space is wasted at the front
 
 ---
@@ -88,7 +88,7 @@ When the queue becomes empty through removals: `front == rear`.
 
 We **cannot distinguish** between full and empty using only `front` and `rear`.
 
-**Solution**: Waste one slot -- the queue is full when `(rear + 1) % capacity == front`. This means maximum $\text{capacity} - 1$ elements.
+**Solution**: Waste one slot — the queue is full when `(rear + 1) % capacity == front`. This means maximum $\text{capacity} - 1$ elements.
 
 ### 3.4 Add Operation (Enqueue)
 
@@ -120,8 +120,8 @@ T pop() {
 ### 4.1 Implementation
 
 Use a singly linked list with both `front` and `rear` pointers:
-- `enqueue`: insert at rear -- $O(1)$
-- `dequeue`: remove from front -- $O(1)$
+- `enqueue`: insert at rear — $O(1)$
+- `dequeue`: remove from front — $O(1)$
 
 ```cpp
 struct Node {

@@ -19,8 +19,8 @@
 **Question:** Give two advantages and two disadvantages of a singly linked list compared to an array.
 
 **Answer:**
-- Advantages: (1) Dynamic size -- no need to pre-allocate a fixed capacity. (2) $O(1)$ insertion/deletion at the front without shifting.
-- Disadvantages: (1) No random access -- accessing the $i$-th element requires $O(n)$ traversal. (2) Extra memory for storing next pointers.
+- Advantages: (1) Dynamic size — no need to pre-allocate a fixed capacity. (2) $O(1)$ insertion/deletion at the front without shifting.
+- Disadvantages: (1) No random access — accessing the $i$-th element requires $O(n)$ traversal. (2) Extra memory for storing next pointers.
 
 **Explanation:** The choice between array and linked list depends on the dominant operations. If frequent random access is needed, arrays are better. If frequent insertions/deletions at arbitrary positions are needed, linked lists may be preferable.
 

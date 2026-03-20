@@ -107,7 +107,7 @@ Node* insert(Node* node, int key) {
 }
 ```
 
-**Time complexity:** $O(h)$ -- the insertion point is always at a leaf or null pointer.
+**Time complexity:** $O(h)$ — the insertion point is always at a leaf or null pointer.
 
 ### 2.3 Delete
 
@@ -207,13 +207,13 @@ This allows multiple nodes with the same key value.
 |:--------|:----------|
 | BST Definition | Left subtree keys < root < right subtree keys; recursive |
 | Inorder Traversal | Produces keys in ascending order |
-| Search | $O(h)$ -- compare and recurse left or right |
-| Insert | $O(h)$ -- search to find the insertion point |
+| Search | $O(h)$ — compare and recurse left or right |
+| Insert | $O(h)$ — search to find the insertion point |
 | Delete Leaf | Simply remove the node |
 | Delete Degree 1 | Replace with the single child |
 | Delete Degree 2 | Replace with inorder predecessor or successor |
-| Best Height | $O(\log n)$ -- balanced tree |
-| Worst Height | $O(n)$ -- degenerate (sorted insertion) |
+| Best Height | $O(\log n)$ — balanced tree |
+| Worst Height | $O(n)$ — degenerate (sorted insertion) |
 | Indexed BST | `leftSize` field enables rank-based queries in $O(h)$ |
 
 ---
