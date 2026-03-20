@@ -1,5 +1,5 @@
 /**
- * @file    BinarySearchTree.cpp
+ * @file    Lab_BinarySearchTree.cpp
  * @brief   Binary search tree with insert, search, delete, and inorder traversal
  * @author  Cheolwon Park
  * @date    2025-06-09

@@ -70,47 +70,47 @@ The course covers fundamental data structures such as arrays, linked lists, stac
 25Spring_Data-Structures
 ├── Chapter01_Performance-Analysis
 │   ├── Concepts.md
-│   ├── PerformanceMeasurement.cpp
+│   ├── Lab_PerformanceMeasurement.cpp
 │   └── Quiz.md
 ├── Chapter02_Time-Complexity
-│   ├── ComplexityExamples.cpp
 │   ├── Concepts.md
+│   ├── Lab_ComplexityExamples.cpp
 │   └── Quiz.md
 ├── Chapter03_Arrays-and-Linked-Lists
-│   ├── ArrayList.cpp
 │   ├── Concepts.md
-│   ├── LinkedList.cpp
+│   ├── Lab_ArrayList.cpp
+│   ├── Lab_LinkedList.cpp
 │   └── Quiz.md
 ├── Chapter04_Matrices
 │   ├── Concepts.md
-│   ├── Quiz.md
-│   └── SparseMatrix.cpp
+│   ├── Lab_SparseMatrix.cpp
+│   └── Quiz.md
 ├── Chapter05_Stacks
-│   ├── ArrayStack.cpp
 │   ├── Concepts.md
-│   ├── LinkedStack.cpp
+│   ├── Lab_ArrayStack.cpp
+│   ├── Lab_LinkedStack.cpp
 │   └── Quiz.md
 ├── Chapter06_Queues
-│   ├── ArrayQueue.cpp
 │   ├── Concepts.md
+│   ├── Lab_ArrayQueue.cpp
 │   └── Quiz.md
 ├── Chapter07_Skip-Lists-and-Hashing
 │   ├── Concepts.md
-│   ├── HashTable.cpp
-│   ├── Quiz.md
-│   └── SkipList.cpp
+│   ├── Lab_HashTable.cpp
+│   ├── Lab_SkipList.cpp
+│   └── Quiz.md
 ├── Chapter08_Binary-Trees
-│   ├── BinaryTree.cpp
 │   ├── Concepts.md
+│   ├── Lab_BinaryTree.cpp
 │   └── Quiz.md
 ├── Chapter09_Priority-Queues-and-Heaps
 │   ├── Concepts.md
-│   ├── LeftistTree.cpp
-│   ├── MaxHeap.cpp
+│   ├── Lab_LeftistTree.cpp
+│   ├── Lab_MaxHeap.cpp
 │   └── Quiz.md
 ├── Chapter10_Binary-Search-Trees
-│   ├── BinarySearchTree.cpp
 │   ├── Concepts.md
+│   ├── Lab_BinarySearchTree.cpp
 │   └── Quiz.md
 ├── Project_Database-Index-Engine
 │   ├── BPlusTree.cpp
@@ -130,7 +130,7 @@ The course covers fundamental data structures such as arrays, linked lists, stac
 ├── README.ko.md
 └── README.md
 
-12 directories, 48 files
+12 directories, 49 files
 ```
 
 <br><a name="license"></a>

@@ -1,5 +1,5 @@
 /**
- * @file    BinaryTree.cpp
+ * @file    Lab_BinaryTree.cpp
  * @brief   Binary tree with all four traversals and expression tree evaluation
  * @author  Cheolwon Park
  * @date    2025-05-26

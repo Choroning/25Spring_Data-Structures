@@ -1,5 +1,5 @@
 /**
- * @file    PerformanceMeasurement.cpp
+ * @file    Lab_PerformanceMeasurement.cpp
  * @brief   Demonstrates timing, profiling, and performance measurement techniques
  * @author  Cheolwon Park
  * @date    2025-03-10

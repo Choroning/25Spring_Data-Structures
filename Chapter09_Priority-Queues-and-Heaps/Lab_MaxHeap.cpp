@@ -1,5 +1,5 @@
 /**
- * @file    MaxHeap.cpp
+ * @file    Lab_MaxHeap.cpp
  * @brief   Array-based max heap with insert, deleteMax, and heapify (initialization)
  * @author  Cheolwon Park
  * @date    2025-06-02

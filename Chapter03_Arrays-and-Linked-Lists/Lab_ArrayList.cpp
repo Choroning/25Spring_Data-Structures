@@ -1,5 +1,5 @@
 /**
- * @file    ArrayList.cpp
+ * @file    Lab_ArrayList.cpp
  * @brief   Template-based dynamic array list with iterator support
  * @author  Cheolwon Park
  * @date    2025-03-24

@@ -1,5 +1,5 @@
 /**
- * @file    LeftistTree.cpp
+ * @file    Lab_LeftistTree.cpp
  * @brief   Leftist tree (min leftist heap) with merge, insert, and deleteMin
  * @author  Cheolwon Park
  * @date    2025-06-02
