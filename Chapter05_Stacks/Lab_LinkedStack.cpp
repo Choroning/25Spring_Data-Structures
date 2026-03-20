@@ -1,5 +1,5 @@
 /**
- * @file    LinkedStack.cpp
+ * @file    Lab_LinkedStack.cpp
  * @brief   Linked list-based stack ADT implementation
  * @author  Cheolwon Park
  * @date    2025-04-07

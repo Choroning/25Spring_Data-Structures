@@ -1,5 +1,5 @@
 /**
- * @file    SparseMatrix.cpp
+ * @file    Lab_SparseMatrix.cpp
  * @brief   Sparse matrix with array-of-triples and linked (orthogonal list) representations
  * @author  Cheolwon Park
  * @date    2025-03-31

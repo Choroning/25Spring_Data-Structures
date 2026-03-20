@@ -1,5 +1,5 @@
 /**
- * @file    LinkedList.cpp
+ * @file    Lab_LinkedList.cpp
  * @brief   Template-based singly and doubly linked list with iterator support
  * @author  Cheolwon Park
  * @date    2025-03-24

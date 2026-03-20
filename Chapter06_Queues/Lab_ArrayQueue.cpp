@@ -1,5 +1,5 @@
 /**
- * @file    ArrayQueue.cpp
+ * @file    Lab_ArrayQueue.cpp
  * @brief   Circular array-based queue implementation
  * @author  Cheolwon Park
  * @date    2025-04-14

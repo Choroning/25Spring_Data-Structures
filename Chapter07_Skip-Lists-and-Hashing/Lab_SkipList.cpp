@@ -1,5 +1,5 @@
 /**
- * @file    SkipList.cpp
+ * @file    Lab_SkipList.cpp
  * @brief   Skip list implementation with search, insert, and delete
  * @author  Cheolwon Park
  * @date    2025-05-19

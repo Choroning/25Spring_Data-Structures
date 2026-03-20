@@ -1,5 +1,5 @@
 /**
- * @file    HashTable.cpp
+ * @file    Lab_HashTable.cpp
  * @brief   Hash table implementation with separate chaining and open addressing (linear probing)
  * @author  Cheolwon Park
  * @date    2025-05-19

@@ -1,5 +1,5 @@
 /**
- * @file    ArrayStack.cpp
+ * @file    Lab_ArrayStack.cpp
  * @brief   Array-based stack ADT with dynamic resizing and applications
  * @author  Cheolwon Park
  * @date    2025-04-07

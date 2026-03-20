@@ -1,5 +1,5 @@
 /**
- * @file    ComplexityExamples.cpp
+ * @file    Lab_ComplexityExamples.cpp
  * @brief   Demonstrates algorithms with O(1), O(log n), O(n), O(n log n), and O(n^2) complexities
  * @author  Cheolwon Park
  * @date    2025-03-17
