@@ -8,7 +8,7 @@
 
 **Question:** Given a circular queue of capacity 6 (indices 0-5), initially `front = rear = 0`. After the operations: `push(A)`, `push(B)`, `push(C)`, `pop()`, `pop()`, `push(D)`, `push(E)`, `push(F)`, what are the values of front, rear, and the queue contents?
 
-**Answer:** `front = 2`, `rear = 0`. Queue contents at indices [3]=D, [4]=E, [5]=F, [0]= (empty slot). Active elements: C, D, E, F. Wait -- let me retrace. After push(A): rear=1, A at [1]. push(B): rear=2, B at [2]. push(C): rear=3, C at [3]. pop(): front=1, removes A. pop(): front=2, removes B. push(D): rear=4, D at [4]. push(E): rear=5, E at [5]. push(F): rear=0, F at [0]. So front=2, rear=0. Elements: C at [3], D at [4], E at [5], F at [0].
+**Answer:** `front = 2`, `rear = 0`. Queue contents at indices [3]=D, [4]=E, [5]=F, [0]= (empty slot). Active elements: C, D, E, F. Wait — let me retrace. After push(A): rear=1, A at [1]. push(B): rear=2, B at [2]. push(C): rear=3, C at [3]. pop(): front=1, removes A. pop(): front=2, removes B. push(D): rear=4, D at [4]. push(E): rear=5, E at [5]. push(F): rear=0, F at [0]. So front=2, rear=0. Elements: C at [3], D at [4], E at [5], F at [0].
 
 **Explanation:** The circular queue wraps around using modulo. After `rear` reaches index 5, the next push wraps to index 0. The queue now holds 4 elements: C, D, E, F. One slot (index [1] or [2]) remains unused to distinguish full from empty.
 
@@ -28,7 +28,7 @@
 
 **Question:** Describe a scenario where a queue is more appropriate than a stack, and vice versa.
 
-**Answer:** Queue: CPU scheduling (processes should be served in the order they arrive -- FIFO fairness). Stack: Undo operations in a text editor (the most recent action should be undone first -- LIFO).
+**Answer:** Queue: CPU scheduling (processes should be served in the order they arrive — FIFO fairness). Stack: Undo operations in a text editor (the most recent action should be undone first — LIFO).
 
 **Explanation:** Queues preserve the order of arrival, making them ideal for fairness-based processing. Stacks reverse the order, making them ideal for tracking nested or hierarchical operations.
 

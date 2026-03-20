@@ -51,8 +51,8 @@ Two or more elements can have the same priority.
 ### 1.3 Implementation Options
 
 Priority queues are primarily implemented using:
-1. **Heaps** -- a complete binary tree stored in an array
-2. **Leftist trees** -- a linked data structure suitable for efficient merging
+1. **Heaps** — a complete binary tree stored in an array
+2. **Leftist trees** — a linked data structure suitable for efficient merging
 
 > **Key Point:** Heaps provide $O(\log n)$ insert and delete operations with $O(1)$ find-max/find-min. Leftist trees additionally support $O(\log n)$ merge of two priority queues.
 
@@ -100,7 +100,7 @@ Index:       0  1  2  3  4  5  6  7  8  9
 - Left child of node $i$: $2i$
 - Right child of node $i$: $2i + 1$
 
-### 3.3 Heap Insert -- Bubble Up
+### 3.3 Heap Insert — Bubble Up
 
 To insert a new element into a max heap:
 
@@ -117,9 +117,9 @@ while (currentNode != 1 && heap[currentNode / 2] < theElement) {
 heap[currentNode] = theElement;
 ```
 
-**Time complexity:** $O(\log n)$ -- at most one comparison per level, and there are $\lceil \log_2 n \rceil$ levels.
+**Time complexity:** $O(\log n)$ — at most one comparison per level, and there are $\lceil \log_2 n \rceil$ levels.
 
-### 3.4 Heap Delete -- Trickle Down
+### 3.4 Heap Delete — Trickle Down
 
 To delete the max element from a max heap:
 
@@ -143,7 +143,7 @@ while (child <= heapSize) {
 heap[currentNode] = lastElement;
 ```
 
-**Time complexity:** $O(\log n)$ -- same reasoning as insertion.
+**Time complexity:** $O(\log n)$ — same reasoning as insertion.
 
 > **Key Point:** During trickle-down, if both children are larger than the element being placed, select **either one** (typically the larger child for max heap to maintain efficiency).
 
@@ -173,7 +173,7 @@ for (int root = heapSize / 2; root >= 1; root--) {
 
 **Example:** Input array `[-, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]` becomes max heap `[-, 11, 10, 7, 9, 5, 6, 3, 8, 4, 2, 1]` after initialization.
 
-**Time complexity:** $O(n)$ -- not $O(n \log n)$. The key insight is that most nodes are near the bottom and require very few swaps.
+**Time complexity:** $O(n)$ — not $O(n \log n)$. The key insight is that most nodes are near the bottom and require very few swaps.
 
 ### 3.6 Complexity Summary
 
@@ -226,8 +226,8 @@ The merge is the fundamental operation for leftist trees. To merge two min lefti
 
 ### 4.5 Insert and Delete via Merge
 
-- **Insert:** Create a new single-node leftist tree and merge it with the existing tree -- $O(\log n)$
-- **Delete min:** Remove the root, then merge its left and right subtrees -- $O(\log n)$
+- **Insert:** Create a new single-node leftist tree and merge it with the existing tree — $O(\log n)$
+- **Delete min:** Remove the root, then merge its left and right subtrees — $O(\log n)$
 
 > **Key Point:** All leftist tree operations reduce to the merge operation, making it the cornerstone of this data structure.
 
@@ -240,12 +240,12 @@ The merge is the fundamental operation for leftist trees. To merge two min lefti
 | Priority Queue | Elements deleted by priority, not arrival order |
 | Max/Min Tree | Parent $\geq$ ($\leq$) children; root is max (min) |
 | Heap | Max/min tree + complete binary tree; array-based |
-| Heap Insert | Bubble up -- $O(\log n)$ |
-| Heap Delete | Trickle down -- $O(\log n)$ |
-| Heap Initialization | Bottom-up sift-down -- $O(n)$ |
+| Heap Insert | Bubble up — $O(\log n)$ |
+| Heap Delete | Trickle down — $O(\log n)$ |
+| Heap Initialization | Bottom-up sift-down — $O(n)$ |
 | Leftist Tree | $s(\text{left}) \geq s(\text{right})$ at every node |
 | S-Value | Shortest path length to an external node |
-| Leftist Merge | $O(\log m + \log n)$ -- enables fast insert and delete |
+| Leftist Merge | $O(\log m + \log n)$ — enables fast insert and delete |
 
 ---
 

@@ -41,7 +41,7 @@
 
 **Question:** Determine whether each of the following is a valid max heap: (a) `[-, 14, 12, 7, 10, 8, 6]` (b) `[-, 9, 6, 5]` with 6 having only a right child (c) `[-, 30, 25]` with 25 as left child only.
 
-**Answer:** (a) Yes -- complete binary tree and every parent >= children. (b) No -- not a complete binary tree (6 should have a left child before a right child). (c) Yes -- complete binary tree (with 2 nodes, node 2 is left child) and 30 >= 25.
+**Answer:** (a) Yes — complete binary tree and every parent >= children. (b) No — not a complete binary tree (6 should have a left child before a right child). (c) Yes — complete binary tree (with 2 nodes, node 2 is left child) and 30 >= 25.
 
 **Explanation:** A max heap requires two properties: (1) it is a complete binary tree (all levels full except possibly the last, filled from left), and (2) every node's value >= its children's values. Both conditions must hold.
 

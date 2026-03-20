@@ -268,9 +268,9 @@ An **expression tree** is a binary tree where:
 | Complete Binary Tree | All levels full except possibly the last; last level left-filled |
 | Array Representation | Node $x$ at index $x$; parent at $\lfloor x/2 \rfloor$, children at $2x$ and $2x+1$ |
 | Linked Representation | Most common; each node has leftChild, element, rightChild |
-| Preorder | root, left, right -- prefix expression |
-| Inorder | left, root, right -- infix expression |
-| Postorder | left, right, root -- postfix expression |
+| Preorder | root, left, right — prefix expression |
+| Inorder | left, root, right — infix expression |
+| Postorder | left, right, root — postfix expression |
 | Level-Order | Uses a queue; processes level by level |
 | Expression Tree | Internal nodes = operators, leaves = operands |
 
