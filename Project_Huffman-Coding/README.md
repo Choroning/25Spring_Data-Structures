@@ -1,6 +1,6 @@
 # Project: Huffman Coding Compression Tool
 > **Author:** Cheolwon Park  
-> **Date:** 2025-06-16
+> **Date:** 2025-06-10
 
 ---
 
