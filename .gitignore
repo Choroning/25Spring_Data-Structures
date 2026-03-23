@@ -13,3 +13,6 @@ Thumbs.db
 *.o
 *.out
 *.exe
+
+# Local only
+src/
