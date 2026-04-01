@@ -32,9 +32,9 @@
 
 ### 1.1 정의
 
-**큐(queue)**는 다음과 같은 선형 리스트이다:
-- 삽입(enqueue)은 **후단(rear)**에서만 수행
-- 삭제(dequeue)는 **전단(front)**에서만 수행
+**큐(queue)** 는 다음과 같은 선형 리스트이다:
+- 삽입(enqueue)은 **후단(rear)** 에서만 수행
+- 삭제(dequeue)는 **전단(front)** 에서만 수행
 
 이는 **FIFO**(First In, First Out) 원칙을 따른다.
 
@@ -82,7 +82,7 @@ $$\text{location}(i) = \text{location}(1) + i - 1$$
 
 ### 3.1 개념
 
-나머지(modulo) 연산을 사용하여 배열을 **원형**으로 취급:
+나머지(modulo) 연산을 사용하여 배열을 **원형** 으로 취급:
 
 $$\text{location}(i) = (\text{location}(1) + i - 1) \% \text{MaxSize}$$
 
@@ -160,7 +160,7 @@ Node* rearNode;
 
 ## 5. 양방향 큐 (Deque)
 
-**덱(deque)**은 양쪽 끝에서 삽입과 삭제가 가능하다:
+**덱(deque)** 은 양쪽 끝에서 삽입과 삭제가 가능하다:
 - `pushFront`, `pushBack`, `popFront`, `popBack`
 - 모든 연산 $O(1)$
 
