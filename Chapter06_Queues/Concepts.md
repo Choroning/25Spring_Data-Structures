@@ -1,6 +1,15 @@
 # Chapter 06 — Queues
 
-> **Last Updated:** 2026-03-21
+> **Last Updated:** 2026-04-01
+>
+> Carrano & Henry, Data Structures and Abstractions with Java 4th Ed. Ch 6
+
+> **Prerequisites**: [Programming Language] Java. [Data Structures] Stacks (Ch 5).
+>
+> **Learning Objectives**:
+> 1. Implement queues using arrays and linked lists
+> 2. Apply circular array technique for efficient queue operations
+> 3. Distinguish queue variants (deque, priority queue)
 
 ---
 
@@ -16,6 +25,8 @@
 8. [Appendix](#appendix)
 
 ---
+
+<br>
 
 ## 1. Queue ADT
 
@@ -42,6 +53,8 @@ This follows the **FIFO** (First In, First Out) principle.
 
 ---
 
+<br>
+
 ## 2. Array-Based Queue
 
 ### 2.1 Simple Array Queue
@@ -62,6 +75,8 @@ $$\text{location}(i) = \text{location}(1) + i - 1$$
 - Problem: when `rear = MaxSize - 1` and `front > 0`, space is wasted at the front
 
 ---
+
+<br>
 
 ## 3. Circular Queue
 
@@ -115,6 +130,8 @@ T pop() {
 
 ---
 
+<br>
+
 ## 4. Linked Queue
 
 ### 4.1 Implementation
@@ -139,6 +156,8 @@ Node* rearNode;
 
 ---
 
+<br>
+
 ## 5. Double-Ended Queue (Deque)
 
 A **deque** allows insertion and deletion at both ends:
@@ -146,6 +165,8 @@ A **deque** allows insertion and deletion at both ends:
 - All operations $O(1)$
 
 ---
+
+<br>
 
 ## 6. Applications of Queues
 
@@ -174,6 +195,8 @@ while queue is not empty:
 
 ---
 
+<br>
+
 ## Summary
 
 | Concept | Key Point |
@@ -186,6 +209,8 @@ while queue is not empty:
 | Deque | Double-ended; insert/remove at both ends |
 
 ---
+
+<br>
 
 ## Appendix
 

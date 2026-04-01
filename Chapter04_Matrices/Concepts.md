@@ -1,6 +1,15 @@
 # Chapter 04 — Matrices
 
-> **Last Updated:** 2026-03-21
+> **Last Updated:** 2026-04-01
+>
+> Carrano & Henry, Data Structures and Abstractions with Java 4th Ed. Ch 4
+
+> **Prerequisites**: [Programming Language] Java. [Data Structures] Arrays (Ch 3). [Linear Algebra] Basic matrix concepts.
+>
+> **Learning Objectives**:
+> 1. Implement matrix operations using 2D arrays
+> 2. Apply sparse matrix representations for efficiency
+> 3. Analyze time and space complexity of matrix operations
 
 ---
 
@@ -16,6 +25,8 @@
 8. [Appendix](#appendix)
 
 ---
+
+<br>
 
 ## 1. Arrays and Matrices
 
@@ -34,6 +45,8 @@ For a 2D array `A[r][c]` with dimensions $m \times n$:
 **Column-major order**: $\text{location}(A[i][j]) = \text{base} + (j \cdot m + i) \cdot \text{sizeof}(T)$
 
 ---
+
+<br>
 
 ## 2. Row-Major and Column-Major Order
 
@@ -56,6 +69,8 @@ A[0][0], A[1][0], ..., A[m-1][0], A[0][1], A[1][1], ..., A[m-1][n-1]
 > **Key Point:** Row-major favors row-wise traversal for cache efficiency; column-major favors column-wise traversal.
 
 ---
+
+<br>
 
 ## 3. Special Matrices
 
@@ -89,6 +104,8 @@ $A[i][j] = A[j][i]$ for all $i, j$. Only need to store the lower (or upper) tria
 
 ---
 
+<br>
+
 ## 4. Sparse Matrices
 
 ### 4.1 Definition
@@ -120,6 +137,8 @@ For triples representation, transpose by swapping row and column indices, then s
 
 ---
 
+<br>
+
 ## 5. Linked Representation of Sparse Matrices
 
 ### 5.1 Orthogonal List
@@ -138,6 +157,8 @@ Plus arrays of row and column head pointers.
 
 ---
 
+<br>
+
 ## 6. Matrix Operations
 
 ### 6.1 Sparse Matrix Addition
@@ -154,6 +175,8 @@ Time complexity depends on the representation but generally more efficient than 
 
 ---
 
+<br>
+
 ## Summary
 
 | Concept | Key Point |
@@ -167,6 +190,8 @@ Time complexity depends on the representation but generally more efficient than 
 | Fast transpose | $O(t + n)$ using auxiliary arrays |
 
 ---
+
+<br>
 
 ## Appendix
 

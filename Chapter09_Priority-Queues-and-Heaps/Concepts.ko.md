@@ -1,6 +1,15 @@
 # Chapter 09 — 우선순위 큐와 힙 (Priority Queues and Heaps)
 
-> **최종 수정일:** 2026-03-21
+> **최종 수정일:** 2026-04-01
+>
+> Carrano & Henry, Data Structures and Abstractions with Java 4th Ed. Ch 9
+
+> **선수 지식**: [프로그래밍언어] Java. [자료구조] 이진 트리 (제8장).
+>
+> **학습 목표**:
+> 1. 배열을 사용하여 힙 자료 구조를 구현할 수 있다
+> 2. 힙 생성과 힙 정렬 알고리즘을 적용할 수 있다
+> 3. 우선순위 큐 연산의 시간 복잡도를 분석할 수 있다
 
 ---
 
@@ -233,6 +242,8 @@ $$s(x.\text{left}) \geq s(x.\text{right})$$
 
 ---
 
+<br>
+
 ## 요약
 
 | 개념 | 핵심 |
@@ -248,6 +259,8 @@ $$s(x.\text{left}) \geq s(x.\text{right})$$
 | 좌편향 합병 | $O(\log m + \log n)$ — 빠른 삽입과 삭제 가능 |
 
 ---
+
+<br>
 
 ## 부록
 

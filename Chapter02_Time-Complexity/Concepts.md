@@ -1,6 +1,15 @@
 # Chapter 02 — Time Complexity
 
-> **Last Updated:** 2026-03-21
+> **Last Updated:** 2026-04-01
+>
+> Carrano & Henry, Data Structures and Abstractions with Java 4th Ed. Ch 2
+
+> **Prerequisites**: [Programming Language] Java. [Data Structures] Performance analysis (Ch 1).
+>
+> **Learning Objectives**:
+> 1. Classify algorithms by time complexity classes
+> 2. Analyze nested loops and recursive time complexity
+> 3. Compare growth rates of common complexity functions
 
 ---
 
@@ -17,6 +26,8 @@
 9. [Appendix](#appendix)
 
 ---
+
+<br>
 
 ## 1. Asymptotic Notation
 
@@ -37,6 +48,8 @@ We focus on **how the running time scales** as $n \to \infty$, ignoring constant
 | $\omega(g(n))$ | Strict lower bound | $>$ |
 
 ---
+
+<br>
 
 ## 2. Big-O Notation
 
@@ -65,6 +78,8 @@ Big-O gives an **asymptotic upper bound** on the growth rate.
 
 ---
 
+<br>
+
 ## 3. Big-Omega Notation
 
 ### 3.1 Definition
@@ -81,6 +96,8 @@ $$f(n) \geq c \cdot g(n) \quad \text{for all } n \geq n_0$$
 > **Key Point:** Big-Omega provides a *lower bound*. The function grows *at least as fast as* $g(n)$.
 
 ---
+
+<br>
 
 ## 4. Theta Notation
 
@@ -99,6 +116,8 @@ Equivalently, $f(n) = \Theta(g(n))$ if and only if $f(n) = O(g(n))$ **and** $f(n
 
 ---
 
+<br>
+
 ## 5. Little-o and Little-omega
 
 ### 5.1 Little-o
@@ -114,6 +133,8 @@ $f(n) = \omega(g(n))$ means $\lim_{n \to \infty} \frac{f(n)}{g(n)} = \infty$.
 Example: $n^2 = \omega(n)$
 
 ---
+
+<br>
 
 ## 6. Common Growth Rates
 
@@ -155,6 +176,8 @@ for (int i = 0; i < n; i++)
 
 ---
 
+<br>
+
 ## 7. Complexity Analysis Techniques
 
 ### 7.1 Recurrence Relations
@@ -192,6 +215,8 @@ Example: Dynamic array `push_back`:
 
 ---
 
+<br>
+
 ## Summary
 
 | Concept | Key Point |
@@ -204,6 +229,8 @@ Example: Dynamic array `push_back`:
 | Amortized analysis | Average cost over a sequence of operations |
 
 ---
+
+<br>
 
 ## Appendix
 

@@ -1,6 +1,15 @@
 # Chapter 09 — Priority Queues and Heaps
 
-> **Last Updated:** 2026-03-21
+> **Last Updated:** 2026-04-01
+>
+> Carrano & Henry, Data Structures and Abstractions with Java 4th Ed. Ch 9
+
+> **Prerequisites**: [Programming Language] Java. [Data Structures] Binary trees (Ch 8).
+>
+> **Learning Objectives**:
+> 1. Implement heap data structure using arrays
+> 2. Apply heapify and heap sort algorithms
+> 3. Analyze time complexity of priority queue operations
 
 ---
 
@@ -233,6 +242,8 @@ The merge is the fundamental operation for leftist trees. To merge two min lefti
 
 ---
 
+<br>
+
 ## Summary
 
 | Concept | Key Point |
@@ -248,6 +259,8 @@ The merge is the fundamental operation for leftist trees. To merge two min lefti
 | Leftist Merge | $O(\log m + \log n)$ — enables fast insert and delete |
 
 ---
+
+<br>
 
 ## Appendix
 

@@ -1,6 +1,15 @@
 # Chapter 10 — Binary Search Trees
 
-> **Last Updated:** 2026-03-21
+> **Last Updated:** 2026-04-01
+>
+> Carrano & Henry, Data Structures and Abstractions with Java 4th Ed. Ch 10
+
+> **Prerequisites**: [Programming Language] Java. [Data Structures] Binary trees, heaps (Ch 8-9).
+>
+> **Learning Objectives**:
+> 1. Implement binary search tree (BST) operations (insert, delete, search)
+> 2. Analyze BST performance in balanced vs degenerate cases
+> 3. Apply self-balancing tree concepts (AVL, Red-Black)
 
 ---
 
@@ -201,6 +210,8 @@ This allows multiple nodes with the same key value.
 
 ---
 
+<br>
+
 ## Summary
 
 | Concept | Key Point |
@@ -217,6 +228,8 @@ This allows multiple nodes with the same key value.
 | Indexed BST | `leftSize` field enables rank-based queries in $O(h)$ |
 
 ---
+
+<br>
 
 ## Appendix
 

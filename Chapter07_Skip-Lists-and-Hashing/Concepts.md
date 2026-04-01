@@ -1,6 +1,15 @@
 # Chapter 07 — Skip Lists and Hashing
 
-> **Last Updated:** 2026-03-21
+> **Last Updated:** 2026-04-01
+>
+> Carrano & Henry, Data Structures and Abstractions with Java 4th Ed. Ch 7
+
+> **Prerequisites**: [Programming Language] Java. [Data Structures] Arrays, linked lists (Ch 3-6).
+>
+> **Learning Objectives**:
+> 1. Explain skip list structure and probabilistic balancing
+> 2. Implement hash tables with collision resolution strategies
+> 3. Analyze expected time complexity of hashing operations
 
 ---
 
@@ -249,6 +258,8 @@ Let $\alpha = n/m$ be the **load factor** (ratio of elements to table size):
 
 ---
 
+<br>
+
 ## Summary
 
 | Concept | Key Point |
@@ -264,6 +275,8 @@ Let $\alpha = n/m$ be the **load factor** (ratio of elements to table size):
 | Load Factor $\alpha$ | $n/m$; higher values increase collision frequency |
 
 ---
+
+<br>
 
 ## Appendix
 
