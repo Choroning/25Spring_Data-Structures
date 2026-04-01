@@ -1,6 +1,15 @@
 # Chapter 06 — 큐 (Queues)
 
-> **최종 수정일:** 2026-03-21
+> **최종 수정일:** 2026-04-01
+>
+> Carrano & Henry, Data Structures and Abstractions with Java 4th Ed. Ch 6
+
+> **선수 지식**: [프로그래밍언어] Java. [자료구조] 스택 (제5장).
+>
+> **학습 목표**:
+> 1. 배열과 연결 리스트를 사용하여 큐를 구현할 수 있다
+> 2. 효율적인 큐 연산을 위해 원형 배열 기법을 적용할 수 있다
+> 3. 큐 변형(덱, 우선순위 큐)을 구분할 수 있다
 
 ---
 
@@ -17,13 +26,15 @@
 
 ---
 
+<br>
+
 ## 1. Queue ADT
 
 ### 1.1 정의
 
-**큐(queue)**는 다음과 같은 선형 리스트이다:
-- 삽입(enqueue)은 **후단(rear)**에서만 수행
-- 삭제(dequeue)는 **전단(front)**에서만 수행
+**큐(queue)** 는 다음과 같은 선형 리스트이다:
+- 삽입(enqueue)은 **후단(rear)** 에서만 수행
+- 삭제(dequeue)는 **전단(front)** 에서만 수행
 
 이는 **FIFO**(First In, First Out) 원칙을 따른다.
 
@@ -41,6 +52,8 @@
 | `size()` | 원소의 개수 반환 | $O(1)$ |
 
 ---
+
+<br>
 
 ## 2. 배열 기반 큐
 
@@ -63,11 +76,13 @@ $$\text{location}(i) = \text{location}(1) + i - 1$$
 
 ---
 
+<br>
+
 ## 3. 원형 큐
 
 ### 3.1 개념
 
-나머지(modulo) 연산을 사용하여 배열을 **원형**으로 취급:
+나머지(modulo) 연산을 사용하여 배열을 **원형** 으로 취급:
 
 $$\text{location}(i) = (\text{location}(1) + i - 1) \% \text{MaxSize}$$
 
@@ -115,6 +130,8 @@ T pop() {
 
 ---
 
+<br>
+
 ## 4. 연결 큐
 
 ### 4.1 구현
@@ -139,13 +156,17 @@ Node* rearNode;
 
 ---
 
+<br>
+
 ## 5. 양방향 큐 (Deque)
 
-**덱(deque)**은 양쪽 끝에서 삽입과 삭제가 가능하다:
+**덱(deque)** 은 양쪽 끝에서 삽입과 삭제가 가능하다:
 - `pushFront`, `pushBack`, `popFront`, `popBack`
 - 모든 연산 $O(1)$
 
 ---
+
+<br>
 
 ## 6. 큐의 응용
 
@@ -174,6 +195,8 @@ while queue is not empty:
 
 ---
 
+<br>
+
 ## 요약
 
 | 개념 | 핵심 |
@@ -186,6 +209,8 @@ while queue is not empty:
 | 덱 | 양방향; 양쪽 끝에서 삽입/삭제 |
 
 ---
+
+<br>
 
 ## 부록
 

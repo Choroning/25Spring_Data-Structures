@@ -1,6 +1,15 @@
 # Chapter 01 — Performance Analysis
 
-> **Last Updated:** 2026-03-21
+> **Last Updated:** 2026-04-01
+>
+> Carrano & Henry, Data Structures and Abstractions with Java 4th Ed. Ch 1
+
+> **Prerequisites**: [Programming Language] Java basics.
+>
+> **Learning Objectives**:
+> 1. Analyze algorithm performance using step counts
+> 2. Distinguish best, worst, and average case complexity
+> 3. Apply asymptotic notation (Big-O, Omega, Theta)
 
 ---
 
@@ -15,6 +24,8 @@
 7. [Appendix](#appendix)
 
 ---
+
+<br>
 
 ## 1. Introduction to Performance Analysis
 
@@ -37,6 +48,8 @@ Performance analysis helps us predict the behavior of a program **before** runni
 > **Key Point:** Performance analysis is an *a priori* estimate; performance measurement is an *a posteriori* test.
 
 ---
+
+<br>
 
 ## 2. Space Complexity
 
@@ -89,6 +102,8 @@ int recursiveSum(int a[], int n) {
 
 ---
 
+<br>
+
 ## 3. Time Complexity
 
 ### 3.1 Operation Counts
@@ -137,6 +152,8 @@ int sequentialSearch(int a[], int n, int x) {
 
 ---
 
+<br>
+
 ## 4. Performance Measurement
 
 ### 4.1 Wall-Clock Timing
@@ -171,6 +188,8 @@ std::cout << "Time: " << duration.count() << " microseconds" << std::endl;
 
 ---
 
+<br>
+
 ## 5. Practical Profiling Techniques
 
 ### 5.1 Using `clock()` for CPU Time
@@ -198,6 +217,8 @@ If $T(n)/n^2$ remains roughly constant, the algorithm is $O(n^2)$.
 
 ---
 
+<br>
+
 ## Summary
 
 | Concept | Key Point |
@@ -210,6 +231,8 @@ If $T(n)/n^2$ remains roughly constant, the algorithm is $O(n^2)$.
 | Profiling | Multiple runs, large inputs, consistent methodology |
 
 ---
+
+<br>
 
 ## Appendix
 

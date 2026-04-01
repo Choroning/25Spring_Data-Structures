@@ -1,6 +1,15 @@
 # Chapter 03 — Arrays and Linked Lists
 
-> **Last Updated:** 2026-03-21
+> **Last Updated:** 2026-04-01
+>
+> Carrano & Henry, Data Structures and Abstractions with Java 4th Ed. Ch 3
+
+> **Prerequisites**: [Programming Language] Java. [Data Structures] Complexity analysis (Ch 1-2).
+>
+> **Learning Objectives**:
+> 1. Implement array-based and linked list data structures
+> 2. Compare time complexity of array vs linked list operations
+> 3. Apply iterator patterns for sequential access
 
 ---
 
@@ -17,6 +26,8 @@
 9. [Appendix](#appendix)
 
 ---
+
+<br>
 
 ## 1. Linear Lists
 
@@ -39,6 +50,8 @@ A **linear list** (or ordered list) is a data object of the form $(e_1, e_2, \ld
 | `erase(index)` | Remove element at given index |
 
 ---
+
+<br>
 
 ## 2. Array Representation
 
@@ -80,6 +93,8 @@ When the array is full, allocate a **new array of double the size** and copy ele
 
 ---
 
+<br>
+
 ## 3. Linked Representation
 
 ### 3.1 Node Structure
@@ -110,6 +125,8 @@ struct Node {
 - Cache-unfriendly (nodes scattered in memory)
 
 ---
+
+<br>
 
 ## 4. Singly Linked Lists
 
@@ -154,6 +171,8 @@ prev->next = newNode;
 
 ---
 
+<br>
+
 ## 5. Doubly Linked Lists
 
 ### 5.1 Node Structure
@@ -179,6 +198,8 @@ Extra pointer per node (more memory) but bidirectional traversal and simpler del
 
 ---
 
+<br>
+
 ## 6. Circular Lists
 
 ### 6.1 Circular Singly Linked List
@@ -192,6 +213,8 @@ The last node's `next` pointer points back to the first node instead of `nullptr
 - Josephus problem
 
 ---
+
+<br>
 
 ## 7. Comparison: Array vs. Linked List
 
@@ -208,6 +231,8 @@ The last node's `next` pointer points back to the first node instead of `nullptr
 
 ---
 
+<br>
+
 ## Summary
 
 | Concept | Key Point |
@@ -220,6 +245,8 @@ The last node's `next` pointer points back to the first node instead of `nullptr
 | Dynamic array | Amortized $O(1)$ append via doubling strategy |
 
 ---
+
+<br>
 
 ## Appendix
 

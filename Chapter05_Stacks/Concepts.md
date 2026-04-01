@@ -1,6 +1,15 @@
 # Chapter 05 — Stacks
 
-> **Last Updated:** 2026-03-21
+> **Last Updated:** 2026-04-01
+>
+> Carrano & Henry, Data Structures and Abstractions with Java 4th Ed. Ch 5
+
+> **Prerequisites**: [Programming Language] Java. [Data Structures] Arrays and linked lists (Ch 3).
+>
+> **Learning Objectives**:
+> 1. Implement stacks using arrays and linked lists
+> 2. Apply stacks to expression evaluation and parenthesis matching
+> 3. Analyze time complexity of stack operations
 
 ---
 
@@ -15,6 +24,8 @@
 7. [Appendix](#appendix)
 
 ---
+
+<br>
 
 ## 1. Stack ADT
 
@@ -39,6 +50,8 @@ A **stack** is a linear list where insertions and deletions are made at one end 
 
 ---
 
+<br>
+
 ## 2. Array-Based Stack
 
 ### 2.1 Implementation
@@ -59,6 +72,8 @@ When the array is full, double its size (amortized $O(1)$ push).
 
 ---
 
+<br>
+
 ## 3. Linked Stack
 
 ### 3.1 Implementation
@@ -73,6 +88,8 @@ Use a singly linked list where the top of the stack is the head:
 - **Disadvantage**: Extra pointer overhead per element, poor cache locality
 
 ---
+
+<br>
 
 ## 4. Applications of Stacks
 
@@ -117,6 +134,8 @@ $$T(n) = 2T(n-1) + 1 = 2^n - 1 \text{ moves}$$
 
 ---
 
+<br>
+
 ## 5. Expression Evaluation
 
 ### 5.1 Infix, Prefix, and Postfix
@@ -145,6 +164,8 @@ Algorithm using a stack for operators:
 
 ---
 
+<br>
+
 ## Summary
 
 | Concept | Key Point |
@@ -157,6 +178,8 @@ Algorithm using a stack for operators:
 | Recursion | Function call stack is implicitly a stack |
 
 ---
+
+<br>
 
 ## Appendix
 

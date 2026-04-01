@@ -1,6 +1,15 @@
 # Chapter 08 — Binary Trees
 
-> **Last Updated:** 2026-03-21
+> **Last Updated:** 2026-04-01
+>
+> Carrano & Henry, Data Structures and Abstractions with Java 4th Ed. Ch 8
+
+> **Prerequisites**: [Programming Language] Java. [Data Structures] Stacks, queues (Ch 5-6).
+>
+> **Learning Objectives**:
+> 1. Implement binary trees and tree traversal algorithms
+> 2. Apply preorder, inorder, postorder, and level-order traversals
+> 3. Analyze properties of complete and full binary trees
 
 ---
 
@@ -255,6 +264,8 @@ An **expression tree** is a binary tree where:
 
 ---
 
+<br>
+
 ## Summary
 
 | Concept | Key Point |
@@ -275,6 +286,8 @@ An **expression tree** is a binary tree where:
 | Expression Tree | Internal nodes = operators, leaves = operands |
 
 ---
+
+<br>
 
 ## Appendix
 
