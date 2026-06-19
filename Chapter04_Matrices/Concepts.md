@@ -1,8 +1,8 @@
 # Chapter 04 — Matrices
 
-> **Last Updated:** 2026-04-01
+> **Last Updated:** 2026-06-19
 >
-> Carrano & Henry, Data Structures and Abstractions with Java 4th Ed. Ch 4
+> Data Structures and Abstractions with Java, Carrano & Henry (4th Ed.) - Ch 4
 
 > **Prerequisites**: [Programming Language] Java. [Data Structures] Arrays (Ch 3). [Linear Algebra] Basic matrix concepts.
 >

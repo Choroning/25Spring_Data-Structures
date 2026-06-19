@@ -1,8 +1,8 @@
 # Chapter 07 — Skip Lists and Hashing
 
-> **Last Updated:** 2026-04-01
+> **Last Updated:** 2026-06-19
 >
-> Carrano & Henry, Data Structures and Abstractions with Java 4th Ed. Ch 7
+> Data Structures and Abstractions with Java, Carrano & Henry (4th Ed.) - Ch 7
 
 > **Prerequisites**: [Programming Language] Java. [Data Structures] Arrays, linked lists (Ch 3-6).
 >

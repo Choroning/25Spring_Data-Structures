@@ -1,8 +1,8 @@
 # Chapter 10 — Binary Search Trees
 
-> **Last Updated:** 2026-04-01
+> **Last Updated:** 2026-06-19
 >
-> Carrano & Henry, Data Structures and Abstractions with Java 4th Ed. Ch 10
+> Data Structures and Abstractions with Java, Carrano & Henry (4th Ed.) - Ch 10
 
 > **Prerequisites**: [Programming Language] Java. [Data Structures] Binary trees, heaps (Ch 8-9).
 >
