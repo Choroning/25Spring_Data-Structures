@@ -1,8 +1,8 @@
 # Chapter 03 — Arrays and Linked Lists
 
-> **Last Updated:** 2026-04-01
+> **Last Updated:** 2026-06-19
 >
-> Carrano & Henry, Data Structures and Abstractions with Java 4th Ed. Ch 3
+> Data Structures and Abstractions with Java, Carrano & Henry (4th Ed.) - Ch 3
 
 > **Prerequisites**: [Programming Language] Java. [Data Structures] Complexity analysis (Ch 1-2).
 >

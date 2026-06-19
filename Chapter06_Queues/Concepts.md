@@ -1,8 +1,8 @@
 # Chapter 06 — Queues
 
-> **Last Updated:** 2026-04-01
+> **Last Updated:** 2026-06-19
 >
-> Carrano & Henry, Data Structures and Abstractions with Java 4th Ed. Ch 6
+> Data Structures and Abstractions with Java, Carrano & Henry (4th Ed.) - Ch 6
 
 > **Prerequisites**: [Programming Language] Java. [Data Structures] Stacks (Ch 5).
 >

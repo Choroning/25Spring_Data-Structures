@@ -1,8 +1,8 @@
 # Chapter 08 — 이진 트리 (Binary Trees)
 
-> **최종 수정일:** 2026-04-01
+> **최종 수정일:** 2026-06-19
 >
-> Carrano & Henry, Data Structures and Abstractions with Java 4th Ed. Ch 8
+> Data Structures and Abstractions with Java, Carrano & Henry (4th Ed.) - Ch 8
 
 > **선수 지식**: [프로그래밍언어] Java. [자료구조] 스택, 큐 (제5-6장).
 >

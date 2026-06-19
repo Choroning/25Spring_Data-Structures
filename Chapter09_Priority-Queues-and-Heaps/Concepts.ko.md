@@ -1,8 +1,8 @@
 # Chapter 09 — 우선순위 큐와 힙 (Priority Queues and Heaps)
 
-> **최종 수정일:** 2026-04-01
+> **최종 수정일:** 2026-06-19
 >
-> Carrano & Henry, Data Structures and Abstractions with Java 4th Ed. Ch 9
+> Data Structures and Abstractions with Java, Carrano & Henry (4th Ed.) - Ch 9
 
 > **선수 지식**: [프로그래밍언어] Java. [자료구조] 이진 트리 (제8장).
 >

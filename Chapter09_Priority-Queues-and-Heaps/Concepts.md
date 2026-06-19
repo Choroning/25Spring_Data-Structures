@@ -1,8 +1,8 @@
 # Chapter 09 — Priority Queues and Heaps
 
-> **Last Updated:** 2026-04-01
+> **Last Updated:** 2026-06-19
 >
-> Carrano & Henry, Data Structures and Abstractions with Java 4th Ed. Ch 9
+> Data Structures and Abstractions with Java, Carrano & Henry (4th Ed.) - Ch 9
 
 > **Prerequisites**: [Programming Language] Java. [Data Structures] Binary trees (Ch 8).
 >

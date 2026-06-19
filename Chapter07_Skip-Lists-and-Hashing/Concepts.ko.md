@@ -1,8 +1,8 @@
 # Chapter 07 — 스킵 리스트와 해싱 (Skip Lists and Hashing)
 
-> **최종 수정일:** 2026-04-01
+> **최종 수정일:** 2026-06-19
 >
-> Carrano & Henry, Data Structures and Abstractions with Java 4th Ed. Ch 7
+> Data Structures and Abstractions with Java, Carrano & Henry (4th Ed.) - Ch 7
 
 > **선수 지식**: [프로그래밍언어] Java. [자료구조] 배열, 연결 리스트 (제3-6장).
 >

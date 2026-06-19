@@ -1,8 +1,8 @@
 # Chapter 10 — 이진 탐색 트리 (Binary Search Trees)
 
-> **최종 수정일:** 2026-04-01
+> **최종 수정일:** 2026-06-19
 >
-> Carrano & Henry, Data Structures and Abstractions with Java 4th Ed. Ch 10
+> Data Structures and Abstractions with Java, Carrano & Henry (4th Ed.) - Ch 10
 
 > **선수 지식**: [프로그래밍언어] Java. [자료구조] 이진 트리, 힙 (제8-9장).
 >
