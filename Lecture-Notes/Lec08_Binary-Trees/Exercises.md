@@ -1,24 +1,28 @@
-# Chapter 08 — Quiz
+# Lecture 8 Exercises — Binary Trees
 
-> **Last Updated:** 2026-03-21
+[Repository Guide](../../README.md) | [English](Exercises.md) | [한국어](Exercises.ko.md)
 
----
-
-## Q1. Binary Tree Properties
-
-**Question:** A binary tree has height $h = 5$. What is the minimum and maximum number of nodes it can have?
-
-**Answer:** Minimum: $h = 5$ nodes (degenerate/skewed tree). Maximum: $2^5 - 1 = 31$ nodes (full binary tree).
-
-**Explanation:** A binary tree of height $h$ has at least $h$ nodes (a single chain from root to leaf) and at most $2^h - 1$ nodes (every level completely filled). The minimum height for $n$ nodes is $\lceil \log_2(n+1) \rceil$.
+> **Last Updated:** 2026-10-18
 
 ---
 
-## Q2. Traversal Orders
+<br>
 
-**Question:** Given the following binary tree, write the preorder, inorder, postorder, and level-order traversals:
+## Exercise 1: Binary Tree Properties
 
-```
+**Problem:** A binary tree has height $h = 5$. What is the minimum and maximum number of nodes it can have? Height is counted as the number of levels of the tree (the root is at level 1).
+
+**[Solution](Solutions.md#exercise-1-binary-tree-properties)**
+
+---
+
+<br>
+
+## Exercise 2: Traversal Orders
+
+**Problem:** Given the following binary tree (Figure 1), write the preorder, inorder, postorder, and level-order traversals.
+
+```text
         A
        / \
       B    C
@@ -28,50 +32,36 @@
   G       H   I
 ```
 
-**Answer:**
-- Preorder (root, left, right): A, B, D, G, E, C, F, H, I
-- Inorder (left, root, right): G, D, B, E, A, C, H, F, I
-- Postorder (left, right, root): G, D, E, B, H, I, F, C, A
-- Level-order: A, B, C, D, E, F, G, H, I
+*Figure 1. Binary tree of Exercise 2*
 
-**Explanation:** Preorder visits root first, then recursively visits the left subtree and right subtree. Inorder visits left subtree, then root, then right subtree. Postorder visits both subtrees before root. Level-order uses a queue to process nodes level by level.
+**[Solution](Solutions.md#exercise-2-traversal-orders)**
 
 ---
 
-## Q3. Complete Binary Tree
+<br>
 
-**Question:** A complete binary tree has 21 nodes. (a) What is its height? (b) How many leaf nodes does it have? (c) How many nodes have exactly one child?
+## Exercise 3: Complete Binary Tree
 
-**Answer:** (a) Height = $\lceil \log_2(21+1) \rceil = \lceil \log_2 22 \rceil = \lceil 4.46 \rceil = 5$. (b) The last internal node is at position $\lfloor 21/2 \rfloor = 10$. So leaf nodes = $21 - 10 = 11$. (c) Since $21$ is odd, all internal nodes have 2 children except possibly the last. Since $2 \times 10 = 20 \leq 21$ and $2 \times 10 + 1 = 21 \leq 21$, node 10 has 2 children. So 0 nodes have exactly one child.
+**Problem:** A complete binary tree has 21 nodes. (a) What is its height? (b) How many leaf nodes does it have? (c) How many nodes have exactly one child?
 
-**Explanation:** In a complete binary tree with $n$ nodes, internal nodes occupy positions 1 through $\lfloor n/2 \rfloor$. If $n$ is odd, every internal node has exactly 2 children. If $n$ is even, node $n/2$ has only a left child.
-
----
-
-## Q4. Expression Tree Evaluation
-
-**Question:** Construct the expression tree for the postfix expression `3 5 + 2 * 7 -` and evaluate it.
-
-**Answer:** The expression tree is:
-```
-        -
-       / \
-      *   7
-     / \
-    +   2
-   / \
-  3   5
-```
-Evaluation: $(3 + 5) = 8$, $8 \times 2 = 16$, $16 - 7 = 9$. Result: **9**.
-
-**Explanation:** To build an expression tree from postfix: scan left to right. For each operand, create a leaf node and push it on the stack. For each operator, pop two nodes (right then left), create a new node with the operator, attach them as children, and push the new node. Postorder traversal of the result gives back the original postfix expression.
+**[Solution](Solutions.md#exercise-3-complete-binary-tree)**
 
 ---
 
-## Q5. Array vs. Linked Representation
+<br>
 
-**Question:** A right-skewed binary tree has 4 nodes (a, b, c, d where each node has only a right child). How many array slots are needed for the array representation? Why is linked representation preferred?
+## Exercise 4: Expression Tree Evaluation
 
-**Answer:** Node positions are 1, 3, 7, 15. Array needs $2^h = 2^4 = 16$ slots, but only 4 are used. Space waste is 75%. Linked representation needs only $4 \times \text{sizeof(node)}$ with no wasted space.
+**Problem:** Construct the expression tree for the postfix expression `3 5 + 2 * 7 -` and evaluate it.
 
-**Explanation:** In the array representation, a right-skewed tree places nodes at positions $1, 3, 7, 15, \ldots$ (following the right child formula $2x+1$). This exponential growth in indices wastes enormous space. Linked representation stores only the nodes that exist, making it far more space-efficient for non-complete trees.
+**[Solution](Solutions.md#exercise-4-expression-tree-evaluation)**
+
+---
+
+<br>
+
+## Exercise 5: Array vs. Linked Representation
+
+**Problem:** A right-skewed binary tree has 4 nodes (a, b, c, d where each node has only a right child). How many array slots are needed for the array representation? Why is linked representation preferred?
+
+**[Solution](Solutions.md#exercise-5-array-vs-linked-representation)**
