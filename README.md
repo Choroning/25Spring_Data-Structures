@@ -26,13 +26,13 @@ This repository contains the lecture notes, exercises, and C++ code of a univers
 
 - `Lecture-Notes/` holds, for each unit, lecture notes with comprehensive explanations of data structures and algorithms (`Concepts_Lecture`), exercises with review questions (`Exercises`), and their solutions (`Solutions`). The units follow the numbers of the instructor's slides (L1-L10) and are numbered `Lec01`-`Lec10`.
 - Every lecture note, exercise set, and solution set comes as an English file (`.md`) and a Korean file (`.ko.md`) with the same structure.
-- `Coursework/` holds C++ lab code (`Lab01`-`Lab10`) that organizes the lecture demonstration code and assignment solutions by unit, and two term projects.
+- `Coursework/` holds C++ lab code (`Lab01`-`Lab10`) that organizes the lecture demonstration code by unit, two programming homework assignments (`HW01` and `HW02`), and two term projects.
 - The improved C++ code files carry **Doxygen-style headers** that document their purpose, usage, and structure.
 - The two **term projects** (Database Index Engine and Huffman Coding) were designed with reference to the curricula of leading overseas CS universities. Their features, build instructions, and complexity are described in the `README.md` of each project folder.
-- All lab code and project code was built and run with a C++17 compiler.
+- All lab, homework, and project code was built and run with a C++17 compiler.
 
 > **🤖 AI Agent Usage**
-> [Claude Code](https://claude.ai/download) was used to organize and translate the lecture notes and to restructure the repository.
+> [Claude Code](https://claude.ai/download) was used to organize and translate the lecture notes, write the homework explanations, and restructure the repository, and it also wrote the test drivers (`Test-Driver.cpp`) for the homework.
 
 <br><a name="course-information"></a>
 ## 📚 Course Information
@@ -68,7 +68,8 @@ A required major course, taught in English, on data structures and the algorithm
 ```plaintext
 25Spring_Data-Structures
 ├── Lecture-Notes               Lecture notes, exercises, and solutions by lecture
-├── Coursework                  C++ lab code by lecture and term projects
+├── Coursework                  C++ lab code by lecture, homework, and term projects
+├── images                      Figures for the homework explanations
 ├── Course-Information.ko.md    Course operations
 ├── Course-Information.md
 ├── LICENSE                     Documentation license (CC BY-NC-SA 4.0)
@@ -77,7 +78,7 @@ A required major course, taught in English, on data structures and the algorithm
 └── README.md
 ```
 
-The units are listed in the [`Lecture-Notes` index](Lecture-Notes/README.md), and the lab code and term projects in the [`Coursework` index](Coursework/README.md).
+The units are listed in the [`Lecture-Notes` index](Lecture-Notes/README.md), and the lab code, homework, and term projects in the [`Coursework` index](Coursework/README.md).
 
 <br><a name="license"></a>
 ## 🤝 License

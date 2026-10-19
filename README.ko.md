@@ -26,13 +26,13 @@
 
 - `Lecture-Notes/`에는 단원마다 자료구조와 알고리즘을 종합적으로 정리한 강의 노트(`Concepts_Lecture`), 복습 문제를 모은 연습 문제(`Exercises`), 그 풀이(`Solutions`)가 있습니다. 교수자가 제공한 슬라이드의 번호(L1\~L10)를 따라 단원을 `Lec01`\~`Lec10`으로 나눴습니다.
 - 모든 강의 노트, 연습 문제, 풀이는 영어 파일(`.md`)과 한국어 파일(`.ko.md`)이 같은 구성으로 짝을 이룹니다.
-- `Coursework/`에는 강의 시연 코드와 과제 풀이를 단원마다 정리한 C++ 실습 코드(`Lab01`\~`Lab10`)와 2개의 텀 프로젝트가 있습니다.
+- `Coursework/`에는 강의 시연 코드를 단원마다 정리한 C++ 실습 코드(`Lab01`\~`Lab10`), 두 프로그래밍 과제(`HW01`, `HW02`), 2개의 텀 프로젝트가 있습니다.
 - 개선된 C++ 코드 파일에는 목적, 사용법, 구조를 문서화한 **Doxygen 스타일 헤더**가 있습니다.
 - 2개의 **텀 프로젝트**(Database Index Engine, Huffman Coding)는 해외 CS 명문 대학의 커리큘럼을 참고하여 설계했습니다. 기능, 빌드 방법, 복잡도는 각 프로젝트 폴더의 `README.md`에 정리되어 있습니다.
-- 모든 실습 코드와 프로젝트 코드는 C++17 컴파일러로 빌드하고 실행하여 확인했습니다.
+- 모든 실습, 과제, 프로젝트 코드는 C++17 컴파일러로 빌드하고 실행하여 확인했습니다.
 
 > **🤖 AI 에이전트 활용**
-> 강의 노트의 정리와 번역, 레포지토리 구조 정리에 [Claude Code](https://claude.ai/download)를 활용했습니다.
+> 강의 노트의 정리와 번역, 과제 해설 작성, 레포지토리 구조 정리에 [Claude Code](https://claude.ai/download)를 활용했으며, 과제의 테스트용 드라이버(`Test-Driver.cpp`)도 Claude Code로 작성했습니다.
 
 <br><a name="course-information"></a>
 ## 📚 강의 정보
@@ -68,7 +68,8 @@
 ```plaintext
 25Spring_Data-Structures
 ├── Lecture-Notes               강의별 강의 노트, 연습 문제, 풀이
-├── Coursework                  강의별 C++ 실습 코드와 텀 프로젝트
+├── Coursework                  강의별 C++ 실습 코드, 과제, 텀 프로젝트
+├── images                      과제 해설의 그림
 ├── Course-Information.ko.md    수업 운영 정보
 ├── Course-Information.md
 ├── LICENSE                     문서 라이선스 (CC BY-NC-SA 4.0)
@@ -77,7 +78,7 @@
 └── README.md
 ```
 
-단원 목록은 [`Lecture-Notes` 색인](Lecture-Notes/README.ko.md)에, 실습 코드와 텀 프로젝트는 [`Coursework` 색인](Coursework/README.ko.md)에 있습니다.
+단원 목록은 [`Lecture-Notes` 색인](Lecture-Notes/README.ko.md)에, 실습 코드, 과제, 텀 프로젝트는 [`Coursework` 색인](Coursework/README.ko.md)에 있습니다.
 
 <br><a name="license"></a>
 ## 🤝 라이선스

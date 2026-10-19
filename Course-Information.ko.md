@@ -2,7 +2,7 @@
 
 [레포지토리 안내](README.ko.md) | [English](Course-Information.md) | [한국어](Course-Information.ko.md)
 
-> **최종 수정일:** 2026-10-18
+> **최종 수정일:** 2026-10-19
 
 ## 목차
 
@@ -69,12 +69,12 @@
 - 절대평가이며, 평가 결과에 대한 피드백을 제공한다.
 - 강의계획서는 장마다 수업을 마친 뒤 과제를 낸다고 밝혔다. 과제는 수업 내용을 완전히 이해하는 데 중요하다.
 - 퀴즈는 장마다 LMS에서 치렀으며, 제목은 "Quiz for Chapter 1"부터 "Quiz for Chapter 10"까지이다.
-- **1차 프로그래밍 과제 (Programming Homework #1):** 헤드 노드가 있는 원형 연결 리스트(Circular Linked List with Head Node)의 연산을 프로그래밍한다.
+- **1차 프로그래밍 과제 (Programming Homework #1):** 헤드 노드가 있는 원형 연결 리스트(Circular Linked List with Head Node)의 연산을 프로그래밍한다. 풀이와 해설은 [`HW01_Circular-Linked-List-with-Head-Node`](Coursework/HW01_Circular-Linked-List-with-Head-Node/)에 있다.
   - `InsertFront` 연산 (20점): 새 노드의 링크가 원래의 첫 노드를 가리키게 하고(10점), 새 노드를 새로운 첫 노드로 만든다(10점).
   - `InsertRear` 연산 (50점): 첫 노드를 `cur` 포인터에 저장하고(10점), while 반복문으로 마지막 노드를 찾아 `cur`에 저장하며(20점), 새 노드를 마지막 노드 뒤에 삽입하고(10점), 마지막 노드가 항상 헤드 노드를 가리키게 한다(10점).
   - 완성한 코드로 프로그램을 실행하고 결과 화면을 캡처한다(20점).
   - 헤드 노드에 관한 질문에 답한다(10점): (1) 원형 연결 리스트에서 헤드 노드를 쓰는 장점, (2) 헤드 노드를 앞에 두는 것과 뒤에 두는 것의 차이.
-- **2차 프로그래밍 과제 (Programming Homework #2):** 연결 큐의 push와 pop 연산(Linked Queue Pop and Push Operation)을 프로그래밍한다.
+- **2차 프로그래밍 과제 (Programming Homework #2):** 연결 큐의 push와 pop 연산(Linked Queue Pop and Push Operation)을 프로그래밍한다. 풀이와 해설은 [`HW02_Linked-Queue-Push-and-Pop`](Coursework/HW02_Linked-Queue-Push-and-Pop/)에 있다.
   - `Queue` 클래스의 `push` 연산 (30점): type 1(20점)과 type 2(10점)의 push를 구현한다.
   - `pop` 연산 (50점): type 1(20점)과 type 2(30점)의 pop을 구현한다.
   - 완성한 코드로 프로그램을 실행하고 결과 화면을 캡처한다(20점).

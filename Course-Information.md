@@ -2,7 +2,7 @@
 
 [Repository Guide](README.md) | [English](Course-Information.md) | [한국어](Course-Information.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-19
 
 ## Table of Contents
 
@@ -69,12 +69,12 @@
 - Grading is absolute, and feedback on the evaluation is provided.
 - The syllabus states that homework is given after each chapter is finished. Homework is important for understanding the course content completely.
 - A quiz was given on the LMS for each chapter, titled from "Quiz for Chapter 1" to "Quiz for Chapter 10".
-- **Programming Homework #1:** Program operations of a Circular Linked List with Head Node.
+- **Programming Homework #1:** Program operations of a Circular Linked List with Head Node. The solution and explanation are in [`HW01_Circular-Linked-List-with-Head-Node`](Coursework/HW01_Circular-Linked-List-with-Head-Node/).
   - `InsertFront` operation (20 points): make the link of the new node point to the original first node (10 points) and make the new node the new first node (10 points).
   - `InsertRear` operation (50 points): store the first node in the `cur` pointer (10 points), find the last node with a while loop and store it in `cur` (20 points), insert the new node after the last node (10 points), and make the last node always point to the head node (10 points).
   - Run the program with the completed code and capture screenshots of the results (20 points).
   - Answer questions about the head node (10 points): (1) the advantages of using a head node for a circular linked list and (2) the difference between putting the head node at the front and putting it at the rear.
-- **Programming Homework #2:** Program the push and pop operations of a linked queue (Linked Queue Pop and Push Operation).
+- **Programming Homework #2:** Program the push and pop operations of a linked queue (Linked Queue Pop and Push Operation). The solution and explanation are in [`HW02_Linked-Queue-Push-and-Pop`](Coursework/HW02_Linked-Queue-Push-and-Pop/).
   - `push` operation of the `Queue` class (30 points): implement push for type 1 (20 points) and type 2 (10 points).
   - `pop` operation (50 points): implement pop for type 1 (20 points) and type 2 (30 points).
   - Run the program with the completed code and capture screenshots of the results (20 points).
