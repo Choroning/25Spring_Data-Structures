@@ -58,7 +58,7 @@ g++ -std=c++17 -Wall -Wextra -pedantic -o hw2 Test-Driver.cpp
 ./hw2 20000     # the number of elements can be changed with an argument
 ```
 
-> **Note:** The full program used for the submission (the rest of the `Queue` class, the time measurement, `main`) was not kept. `Test-Driver.cpp` is a test driver written with Claude Code to compile and run the two submitted functions, and its measurement method and number of elements (200,000) follow the submitted screenshot (Section 4.1). The two functions enter the class definition through `#include` and were not modified. The driver is described in the [HW2 Code Walkthrough](Code-Walkthrough.md).
+> **Note:** The full program used for the submission (the rest of the `Queue` class, the time measurement, `main`) was not kept. `Test-Driver.cpp` is a test driver that compiles and runs the two submitted functions, and its measurement method and number of elements (200,000) follow the submitted screenshot (Section 4.1). The two functions enter the class definition through `#include` and were not modified. The driver is described in the [HW2 Code Walkthrough](Code-Walkthrough.md).
 
 ---
 

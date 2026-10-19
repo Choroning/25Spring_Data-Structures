@@ -3,10 +3,10 @@
  * @brief   Test driver for InsertFront and InsertRear (HW1)
  * @author  Cheolwon Park
  * @date    2026-10-19
- * @note    Written with Claude Code for this archive, only to compile and run
- *          the submitted functions. It is not part of the submitted homework;
- *          the full program used for the submission was not kept. The output
- *          format follows the screenshots of the submission.
+ * @note    Test driver that only compiles and runs the submitted functions.
+ *          It is not part of the submitted homework; the full program used
+ *          for the submission was not kept. The output format follows the
+ *          screenshots of the submission.
  *
  * Build and run from this folder, then enter the value to search for:
  *     g++ -std=c++17 -Wall -Wextra -pedantic -o hw1 Test-Driver.cpp
