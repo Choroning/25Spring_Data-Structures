@@ -28,7 +28,7 @@
 - 모든 코드는 C++17로 빌드하고 실행하여 확인했습니다.
 
 > **🤖 AI 에이전트 활용**
-> [Claude Code](https://claude.ai/download)를 노트 정리와 번역, 레포지토리 정리에 활용했으며, 과제의 테스트용 드라이버는 Claude Code로 작성했습니다.
+> [Claude Code](https://claude.ai/download)를 노트 정리와 번역, 레포지토리 정리에 활용했습니다.
 
 <br><a name="course-information"></a>
 ## 📚 강의 정보

@@ -33,7 +33,7 @@
 
 ## 1. File Layout
 
-The companion document [HW2 Assignment Explanation](Assignment-Explanation.md) covers the two representations, the design, testing, and the interpretation of the execution times. This document reads the two files in `Solution` from beginning to end. All line numbers refer to the respective file. `Push-and-Pop.cpp` (82 lines) holds the two submitted functions, and `Test-Driver.cpp` (111 lines) is a test driver written with Claude Code to run them.
+The companion document [HW2 Assignment Explanation](Assignment-Explanation.md) covers the two representations, the design, testing, and the interpretation of the execution times. This document reads the two files in `Solution` from beginning to end. All line numbers refer to the respective file. `Push-and-Pop.cpp` (82 lines) holds the two submitted functions, and `Test-Driver.cpp` (111 lines) is a test driver that runs them.
 
 | File | Lines | Part | Author |
 |:-----|:-----|:-----|:-----|

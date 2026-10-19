@@ -28,7 +28,7 @@ This repository archives bilingual lecture notes and coursework for the Data Str
 - All code was built and run with C++17.
 
 > **🤖 AI Agent Usage**
-> [Claude Code](https://claude.ai/download) was used to organize and translate the notes and to restructure the repository, and the test drivers of the assignments were written with Claude Code.
+> [Claude Code](https://claude.ai/download) was used to organize and translate the notes and to restructure the repository.
 
 <br><a name="course-information"></a>
 ## 📚 Course Information

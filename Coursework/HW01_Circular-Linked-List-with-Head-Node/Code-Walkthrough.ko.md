@@ -33,7 +33,7 @@
 
 ## 1. 파일 구성
 
-짝이 되는 문서 [HW1 과제 해설](Assignment-Explanation.ko.md)은 요구사항, 설계, 테스트, 서술형 답을 정리한다. 이 문서는 `Solution`의 두 파일을 처음부터 끝까지 읽는다. 줄 번호는 모두 각 파일 기준이다. `InsertFront-and-InsertRear.cpp`(38줄)는 제출한 두 함수이고, `Test-Driver.cpp`(133줄)는 두 함수를 실행하기 위해 Claude Code로 작성한 테스트용 드라이버이다.
+짝이 되는 문서 [HW1 과제 해설](Assignment-Explanation.ko.md)은 요구사항, 설계, 테스트, 서술형 답을 정리한다. 이 문서는 `Solution`의 두 파일을 처음부터 끝까지 읽는다. 줄 번호는 모두 각 파일 기준이다. `InsertFront-and-InsertRear.cpp`(38줄)는 제출한 두 함수이고, `Test-Driver.cpp`(133줄)는 두 함수를 실행하기 위한 테스트용 드라이버이다.
 
 | 파일 | 줄 | 부분 | 작성 |
 |:-----|:-----|:-----|:-----|

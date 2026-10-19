@@ -57,7 +57,7 @@ g++ -std=c++17 -Wall -Wextra -pedantic -o hw1 Test-Driver.cpp
 ./hw1
 ```
 
-> **Note:** The full program used for the submission (node and list classes, printing, search, destructor, `main`) was not kept. `Test-Driver.cpp` is a test driver written with Claude Code to compile and run the two submitted functions, and its output format follows the submitted screenshots (Section 4.1). The two functions enter the class definition through `#include` and were not modified. The driver is described in the [HW1 Code Walkthrough](Code-Walkthrough.md).
+> **Note:** The full program used for the submission (node and list classes, printing, search, destructor, `main`) was not kept. `Test-Driver.cpp` is a test driver that compiles and runs the two submitted functions, and its output format follows the submitted screenshots (Section 4.1). The two functions enter the class definition through `#include` and were not modified. The driver is described in the [HW1 Code Walkthrough](Code-Walkthrough.md).
 
 ---
 

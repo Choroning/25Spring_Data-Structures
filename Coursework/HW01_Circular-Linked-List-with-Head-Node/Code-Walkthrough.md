@@ -33,7 +33,7 @@
 
 ## 1. File Layout
 
-The companion document [HW1 Assignment Explanation](Assignment-Explanation.md) covers the requirements, design, testing, and written answers. This document reads the two files in `Solution` from beginning to end. All line numbers refer to the respective file. `InsertFront-and-InsertRear.cpp` (38 lines) holds the two submitted functions, and `Test-Driver.cpp` (133 lines) is a test driver written with Claude Code to run them.
+The companion document [HW1 Assignment Explanation](Assignment-Explanation.md) covers the requirements, design, testing, and written answers. This document reads the two files in `Solution` from beginning to end. All line numbers refer to the respective file. `InsertFront-and-InsertRear.cpp` (38 lines) holds the two submitted functions, and `Test-Driver.cpp` (133 lines) is a test driver that runs them.
 
 | File | Lines | Part | Author |
 |:-----|:-----|:-----|:-----|
