@@ -2,7 +2,7 @@
 
 [레포지토리 안내](README.ko.md) | [English](Course-Information.md) | [한국어](Course-Information.ko.md)
 
-> **최종 수정일:** 2026-10-19
+> **최종 수정일:** 2026-10-26
 
 ## 목차
 
@@ -105,22 +105,22 @@
 
 | 주차 | 수업일 (월, 수) | 계획된 주제 | 진행한 강의자료 |
 |:-----|:-----|:-----|:-----|
-| 1 | 3/3, 3/5 | Introduction and program performance measurement | - |
-| 2 | 3/10, 3/12 | Program Performance measurement | L1 Program Performance Analysis and Measurement<br>L2 Time Complexity Theory for Performance Measurement |
-| 3 | 3/17, 3/19 | Time complexity theory | - |
-| 4 | 3/24, 3/26 | Array-based linear list and linked-based linear list | L3 Array and Link |
-| 5 | 3/31, 4/2 | Array and matrices | L4 Arrays and Matrices |
-| 6 | 4/7, 4/9 | Stacks | L5 Stacks |
-| 7 | 4/14, 4/16 | Queues | L6 Queues |
-| 8 | 4/21, 4/23 | 중간고사 | 휴강 |
-| 9 | 4/28, 4/30 | Skip lists and hashing | - |
-| 10 | 5/5, 5/7 | Binary and other trees | 과제 대체 휴강<br>1차 프로그래밍 과제 |
-| 11 | 5/12, 5/14 | Priority queues, heap, leftist trees | 과제 대체 휴강<br>2차 프로그래밍 과제 |
-| 12 | 5/19, 5/21 | Priority queues, heap, leftist trees | L7 Skip List and Hashing |
-| 13 | 5/26, 5/28 | Tournament trees and bin packing | L8 Binary and Other Trees |
-| 14 | 6/2, 6/4 | Binary search trees | L9 Priority Queues, Heaps, Leftist Trees |
-| 15 | 6/9, 6/11 | Binary search trees | L10 Binary Search Trees<br>종강 |
-| 16 | 6/16, 6/18 | 기말고사 | - |
+| 1주차 | 3/3, 3/5 | Introduction and program performance measurement | - |
+| 2주차 | 3/10, 3/12 | Program Performance measurement | L1 Program Performance Analysis and Measurement<br>L2 Time Complexity Theory for Performance Measurement |
+| 3주차 | 3/17, 3/19 | Time complexity theory | - |
+| 4주차 | 3/24, 3/26 | Array-based linear list and linked-based linear list | L3 Array and Link |
+| 5주차 | 3/31, 4/2 | Array and matrices | L4 Arrays and Matrices |
+| 6주차 | 4/7, 4/9 | Stacks | L5 Stacks |
+| 7주차 | 4/14, 4/16 | Queues | L6 Queues |
+| 8주차 | 4/21, 4/23 | 중간고사 | 휴강 |
+| 9주차 | 4/28, 4/30 | Skip lists and hashing | - |
+| 10주차 | 5/5, 5/7 | Binary and other trees | 과제 대체 휴강<br>1차 프로그래밍 과제 |
+| 11주차 | 5/12, 5/14 | Priority queues, heap, leftist trees | 과제 대체 휴강<br>2차 프로그래밍 과제 |
+| 12주차 | 5/19, 5/21 | Priority queues, heap, leftist trees | L7 Skip List and Hashing |
+| 13주차 | 5/26, 5/28 | Tournament trees and bin packing | L8 Binary and Other Trees |
+| 14주차 | 6/2, 6/4 | Binary search trees | L9 Priority Queues, Heaps, Leftist Trees |
+| 15주차 | 6/9, 6/11 | Binary search trees | L10 Binary Search Trees<br>종강 |
+| 16주차 | 6/16, 6/18 | 기말고사 | - |
 
 - 계획된 주제는 강의계획서의 주별 일정을 따르며, 강의계획서는 시험 주차를 뺀 모든 주차의 자료를 PPT 슬라이드로 계획했다.
 - L2 Time Complexity Theory for Performance Measurement는 2주차와 3주차에 걸쳐 다뤘다.

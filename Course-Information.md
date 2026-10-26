@@ -2,7 +2,7 @@
 
 [Repository Guide](README.md) | [English](Course-Information.md) | [한국어](Course-Information.ko.md)
 
-> **Last Updated:** 2026-10-19
+> **Last Updated:** 2026-10-26
 
 ## Table of Contents
 
@@ -105,22 +105,22 @@
 
 | Week | Class Dates (Mon, Wed) | Planned Topic | Lecture Decks Covered |
 |:-----|:-----|:-----|:-----|
-| 1 | 3/3, 3/5 | Introduction and program performance measurement | - |
-| 2 | 3/10, 3/12 | Program Performance measurement | L1 Program Performance Analysis and Measurement<br>L2 Time Complexity Theory for Performance Measurement |
-| 3 | 3/17, 3/19 | Time complexity theory | - |
-| 4 | 3/24, 3/26 | Array-based linear list and linked-based linear list | L3 Array and Link |
-| 5 | 3/31, 4/2 | Array and matrices | L4 Arrays and Matrices |
-| 6 | 4/7, 4/9 | Stacks | L5 Stacks |
-| 7 | 4/14, 4/16 | Queues | L6 Queues |
-| 8 | 4/21, 4/23 | Mid-term Exam | No class |
-| 9 | 4/28, 4/30 | Skip lists and hashing | - |
-| 10 | 5/5, 5/7 | Binary and other trees | No class, replaced by homework<br>Programming Homework #1 |
-| 11 | 5/12, 5/14 | Priority queues, heap, leftist trees | No class, replaced by homework<br>Programming Homework #2 |
-| 12 | 5/19, 5/21 | Priority queues, heap, leftist trees | L7 Skip List and Hashing |
-| 13 | 5/26, 5/28 | Tournament trees and bin packing | L8 Binary and Other Trees |
-| 14 | 6/2, 6/4 | Binary search trees | L9 Priority Queues, Heaps, Leftist Trees |
-| 15 | 6/9, 6/11 | Binary search trees | L10 Binary Search Trees<br>End of term |
-| 16 | 6/16, 6/18 | Final Exam | - |
+| W01 | 3/3, 3/5 | Introduction and program performance measurement | - |
+| W02 | 3/10, 3/12 | Program Performance measurement | L1 Program Performance Analysis and Measurement<br>L2 Time Complexity Theory for Performance Measurement |
+| W03 | 3/17, 3/19 | Time complexity theory | - |
+| W04 | 3/24, 3/26 | Array-based linear list and linked-based linear list | L3 Array and Link |
+| W05 | 3/31, 4/2 | Array and matrices | L4 Arrays and Matrices |
+| W06 | 4/7, 4/9 | Stacks | L5 Stacks |
+| W07 | 4/14, 4/16 | Queues | L6 Queues |
+| W08 | 4/21, 4/23 | Mid-term Exam | No class |
+| W09 | 4/28, 4/30 | Skip lists and hashing | - |
+| W10 | 5/5, 5/7 | Binary and other trees | No class, replaced by homework<br>Programming Homework #1 |
+| W11 | 5/12, 5/14 | Priority queues, heap, leftist trees | No class, replaced by homework<br>Programming Homework #2 |
+| W12 | 5/19, 5/21 | Priority queues, heap, leftist trees | L7 Skip List and Hashing |
+| W13 | 5/26, 5/28 | Tournament trees and bin packing | L8 Binary and Other Trees |
+| W14 | 6/2, 6/4 | Binary search trees | L9 Priority Queues, Heaps, Leftist Trees |
+| W15 | 6/9, 6/11 | Binary search trees | L10 Binary Search Trees<br>End of term |
+| W16 | 6/16, 6/18 | Final Exam | - |
 
 - The planned topics follow the weekly schedule of the syllabus, which planned PPT slides as the material for every week except the exam weeks.
 - L2 Time Complexity Theory for Performance Measurement was covered over weeks 2 and 3.
