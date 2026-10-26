@@ -2,7 +2,7 @@
 
 [레포지토리 안내](../../README.ko.md) | [English](Code-Walkthrough.md) | [한국어](Code-Walkthrough.ko.md)
 
-> **최종 수정일:** 2026-10-19
+> **최종 수정일:** 2026-10-26
 
 > **학습 목표:**
 > 1. `InsertFront`와 `InsertRear`의 각 문장이 바꾸는 링크를 설명할 수 있다
@@ -35,15 +35,15 @@
 
 짝이 되는 문서 [HW1 과제 해설](Assignment-Explanation.ko.md)은 요구사항, 설계, 테스트, 서술형 답을 정리한다. 이 문서는 `Solution`의 두 파일을 처음부터 끝까지 읽는다. 줄 번호는 모두 각 파일 기준이다. `InsertFront-and-InsertRear.cpp`(38줄)는 제출한 두 함수이고, `Test-Driver.cpp`(133줄)는 두 함수를 실행하기 위한 테스트용 드라이버이다.
 
-| 파일 | 줄 | 부분 | 작성 |
+| 파일 | 줄 | 부분 | 구분 |
 |:-----|:-----|:-----|:-----|
-| `InsertFront-and-InsertRear.cpp` | 1~10 | Doxygen 헤더 | 레포지토리 형식에 맞추어 추가 |
+| `InsertFront-and-InsertRear.cpp` | 1~10 | Doxygen 헤더 | 제출한 코드 밖의 주석 |
 | `InsertFront-and-InsertRear.cpp` | 12~20 | `InsertFront` | 제출한 코드 |
 | `InsertFront-and-InsertRear.cpp` | 22~38 | `InsertRear` | 제출한 코드 |
-| `Test-Driver.cpp` | 1~19 | 헤더 주석, `#include`, 전방 선언 | 테스트용으로 작성 |
-| `Test-Driver.cpp` | 21~36 | `ChainNode<T>` | 테스트용으로 작성 |
-| `Test-Driver.cpp` | 38~96 | `CircularList<T>` (68번 줄에서 제출한 함수를 포함) | 테스트용으로 작성 |
-| `Test-Driver.cpp` | 98~133 | `main` | 테스트용으로 작성 |
+| `Test-Driver.cpp` | 1~19 | 헤더 주석, `#include`, 전방 선언 | 테스트용 드라이버 |
+| `Test-Driver.cpp` | 21~36 | `ChainNode<T>` | 테스트용 드라이버 |
+| `Test-Driver.cpp` | 38~96 | `CircularList<T>` (68번 줄에서 제출한 함수를 포함) | 테스트용 드라이버 |
+| `Test-Driver.cpp` | 98~133 | `main` | 테스트용 드라이버 |
 
 *표 1. 두 파일의 구성*
 
@@ -101,7 +101,7 @@ void InsertRear(const T& item) {
 
 ## 4. 드라이버의 헤더와 ChainNode
 
-`Test-Driver.cpp`의 1~15번 줄은 Doxygen 헤더이며, 테스트용으로 작성한 파일이라는 사실과 빌드 방법을 적는다. 16번 줄의 `<initializer_list>`는 `main`의 `for (int x : {1, 2, 3})`처럼 중괄호 목록을 범위 기반 for 문에 쓰기 위한 헤더이고, 17번 줄의 `<iostream>`은 입출력을 위한 헤더이다. 19번 줄은 `CircularList`의 전방 선언이다. 27번 줄의 `friend` 선언이 아직 정의되지 않은 `CircularList<T>`를 가리키기 때문에 필요하다.
+`Test-Driver.cpp`의 1~14번 줄은 Doxygen 헤더이며, 테스트용으로 작성한 파일이라는 사실과 빌드 방법을 적는다. 16번 줄의 `<initializer_list>`는 `main`의 `for (int x : {1, 2, 3})`처럼 중괄호 목록을 범위 기반 for 문에 쓰기 위한 헤더이고, 17번 줄의 `<iostream>`은 입출력을 위한 헤더이다. 19번 줄은 `CircularList`의 전방 선언이다. 27번 줄의 `friend` 선언이 아직 정의되지 않은 `CircularList<T>`를 가리키기 때문에 필요하다.
 
 ```cpp
 template <class T>
@@ -149,7 +149,7 @@ CircularList() {
 }
 ```
 
-55~65번 줄의 소멸자는 3강 6.4절의 소멸자에 출력을 더한 것이다. `del`이 첫 노드를 가리키게 한 뒤, 헤드 노드의 링크를 `del`의 다음 노드로 옮기고 `del`을 삭제하는 일을 `del`이 헤드 노드가 될 때까지 반복한다. 노드를 삭제하기 전에 다음 노드를 `head->link`에 옮겨 두므로 해제한 노드의 링크를 읽지 않는다. 데이터 노드가 모두 지워지면 헤드 노드의 링크가 자기 자신이 되어 반복이 끝나고, 63번 줄이 헤드 노드를 해제한다. 삭제는 첫 노드부터 차례로 일어나므로 출력 순서가 리스트의 순서와 같다.
+55~65번 줄의 소멸자는 3강 6.4절의 소멸자에 삭제 메시지 출력과 헤드 노드 해제를 더한 것이다. `del`이 첫 노드를 가리키게 한 뒤, 헤드 노드의 링크를 `del`의 다음 노드로 옮기고 `del`을 삭제하는 일을 `del`이 헤드 노드가 될 때까지 반복한다. 노드를 삭제하기 전에 다음 노드를 `head->link`에 옮겨 두므로 해제한 노드의 링크를 읽지 않는다. 데이터 노드가 모두 지워지면 헤드 노드의 링크가 자기 자신이 되어 반복이 끝나고, 63번 줄이 헤드 노드를 해제한다. 삭제는 첫 노드부터 차례로 일어나므로 출력 순서가 리스트의 순서와 같다.
 
 ---
 

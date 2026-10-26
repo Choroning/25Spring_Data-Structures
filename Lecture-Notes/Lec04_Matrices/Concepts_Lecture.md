@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
 
 > **Learning Objectives:**
 > 1. Explain the memory representation of 1D and 2D arrays and compute their space overhead
@@ -218,6 +218,8 @@ A[0][0], A[1][0], ..., A[m-1][0], A[0][1], A[1][1], ..., A[m-1][n-1]
 
 > **Key Point:** Row-major favors row-wise traversal for cache efficiency; column-major favors column-wise traversal.
 
+> **[Computer Architecture]** A cache is a small, fast memory that holds data fetched from memory in units of blocks (cache lines). Reading a row-major array along a row, as in `A[i][0]`, `A[i][1]`, ..., uses the neighboring elements of a fetched block one after another, but reading it along a column accesses addresses $n$ elements apart each time, so blocks must be fetched again much more often.
+
 ### 2.3 Both Mappings of the Same Array
 
 Writing the row-major position $6i + j$ in each element `a[i][j]` of `int a[3][6];` gives the following.
@@ -391,7 +393,7 @@ The main diagonal has $n$ elements and each adjacent diagonal has $n - 1$, so th
 
 The position formulas of the mappings are as follows (elements with $\vert i - j \vert \le 1$, matrix indices from 1, indices of `t` from 0).
 
-- In the mapping by row, row 1 has 2 elements, rows 2 through $i-1$ have 3 each, and the first stored element of row $i$ is in column $i-1$. Simplifying, $T(i, j)$ is in `t[2i + j - 3]`.
+- In the mapping by row, row 1 has 2 elements, rows 2 through $i-1$ have 3 each, and the first stored element of row $i$ ($i \ge 2$) is in column $i-1$. Simplifying, $T(i, j)$ is in `t[2i + j - 3]`, and the formula also holds for the two elements of row 1 (`t[0]` and `t[1]`).
 - In the mapping by diagonal, an element of the lower diagonal ($i = j + 1$) is in `t[i - 2]`, an element of the main diagonal is in `t[n + i - 2]`, and an element of the upper diagonal ($i = j - 1$) is in `t[2n + i - 2]`.
 
 For example, $T(2, 3) = 3$ is in `t[2 × 2 + 3 - 3] = t[4]` by row and in `t[2 × 4 + 2 - 2] = t[8]` by diagonal, and both positions hold 3 in Table 4.

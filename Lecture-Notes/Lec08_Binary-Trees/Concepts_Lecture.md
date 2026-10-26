@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
 
 > **Learning Objectives:**
 > 1. Apply tree terms such as root, leaf, level, height, and degree to a given tree
@@ -80,7 +80,7 @@ In Figure 1 the root is Joe, and Joe has three subtrees: the tree rooted at Ann 
 
 ### 1.3 Tree Terminology
 
-The element at the top of the hierarchy is the root. Elements next in the hierarchy are the **children** of the root, elements next in the hierarchy are the **grandchildren** of the root, and so on. Elements with no children are the **leaves**. Leaves are at the bottom of their paths, but they are not all on the same level: in Figure 1, Mike is a leaf on level 3 and Sue is a leaf on level 4.
+The element at the top of the hierarchy is the root. Elements next in the hierarchy are the **children** of the root, elements next in the hierarchy are the **grandchildren** of the root, and so on. Elements with no children are the **leaves**. Leaves are at the bottom of their paths, but they need not all be on the same level: in Figure 1, Mike is a leaf on level 3 and Sue is a leaf on level 4.
 
 | Term | Definition | Example in Figure 1 |
 |:-----|:-----------|:-----|
@@ -160,11 +160,11 @@ Height in this section follows the definition of Section 1.4 (number of levels).
 
    For example, 4 elements linked in a single chain give the maximum height 4, and a binary tree holding 15 elements has height at least $\lceil \log_2 16 \rceil = 4$.
 
-> **Key Point:** The minimum height $\lceil \log_2(n+1) \rceil$ is achieved by a **complete binary tree**. The maximum height $n$ occurs in a degenerate (skewed) tree.
-
 A tree in which every node except the leaf has only one child, so that the nodes form a single chain, is called a **degenerate tree** or **skewed tree**. If every child is a right child it is a right-skewed tree, and if every child is a left child it is a left-skewed tree.
 
-> **[Discrete Mathematics]** Property 1 is a general property of trees: a connected graph without cycles that has $n$ nodes has $n-1$ edges. The sum in property 2 is the geometric series $\sum_{i=1}^{h} 2^{i-1} = 2^h - 1$.
+> **Key Point:** The minimum height $\lceil \log_2(n+1) \rceil$ is achieved by a **complete binary tree**. The maximum height $n$ occurs in a degenerate (skewed) tree.
+
+> **[Discrete Mathematics]** Discrete mathematics defines a tree as a connected graph without cycles and proves that a tree with $n$ nodes has $n-1$ edges. Property 1 applies this theorem to binary trees, and the maximum element count in property 2 is the geometric series $\sum_{i=1}^{h} 2^{i-1} = 2^h - 1$.
 
 ### 2.2 Full Binary Tree
 
@@ -353,7 +353,7 @@ Space required: $n \times \text{sizeof(BinaryTreeNode)}$ for $n$ nodes.
 
 ## 4. Binary Tree Traversals
 
-Many binary tree operations are done by performing a **traversal** of the binary tree. A traversal visits each element of the binary tree **exactly once**, and during the visit of an element, all actions (make a copy, display, evaluate the operator, etc.) with respect to this element are taken. The four traversal methods differ in when the root is processed.
+Many binary tree operations are done by performing a **traversal** of the binary tree. A traversal visits each element of the binary tree **exactly once**, and during the visit of an element, all actions (make a copy, display, evaluate the operator, etc.) with respect to this element are taken. Preorder, inorder, and postorder traversals differ in when the root of each subtree is processed, and level order traversal processes the nodes level by level.
 
 - **Preorder:** The root of the subtree is processed first, before the left and then the right subtree (root, left, right).
 - **Inorder:** After the complete processing of the left subtree, the root is processed, followed by the complete processing of the right subtree (left, root, right).
@@ -400,7 +400,7 @@ Preorder(node):
 
 *Figure 9. Expression tree of ((a + b) * (c - d)) / (e + f)*
 
-**Expression tree example:** For the expression tree of Figure 9, preorder gives the **prefix** form: `/ * + a b - c d + e f`
+**Expression tree example:** Figure 9 is an expression tree (Section 5), which keeps operators in internal nodes and operands in leaves. For this tree, preorder gives the **prefix** form: `/ * + a b - c d + e f`
 
 ### 4.2 Inorder Traversal
 
@@ -537,7 +537,7 @@ To evaluate an expression tree, postorder traversal first computes the values of
 
 *Table 5. Traversal outputs and expression forms of the expression tree in Figure 11*
 
-Inorder traversal of an expression tree built from a postfix expression produces the infix version of that expression, and postorder traversal gives back the original postfix expression.
+To build an expression tree from a postfix expression with only binary operators, read the expression from left to right: make each operand a node and push it onto a stack (Lecture 5), and for each operator pop two nodes, make them the right child and the left child (in the order popped) of a new operator node, and push that node. When the expression has been read, the one node left on the stack is the root. Inorder traversal of an expression tree built this way produces the infix version of that expression, and postorder traversal gives back the original postfix expression.
 
 > **Key Point:** Inorder traversal of an expression tree without parentheses can be ambiguous. The `3 + 5 + 9 * 2` of Table 5 evaluates to 26 under the usual precedence, unlike the original value 31. A **fully parenthesized** inorder traversal adds an opening parenthesis before the left subtree and a closing parenthesis after the right subtree of each operator node.
 

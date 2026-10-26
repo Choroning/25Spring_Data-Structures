@@ -2,7 +2,7 @@
 
 [레포지토리 안내](../../README.ko.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **최종 수정일:** 2026-10-18
+> **최종 수정일:** 2026-10-26
 
 > **학습 목표:**
 > 1. 큐를 FIFO 선형 리스트로 정의하고 스택과 비교할 수 있다
@@ -12,8 +12,6 @@
 > 5. 큐 변형(덱, 우선순위 큐)을 구분할 수 있다
 
 ---
-
-<br>
 
 ## 목차
 
@@ -96,9 +94,9 @@
 
 ### 2.1 단순 배열 큐
 
-`front`를 왼쪽 끝, `rear`를 오른쪽 끝으로 사용:
+`front`를 왼쪽 끝, `rear`를 오른쪽 끝으로 사용한다.
 - `front`는 항상 0이다.
-- `push(x)`는 `array[++rear] = x`이며 $O(1)$이다.
+- `push(x)`는 `queue[++rear] = x`이며 $O(1)$이다.
 - `pop()`은 모든 원소를 왼쪽으로 이동하므로 $O(n)$이다.
 
 `pop()` 연산이 $O(n)$의 이동을 요구하므로 비효율적이다.
@@ -120,17 +118,17 @@
 |:-----|:-----|:-----|
 | `Queue.empty()` | `ArrayLinearList.empty()` | $O(1)$ |
 | `x = Queue.front()` | `ArrayLinearList.get(0)` | $O(1)$ |
-| `x = Queue.back()` | `ArrayLinearList.get(length - 1)` | $O(1)$ |
-| `Queue.push(x)` | `ArrayLinearList.insert(length, x)` | $O(1)$ |
-| `Queue.pop()` | `ArrayLinearList.erase(0)` | $O(\text{length})$ |
+| `x = Queue.back()` | `ArrayLinearList.get(listSize - 1)` | $O(1)$ |
+| `Queue.push(x)` | `ArrayLinearList.insert(listSize, x)` | $O(1)$ |
+| `Queue.pop()` | `ArrayLinearList.erase(0)` | $O(\text{listSize})$ |
 
 *표 2. 배열 선형 리스트에서 유도한 큐 연산과 시간*
 
-pop이 $O(\text{length})$인 이유는 첫 원소를 지운 뒤 나머지 원소를 모두 한 칸씩 왼쪽으로 옮겨야 하기 때문이다. 모든 연산을 $O(1)$에 수행하려면 큐에 맞춘 배열 표현이 필요하다.
+pop이 $O(\text{listSize})$인 이유는 첫 원소를 지운 뒤 나머지 원소를 모두 한 칸씩 왼쪽으로 옮겨야 하기 때문이다. 모든 연산을 $O(1)$에 수행하려면 큐에 맞춘 배열 표현이 필요하다.
 
 ### 2.2 수정된 위치 공식
 
-`front`가 오른쪽으로 이동할 수 있는 수정된 위치 공식을 사용:
+`front`가 오른쪽으로 이동할 수 있는 수정된 위치 공식을 사용한다.
 $$\text{location}(i) = \text{location}(1) + i - 1$$
 
 - `pop()`은 `front`를 1 증가시키며 $O(1)$이다.
@@ -177,7 +175,7 @@ $$\text{location}(i) = \text{location}(1) + i - 1$$
 
 ### 3.1 개념
 
-나머지(modulo) 연산을 사용하여 배열을 **원형**으로 취급:
+나머지(modulo) 연산을 사용하여 배열을 **원형**으로 취급한다.
 
 $$\text{location}(i) = (\text{location}(1) + i - 1) \% \text{MaxSize}$$
 
@@ -210,13 +208,13 @@ $$\text{location}(i) = (\text{location}(1) + i - 1) \% \text{MaxSize}$$
 
 ### 3.2 구현 세부사항
 
-- **시계 방향 이동:** `rear = (rear + 1) % queue.length`로 한 칸 이동한다.
+- **시계 방향 이동:** `rear = (rear + 1) % capacity`로 한 칸 이동한다(`capacity`는 배열 `queue`의 길이이다).
 - 정수 변수 `theFront`와 `theBack`을 사용한다:
   - `theFront`는 첫 번째 원소에서 반시계 방향으로 한 칸 떨어진 위치이다.
   - `theBack`은 마지막 원소의 위치이다.
 - 처음에는 `front = rear = 0`으로 초기화한다.
 
-그림과 코드에서는 `theFront`와 `theBack`을 각각 `front`와 `rear`로 쓴다. 시계 방향 이동은 `rear`를 1 늘린 뒤 `rear == queue.length`이면 `rear = 0`으로 되돌리는 것과 같다. 2.2절에서는 `front`가 첫 원소의 위치였지만, 원형 큐에서는 `front`가 첫 원소의 한 칸 앞을 가리킨다는 점에 주의해야 한다. 표 3의 배치 1에서 첫 원소 A는 [2]에 있고 `front`는 그 한 칸 앞인 1이다.
+그림과 코드에서는 `theFront`와 `theBack`을 각각 `front`와 `rear`로 쓴다. 시계 방향 이동은 `rear`를 1 늘린 뒤 `rear == capacity`이면 `rear = 0`으로 되돌리는 것과 같다. 2.2절에서는 `front`가 첫 원소의 위치였지만, 원형 큐에서는 `front`가 첫 원소의 한 칸 앞을 가리킨다는 점에 주의해야 한다. 표 3의 배치 1에서 첫 원소 A는 [2]에 있고 `front`는 그 한 칸 앞인 1이다.
 
 ### 3.3 가득 참(Full) vs. 비어 있음(Empty) 구분
 
@@ -346,7 +344,7 @@ a, b, c, d, e 순서로 넣은 큐를 두 방법으로 나타내면 다음과 �
 
 ### 4.2 구현
 
-`front`와 `rear` 포인터를 가진 단일 연결 리스트를 사용:
+`front`와 `rear` 포인터를 가진 단일 연결 리스트를 사용한다.
 - `enqueue`는 후단에 삽입하며 $O(1)$이다.
 - `dequeue`는 전단에서 삭제하며 $O(1)$이다.
 
@@ -380,12 +378,12 @@ T pop() {
 }
 ```
 
-빈 큐에 push하면 새 노드가 전단이자 후단이 되고, 마지막 원소를 pop하면 `frontNode`와 `rearNode`가 모두 `nullptr`이 된다. 이 두 경계 경우를 처리하지 않으면 빈 큐에 다시 push할 때 해제된 노드를 가리키는 `rearNode`를 쓰게 된다.
+빈 큐에 push하면 새 노드가 전단이자 후단이 되고, 마지막 원소를 pop하면 `frontNode`와 `rearNode`가 모두 `nullptr`이 된다. 마지막 원소를 pop할 때 `rearNode`를 `nullptr`로 되돌리지 않으면 `rearNode`가 해제된 노드를 가리킨 채 남으므로, 빈 큐를 따로 처리하지 않는 push는 해제된 노드에 새 노드를 연결하게 된다.
 
 ### 4.3 장점
 
-- 동적 메모리를 쓰므로 크기 제한이 없다.
-- 원형 배열처럼 슬롯을 하나 비워 둘 필요가 없어 낭비되는 칸이 없다.
+- 동적 메모리를 쓰므로 미리 정한 크기 제한이 없다.
+- 원형 배열의 한 칸 낭비 방식처럼 칸을 하나 비워 둘 필요가 없어 낭비되는 칸이 없다.
 
 ---
 
@@ -409,6 +407,8 @@ T pop() {
 
 - 라운드 로빈 스케줄링에서는 프로세스들이 번갈아 가며 CPU를 사용한다. 정해진 시간을 다 쓴 프로세스는 큐의 후단으로 돌아간다.
 - 준비 큐(ready queue)는 실행을 기다리는 프로세스를 도착 순서대로 보관한다.
+
+> **[운영체제]** 프로세스는 실행 중인 프로그램이며, 실행할 준비가 되었지만 CPU를 기다리는 프로세스는 준비 큐에 들어간다. 라운드 로빈 스케줄링은 준비 큐의 전단 프로세스에 정해진 시간 할당량(time slice)만큼 CPU를 주고 그 안에 끝나지 않으면 후단으로 보내므로, 큐의 FIFO 순서가 모든 프로세스에 차례대로 CPU를 나눠 준다.
 
 ### 6.2 너비 우선 탐색 (BFS)
 
@@ -437,6 +437,8 @@ while queue is not empty:
             enqueue(neighbor)
 ```
 
+> **[알고리즘]** 그래프는 정점과 두 정점을 잇는 간선으로 이루어지며, 간선으로 이어진 두 정점을 서로의 이웃이라 한다. 너비 우선 탐색은 기본적인 그래프 알고리즘으로, 큐가 시작 정점에서 간선 수가 적은 정점부터 꺼내 주므로 가중치가 없는 그래프에서 시작 정점으로부터의 최단 경로(간선 수 기준)를 구하는 데 쓰인다.
+
 ### 6.3 버퍼 관리
 
 - 인쇄 작업 스풀링은 프린터에 도착한 작업을 도착 순서대로 처리한다.
@@ -455,7 +457,7 @@ while queue is not empty:
 |------|---------|---------|
 | Pop | $O(n)$ 또는 공간 낭비 | $O(1)$ |
 | 공간 활용 | 전단에 빈 공간 발생 가능 | 해제된 공간 재사용 |
-| 가득 참 감지 | `rear == capacity - 1` | `(rear+1) % cap == front` |
+| 가득 참 감지 | `rear == capacity - 1` | `(rear + 1) % capacity == front` |
 | 구현 | 단순 | 나머지 연산 필요 |
 
 *표 8. 선형 큐와 원형 큐의 비교*

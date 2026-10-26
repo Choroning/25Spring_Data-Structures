@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Solutions.md) | [한국어](Solutions.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
 
 ---
 
@@ -110,7 +110,7 @@ The final heap is `[-, 15, 9, 7, 6, 8, 2, 6, 5, 1]`.
 
 - (a) It is a max heap. It is a complete binary tree, and every parent is greater than or equal to its children.
 - (b) It is not a max heap, because it is not a complete binary tree. The node 6 should have a left child before a right child, and the right child of 9 is empty while the level below contains a node. By values alone, $9 \geq 6 \geq 5$, so the max-tree property holds.
-- (c) It is a max heap. It is a complete binary tree with two nodes (node 2 is the left child), and $30 \geq 25$.
+- (c) It is a max heap. It is a complete binary tree with two nodes (25 is the left child of the root), and $30 \geq 25$.
 
 **Explanation:** A max heap requires two properties. (1) It must be a complete binary tree, that is, all levels are full except possibly the last, which is filled from the left. (2) Every node's value must be greater than or equal to its children's values. Both conditions must hold. The array representation covers only complete binary trees without gaps, so (b) cannot be written as the array `[-, 9, 6, 5]`; that array would make 5 the right child of 9.
 

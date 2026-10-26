@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
 
 > **Learning Objectives:**
 > 1. Classify algorithms by time complexity classes
@@ -273,6 +273,8 @@ Exponential functions such as $2^n$ and $10^n$ increase much more steeply than $
 
 $$\lim_{n \to \infty} \frac{f(n)}{g(n)} = \lim_{n \to \infty} \frac{f'(n)}{g'(n)}$$
 
+> **[Calculus]** L'Hôpital's rule is the calculus theorem that computes the limit of an indeterminate form such as $\infty/\infty$ or $0/0$ as the ratio of the derivatives of the numerator and the denominator. Complexity functions are defined on integers $n$, but the rule is applied by extending them, like $n^2$, $\lg n$, and $2^n$, to functions differentiable in a real $x$, and when the limit as $x \to \infty$ exists, the limit as the integer $n \to \infty$ equals it.
+
 This rule is very important for comparing complexity orders. Computing the limit of the ratio of two functions decides their relation as follows.
 
 | $\lim_{n \to \infty} f(n)/g(n)$ | Conclusion |
@@ -408,7 +410,7 @@ for (j = 0; j < N; j++)
     sum = sum + j;
 ```
 
-The loop executes $N$ times ($j = 0, \ldots, N-1$) with 4 steps per iteration (test, addition, assignment, increment), $4N + 2$ steps in total. The coefficient 4 is a constant, so it can be ignored as $4 = O(1)$, and the total time is $N \cdot O(1) = O(N \cdot 1) = O(N)$.
+The loop executes $N$ times ($j = 0, \ldots, N-1$) with 4 steps per iteration (test, addition, assignment, increment), and the initializations `sum = 0` and `j = 0` before the loop take 2 steps, so there are $4N + 2$ steps in total. The coefficient 4 is a constant, so it can be ignored as $4 = O(1)$, and the total time is $N \cdot O(1) = O(N \cdot 1) = O(N)$.
 
 ```cpp
 int sum = 0, j;
@@ -503,6 +505,8 @@ $$T(n) = aT(n/b) + f(n)$$
 2. If $d = \log_b a$: $T(n) = \Theta(n^d \log n)$
 3. If $d > \log_b a$: $T(n) = \Theta(n^d)$
 
+> **[Algorithms]** The recurrence $T(n) = aT(n/b) + f(n)$ is the running time of a divide-and-conquer algorithm that recursively solves $a$ subproblems of size $n/b$ and spends $f(n)$ time dividing and combining. With $f(n) = \Theta(n^d)$, depth $i$ of the recursion tree costs about $a^i (n/b^i)^d = n^d (a/b^d)^i$, so the leaves determine the total cost when the cost grows with depth ($d < \log_b a$), all $\log_b n$ levels contribute equally when it stays the same ($d = \log_b a$), and the root determines it when the cost shrinks ($d > \log_b a$), which gives the three cases of the Master Theorem.
+
 ### 10.2 Examples
 
 **Merge Sort**: $T(n) = 2T(n/2) + \Theta(n)$
@@ -517,11 +521,11 @@ $$T(n) = aT(n/b) + f(n)$$
 
 ### 10.3 Amortized Analysis
 
-Some operations are occasionally expensive but cheap on average. **Amortized analysis** gives the average cost per operation over a sequence.
+Some operations are occasionally expensive but cheap when averaged over many operations. **Amortized analysis** gives the average cost per operation over a sequence. Unlike average-case analysis (Section 3.5 of Lecture 1), which assumes a probability distribution of the inputs, this average holds even for the worst-case sequence of operations.
 
-Example: Dynamic array `push_back`:
+Example: Dynamic array `push_back` (Section 2.6 of Lecture 3):
 - Usually $O(1)$ (just append)
-- Occasionally $O(n)$ (when resizing)
+- Occasionally $O(n)$ (when a full array is copied into a new array of twice the size)
 - Amortized cost: $O(1)$ per operation
 
 ---

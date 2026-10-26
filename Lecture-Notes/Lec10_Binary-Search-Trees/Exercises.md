@@ -2,7 +2,19 @@
 
 [Repository Guide](../../README.md) | [English](Exercises.md) | [한국어](Exercises.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
+
+---
+
+<br>
+
+## Table of Contents
+
+- [Exercise 1: BST Construction](#exercise-1-bst-construction)
+- [Exercise 2: BST Deletion Cases](#exercise-2-bst-deletion-cases)
+- [Exercise 3: BST Worst Case](#exercise-3-bst-worst-case)
+- [Exercise 4: BST Search Complexity](#exercise-4-bst-search-complexity)
+- [Exercise 5: Indexed BST](#exercise-5-indexed-bst)
 
 ---
 

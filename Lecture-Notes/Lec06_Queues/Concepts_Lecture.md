@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
 
 > **Learning Objectives:**
 > 1. Define a queue as a FIFO linear list and compare it with a stack
@@ -12,8 +12,6 @@
 > 5. Distinguish queue variants (deque, priority queue)
 
 ---
-
-<br>
 
 ## Table of Contents
 
@@ -98,7 +96,7 @@ The times in the table hold for an implementation with a circular array (Section
 
 Using `front` at the left end and `rear` at the right end:
 - `front` always equals zero.
-- `push(x)` is `array[++rear] = x` and takes $O(1)$.
+- `push(x)` is `queue[++rear] = x` and takes $O(1)$.
 - `pop()` shifts all elements left and takes $O(n)$.
 
 This is inefficient because `pop()` requires $O(n)$ shifts.
@@ -120,13 +118,13 @@ This queue can be derived from the array linear list (`ArrayLinearList`) of Lect
 |:-----|:-----|:-----|
 | `Queue.empty()` | `ArrayLinearList.empty()` | $O(1)$ |
 | `x = Queue.front()` | `ArrayLinearList.get(0)` | $O(1)$ |
-| `x = Queue.back()` | `ArrayLinearList.get(length - 1)` | $O(1)$ |
-| `Queue.push(x)` | `ArrayLinearList.insert(length, x)` | $O(1)$ |
-| `Queue.pop()` | `ArrayLinearList.erase(0)` | $O(\text{length})$ |
+| `x = Queue.back()` | `ArrayLinearList.get(listSize - 1)` | $O(1)$ |
+| `Queue.push(x)` | `ArrayLinearList.insert(listSize, x)` | $O(1)$ |
+| `Queue.pop()` | `ArrayLinearList.erase(0)` | $O(\text{listSize})$ |
 
 *Table 2. Queue operations derived from the array linear list and their times*
 
-Pop takes $O(\text{length})$ because after the first element is erased, every remaining element must shift one position left. Performing every operation in $O(1)$ time requires an array representation customized for queues.
+Pop takes $O(\text{listSize})$ because after the first element is erased, every remaining element must shift one position left. Performing every operation in $O(1)$ time requires an array representation customized for queues.
 
 ### 2.2 Modified Formula
 
@@ -210,13 +208,13 @@ In configuration 2 the elements continue from the end of the array, [5], to [0].
 
 ### 3.2 Implementation Details
 
-- **Moving clockwise:** `rear = (rear + 1) % queue.length` moves one position.
+- **Moving clockwise:** `rear = (rear + 1) % capacity` moves one position (`capacity` is the length of the array `queue`).
 - Use integer variables `theFront` and `theBack`:
   - `theFront` is one position counterclockwise from the first element.
   - `theBack` gives the position of the last element.
 - Initialize `front = rear = 0`.
 
-Figures and code use `front` and `rear` for `theFront` and `theBack`. Moving clockwise is the same as incrementing `rear` and setting `rear = 0` when `rear == queue.length`. Note that `front` was the position of the first element in Section 2.2, but in a circular queue `front` points one position before the first element. In configuration 1 of Table 3, the first element A is at [2], and `front` is 1, one position before it.
+Figures and code use `front` and `rear` for `theFront` and `theBack`. Moving clockwise is the same as incrementing `rear` and setting `rear = 0` when `rear == capacity`. Note that `front` was the position of the first element in Section 2.2, but in a circular queue `front` points one position before the first element. In configuration 1 of Table 3, the first element A is at [2], and `front` is 1, one position before it.
 
 ### 3.3 Full vs. Empty Distinction
 
@@ -380,12 +378,12 @@ T pop() {
 }
 ```
 
-Pushing onto an empty queue makes the new node both the front and the rear, and popping the last element sets both `frontNode` and `rearNode` to `nullptr`. Without handling these two boundary cases, the next push onto the empty queue would use a `rearNode` that points to a freed node.
+Pushing onto an empty queue makes the new node both the front and the rear, and popping the last element sets both `frontNode` and `rearNode` to `nullptr`. If popping the last element did not reset `rearNode` to `nullptr`, `rearNode` would keep pointing to a freed node, so a push that does not handle the empty queue separately would link the new node to the freed node.
 
 ### 4.3 Advantages
 
-- There is no size limitation because the list uses dynamic memory.
-- No slot needs to be left empty as in a circular array, so no cell is wasted.
+- There is no size limit fixed in advance because the list uses dynamic memory.
+- No cell needs to be left empty as in the one-wasted-cell method of a circular array, so no cell is wasted.
 
 ---
 
@@ -409,6 +407,8 @@ With a singly linked list, `popBack` must find the previous node that becomes th
 
 - In round-robin scheduling, processes take turns using the CPU. A process that has used up its time slice returns to the rear of the queue.
 - The ready queue holds the processes waiting for execution in order of arrival.
+
+> **[Operating Systems]** A process is a program in execution, and a process that is ready to run but waiting for the CPU enters the ready queue. Round-robin scheduling gives the process at the front of the ready queue the CPU for a fixed time slice and sends it to the rear if it does not finish within that time, so the FIFO order of the queue hands the CPU to every process in turn.
 
 ### 6.2 Breadth-First Search (BFS)
 
@@ -437,6 +437,8 @@ while queue is not empty:
             enqueue(neighbor)
 ```
 
+> **[Algorithms]** A graph consists of vertices and edges that join two vertices, and two vertices joined by an edge are neighbors of each other. Breadth-first search is a basic graph algorithm: because the queue releases vertices in order of their number of edges from the start vertex, it finds shortest paths (in number of edges) from the start vertex in an unweighted graph.
+
 ### 6.3 Buffer Management
 
 - Print job spooling processes the jobs that arrive at a printer in order of arrival.
@@ -455,7 +457,7 @@ while queue is not empty:
 |----------|-------------|----------------|
 | Pop | $O(n)$ or wastes space | $O(1)$ |
 | Space utilization | May leave gaps at front | Reuses freed space |
-| Full detection | `rear == capacity - 1` | `(rear+1) % cap == front` |
+| Full detection | `rear == capacity - 1` | `(rear + 1) % capacity == front` |
 | Implementation | Simple | Requires modulo arithmetic |
 
 *Table 8. Comparison of linear and circular queues*

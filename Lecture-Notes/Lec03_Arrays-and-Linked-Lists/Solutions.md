@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Solutions.md) | [한국어](Solutions.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
 
 ---
 
@@ -72,7 +72,7 @@
 
 **Answer:** Start from any node and continue traversing until you reach the starting node again.
 
-**Explanation:** Since the last node's `next` points back to the first node, the traversal forms a cycle. By comparing the current node with the starting node, we can detect when a full traversal is complete: `do { ... curr = curr->next; } while (curr != start);`
+**Explanation:** Since the last node's `next` points back to the first node, the traversal forms a cycle. By comparing the current node with the starting node, we can detect when a full traversal is complete: `do { ... curr = curr->next; } while (curr != start);` If the list is empty, there is no node to visit, so check whether the starting node is `NULL` before entering this loop.
 
 ---
 

@@ -2,7 +2,19 @@
 
 [Repository Guide](../../README.md) | [English](Exercises.md) | [한국어](Exercises.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
+
+---
+
+<br>
+
+## Table of Contents
+
+- [Exercise 1: Skip List Search Path](#exercise-1-skip-list-search-path)
+- [Exercise 2: Skip List Level Assignment](#exercise-2-skip-list-level-assignment)
+- [Exercise 3: Hash Table Linear Probing](#exercise-3-hash-table-linear-probing)
+- [Exercise 4: Chaining vs. Open Addressing](#exercise-4-chaining-vs-open-addressing)
+- [Exercise 5: Skip List Average-Case Analysis](#exercise-5-skip-list-average-case-analysis)
 
 ---
 

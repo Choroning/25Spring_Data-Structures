@@ -2,7 +2,19 @@
 
 [Repository Guide](../../README.md) | [English](Exercises.md) | [한국어](Exercises.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
+
+---
+
+<br>
+
+## Table of Contents
+
+- [Exercise 1: Stack Operations Trace](#exercise-1-stack-operations-trace)
+- [Exercise 2: Infix to Postfix](#exercise-2-infix-to-postfix)
+- [Exercise 3: Postfix Evaluation](#exercise-3-postfix-evaluation)
+- [Exercise 4: Parentheses Matching](#exercise-4-parentheses-matching)
+- [Exercise 5: Array vs. Linked Stack](#exercise-5-array-vs-linked-stack)
 
 ---
 

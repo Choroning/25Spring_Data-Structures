@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Assignment-Explanation.md) | [한국어](Assignment-Explanation.ko.md)
 
-> **Last Updated:** 2026-10-19
+> **Last Updated:** 2026-10-26
 
 > **Learning Objectives:**
 > 1. Describe the structure of a circular linked list with a head node and the shape of the empty list
@@ -136,7 +136,7 @@ With $n$ data nodes $(n \ge 1)$, the loop runs $n - 1$ times and `cur` stops at 
 
 ### 3.3 Counting Search Positions from 1
 
-In the example screenshots of the handout, searching for 4 in the list 3, 2, 1, 2, 4, 6 prints "4 is at the index 5". Counted from 0, 4 is at position 4, and counted from 1, it is the fifth node, so the example program counts positions from 1. The submitted program follows it and also prints positions counted from 1. `CircularList<T>::Search` in Lecture 3, Section 6.6 uses the same rule (positions from 1, 0 when not found), and it is a sentinel search that stores the target in the `data` of the head node so that each iteration makes only one comparison. When a value appears more than once, the search returns the first position met from the first node, so searching for 2 prints 2, not 4.
+In the example screenshots of the handout, searching for 4 in the list 3, 2, 1, 2, 4, 6 prints "4 is at the index 5". 4 is the fifth node, at position 4 counted from 0 and at position 5 counted from 1, so the example program counts positions from 1. The submitted program follows it and also prints positions counted from 1. `CircularList<T>::Search` in Lecture 3, Section 6.6 uses the same rule (positions from 1, 0 when not found), and it is a sentinel search that stores the target in the `data` of the head node so that each iteration makes only one comparison. When a value appears more than once, the search returns the first position met from the first node, so searching for 2 prints 2, not 4.
 
 ---
 

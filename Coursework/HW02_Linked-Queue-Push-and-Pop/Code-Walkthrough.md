@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Code-Walkthrough.md) | [한국어](Code-Walkthrough.ko.md)
 
-> **Last Updated:** 2026-10-19
+> **Last Updated:** 2026-10-26
 
 > **Learning Objectives:**
 > 1. Explain the pointers that each branch of `push` and `pop` changes in the two representations
@@ -35,16 +35,16 @@
 
 The companion document [HW2 Assignment Explanation](Assignment-Explanation.md) covers the two representations, the design, testing, and the interpretation of the execution times. This document reads the two files in `Solution` from beginning to end. All line numbers refer to the respective file. `Push-and-Pop.cpp` (82 lines) holds the two submitted functions, and `Test-Driver.cpp` (111 lines) is a test driver that runs them.
 
-| File | Lines | Part | Author |
+| File | Lines | Part | Kind |
 |:-----|:-----|:-----|:-----|
-| `Push-and-Pop.cpp` | 1-12 | Doxygen header | Added to match the repository format |
+| `Push-and-Pop.cpp` | 1-12 | Doxygen header | Comment outside the submitted code |
 | `Push-and-Pop.cpp` | 14-40 | `push` | Submitted code |
 | `Push-and-Pop.cpp` | 42-82 | `pop` | Submitted code |
-| `Test-Driver.cpp` | 1-19 | Header comment and `#include` | Written for testing |
-| `Test-Driver.cpp` | 21-32 | `Node<T>` | Written for testing |
-| `Test-Driver.cpp` | 34-69 | `Queue<T>` (includes the submitted functions at line 60) | Written for testing |
-| `Test-Driver.cpp` | 71-98 | `showPopOrder`, `popTime` | Written for testing |
-| `Test-Driver.cpp` | 100-111 | `main` | Written for testing |
+| `Test-Driver.cpp` | 1-19 | Header comment and `#include` | Test driver |
+| `Test-Driver.cpp` | 21-32 | `Node<T>` | Test driver |
+| `Test-Driver.cpp` | 34-69 | `Queue<T>` (includes the submitted functions at line 60) | Test driver |
+| `Test-Driver.cpp` | 71-98 | `showPopOrder`, `popTime` | Test driver |
+| `Test-Driver.cpp` | 100-111 | `main` | Test driver |
 
 *Table 1. Layout of the two files*
 
@@ -191,6 +191,8 @@ explicit Queue(int type) : type(type), front(nullptr), rear(nullptr), queueSize(
 
 The constructor on line 44 sets the representation and creates an empty queue. The destructor on lines 46-54 frees the nodes left in the queue. The node where the links start is `front` in type 1 and `rear` in type 2, so it starts there and, until it reaches `nullptr`, saves the next node first and frees the current one. With $m$ nodes left this takes $O(m)$. Repeating `pop` in the destructor would take $O(m^2)$ in type 2, so it follows the links directly. Lines 56-57 delete the copy constructor and copy assignment. If copying were allowed, two objects would point to the same nodes and their destructors would each free the same nodes, freeing them twice.
 
+> **[Computer Programming]** The copy constructor and copy assignment operator that the C++ compiler generates copy the members one by one, so a pointer member copies only the address, not the node it points to (a shallow copy). A class that owns dynamically allocated nodes must therefore define these two operations itself or delete them with `= delete`, together with its destructor; this principle is called the rule of three.
+
 Lines 59-60 `#include` the file `Push-and-Pop.cpp` inside the class definition. The preprocessor replaces the line with the contents of the file, so the submitted `push` and `pop` become member functions without any change, and `type`, `front`, `rear`, and `queueSize` inside them refer to the member variables on lines 64-68. `size` on line 62 returns the element count, which the driver uses to avoid popping from an empty queue.
 
 ---
@@ -260,7 +262,7 @@ Pushing 1, 2, 3 onto a type 2 queue and popping twice traces as follows. The que
 
 *Table 2. Trace of push and pop on a type 2 queue*
 
-In step 4, `prev` starts at 3; the link of 3 is 2, not the front 1, so `prev` moves once to 2 and stops because the link of 2 is 1. With three elements the loop runs $3 - 2 = 1$ time. The same calls on type 1 run lines 23-24 for push and lines 50-57 for pop, with no loop.
+In step 4, `prev` starts at 3; the link of 3 is 2, not the front 1, so `prev` moves once to 2 and stops because the link of 2 is 1. With three elements the loop runs $3 - 2 = 1$ time. The same calls on type 1 run line 21 for the first push and lines 23-24 for the later pushes, and lines 50-57 for pop, with no loop.
 
 ---
 

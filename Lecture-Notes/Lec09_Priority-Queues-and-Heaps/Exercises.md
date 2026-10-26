@@ -2,7 +2,19 @@
 
 [Repository Guide](../../README.md) | [English](Exercises.md) | [한국어](Exercises.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
+
+---
+
+<br>
+
+## Table of Contents
+
+- [Exercise 1: Max Heap Insert Trace](#exercise-1-max-heap-insert-trace)
+- [Exercise 2: Max Heap Delete Trace](#exercise-2-max-heap-delete-trace)
+- [Exercise 3: Heap Initialization](#exercise-3-heap-initialization)
+- [Exercise 4: Is This a Heap?](#exercise-4-is-this-a-heap)
+- [Exercise 5: Leftist Tree Merge](#exercise-5-leftist-tree-merge)
 
 ---
 
