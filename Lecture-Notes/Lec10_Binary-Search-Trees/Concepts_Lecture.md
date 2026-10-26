@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
 
 > **Learning Objectives:**
 > 1. Implement binary search tree (BST) operations (insert, delete, search)
@@ -47,7 +47,7 @@
 
 A **search tree** is a structure well suited to implementing the dictionaries of Lecture 7.
 
-- Search trees give similar or better performance than skip lists and hash tables. Their average performance does not match the $O(1)$ of hash tables, but a search tree that stays balanced guarantees $O(\log n)$ even in the worst case (Section 6.1).
+- Search trees give performance comparable to skip lists and hash tables. Their average performance does not match the $O(1)$ of hash tables, but a search tree that stays balanced guarantees $O(\log n)$ even in the worst case, so it does better in the worst case (Section 6.1).
 - Search trees are particularly suited to accessing data sequentially in key order or by rank.
 
 ### 1.2 Definition and Properties
@@ -93,7 +93,7 @@ Tree (a) is **not** a BST. The right child 10 of 15 is smaller than 15, and the 
 
 Since the number of elements and the shape of a BST change dynamically with insertions and deletions, BSTs are usually represented using the **linked representation** (each node has an `element` and two child pointers `leftChild` and `rightChild`).
 
-The code of this lecture simplifies the element to a single integer key and uses the following node structure.
+The code of this note simplifies the element to a single integer key and uses the following node structure.
 
 ```cpp
 struct Node {
@@ -287,7 +287,7 @@ All BST operations (search, insert, delete) have time complexity $O(h)$ where $h
 
 A BST with $n$ nodes has height at least $\lceil \log_2(n+1) \rceil$. This is because a binary tree of height $h$ has at most $2^h - 1$ nodes, so $n \leq 2^h - 1$ (Lecture 8). A well-balanced BST, shaped like a complete binary tree, reaches this minimum height $h = \lceil \log_2(n+1) \rceil$, giving $O(\log n)$ operations.
 
-This occurs when keys are inserted in a balanced order (e.g., median first, then medians of subarrays, etc.).
+This occurs when keys are inserted in a balanced order (e.g., the median of all keys first, then the medians of the ranges it splits off, and so on).
 
 ### 3.2 Worst Case
 

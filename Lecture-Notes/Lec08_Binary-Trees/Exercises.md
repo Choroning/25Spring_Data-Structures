@@ -2,7 +2,19 @@
 
 [Repository Guide](../../README.md) | [English](Exercises.md) | [한국어](Exercises.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
+
+---
+
+<br>
+
+## Table of Contents
+
+- [Exercise 1: Binary Tree Properties](#exercise-1-binary-tree-properties)
+- [Exercise 2: Traversal Orders](#exercise-2-traversal-orders)
+- [Exercise 3: Complete Binary Tree](#exercise-3-complete-binary-tree)
+- [Exercise 4: Expression Tree Evaluation](#exercise-4-expression-tree-evaluation)
+- [Exercise 5: Array vs. Linked Representation](#exercise-5-array-vs-linked-representation)
 
 ---
 

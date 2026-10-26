@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Assignment-Explanation.md) | [한국어](Assignment-Explanation.ko.md)
 
-> **Last Updated:** 2026-10-19
+> **Last Updated:** 2026-10-26
 
 > **Learning Objectives:**
 > 1. Describe the direction of the links and the positions of `front` and `rear` in the two representations of a linked queue (type 1 and type 2)
@@ -70,8 +70,8 @@ g++ -std=c++17 -Wall -Wextra -pedantic -o hw2 Test-Driver.cpp
 
 The queue is a chain of nodes of the class `Node<T>` (data field `data`, link field `link`); `front` points to the node that came in first and will be popped next, and `rear` points to the node pushed last. The empty queue is the state in which both `front` and `rear` are `nullptr`. The two representations differ in the direction of the links.
 
-- **Type 1:** Each node points to the node pushed right after it. The links run from `front` toward `rear`, and the link of `rear` is `NULL`.
-- **Type 2:** Each node points to the node pushed right before it. The links run from `rear` toward `front`, and the link of `front` is `NULL`.
+- **Type 1:** Each node points to the node pushed right after it. The links run from `front` toward `rear`, and the link of `rear` is `nullptr`.
+- **Type 2:** Each node points to the node pushed right before it. The links run from `rear` toward `front`, and the link of `front` is `nullptr`.
 
 ```text
 (a) Type 1: the links run from the front toward the rear
@@ -178,7 +178,7 @@ Handling the one-element case separately is also necessary. Then `front` and `re
 
 In both representations, pop on an empty queue returns `T()` before it reaches `queueSize--`, so the element count never becomes negative and the state of the queue does not change.
 
-> **Caution:** `T()` is 0 for `int`, so the caller cannot distinguish the return value for an empty queue from an actual element 0. `pop` in Lecture 6, Section 4.2 throws a `std::underflow_error` exception on an empty queue. With the return-value approach the caller must check the element count before calling, and the test driver also pops only while `size()` is greater than 0.
+> **Caution:** `T()` is 0 for `int`, so the caller cannot distinguish the return value for an empty queue from an actual element 0. `pop` in Lecture 6, Section 4.2 throws a `std::underflow_error` exception on an empty queue. Since the return value alone cannot signal an empty queue, the caller must check the element count before calling pop, and the test driver also pops only while `size()` is greater than 0.
 
 ---
 

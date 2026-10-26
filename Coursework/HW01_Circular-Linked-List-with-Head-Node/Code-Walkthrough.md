@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Code-Walkthrough.md) | [한국어](Code-Walkthrough.ko.md)
 
-> **Last Updated:** 2026-10-19
+> **Last Updated:** 2026-10-26
 
 > **Learning Objectives:**
 > 1. Explain the link that each statement of `InsertFront` and `InsertRear` changes
@@ -35,15 +35,15 @@
 
 The companion document [HW1 Assignment Explanation](Assignment-Explanation.md) covers the requirements, design, testing, and written answers. This document reads the two files in `Solution` from beginning to end. All line numbers refer to the respective file. `InsertFront-and-InsertRear.cpp` (38 lines) holds the two submitted functions, and `Test-Driver.cpp` (133 lines) is a test driver that runs them.
 
-| File | Lines | Part | Author |
+| File | Lines | Part | Kind |
 |:-----|:-----|:-----|:-----|
-| `InsertFront-and-InsertRear.cpp` | 1-10 | Doxygen header | Added to match the repository format |
+| `InsertFront-and-InsertRear.cpp` | 1-10 | Doxygen header | Comment outside the submitted code |
 | `InsertFront-and-InsertRear.cpp` | 12-20 | `InsertFront` | Submitted code |
 | `InsertFront-and-InsertRear.cpp` | 22-38 | `InsertRear` | Submitted code |
-| `Test-Driver.cpp` | 1-19 | Header comment, `#include`, forward declaration | Written for testing |
-| `Test-Driver.cpp` | 21-36 | `ChainNode<T>` | Written for testing |
-| `Test-Driver.cpp` | 38-96 | `CircularList<T>` (includes the submitted functions at line 68) | Written for testing |
-| `Test-Driver.cpp` | 98-133 | `main` | Written for testing |
+| `Test-Driver.cpp` | 1-19 | Header comment, `#include`, forward declaration | Test driver |
+| `Test-Driver.cpp` | 21-36 | `ChainNode<T>` | Test driver |
+| `Test-Driver.cpp` | 38-96 | `CircularList<T>` (includes the submitted functions at line 68) | Test driver |
+| `Test-Driver.cpp` | 98-133 | `main` | Test driver |
 
 *Table 1. Layout of the two files*
 
@@ -101,7 +101,7 @@ After line 23 allocates the new node, line 26 initializes `cur` to the first nod
 
 ## 4. Driver Headers and ChainNode
 
-Lines 1-15 of `Test-Driver.cpp` are the Doxygen header, which states that the file was written for testing and gives the build commands. `<initializer_list>` on line 16 is the header for using a brace list in a range-based for statement such as `for (int x : {1, 2, 3})` in `main`, and `<iostream>` on line 17 is the header for input and output. Line 19 is a forward declaration of `CircularList`. It is needed because the `friend` declaration on line 27 refers to `CircularList<T>` before it is defined.
+Lines 1-14 of `Test-Driver.cpp` are the Doxygen header, which states that the file was written for testing and gives the build commands. `<initializer_list>` on line 16 is the header for using a brace list in a range-based for statement such as `for (int x : {1, 2, 3})` in `main`, and `<iostream>` on line 17 is the header for input and output. Line 19 is a forward declaration of `CircularList`. It is needed because the `friend` declaration on line 27 refers to `CircularList<T>` before it is defined.
 
 ```cpp
 template <class T>
@@ -149,7 +149,7 @@ The constructor on lines 49-52 allocates the head node and makes its link point 
 }
 ```
 
-The destructor on lines 55-65 is the destructor of Lecture 3, Section 6.4 with output added. It makes `del` point to the first node, then repeatedly moves the link of the head node to the node after `del` and deletes `del`, until `del` becomes the head node. Since the next node is moved into `head->link` before a node is deleted, the link of a freed node is never read. When all data nodes are gone, the link of the head node points to itself, the loop ends, and line 63 frees the head node. Deletion proceeds in turn from the first node, so the output order matches the list order.
+The destructor on lines 55-65 is the destructor of Lecture 3, Section 6.4 with the deletion messages and the freeing of the head node added. It makes `del` point to the first node, then repeatedly moves the link of the head node to the node after `del` and deletes `del`, until `del` becomes the head node. Since the next node is moved into `head->link` before a node is deleted, the link of a freed node is never read. When all data nodes are gone, the link of the head node points to itself, the loop ends, and line 63 frees the head node. Deletion proceeds in turn from the first node, so the output order matches the list order.
 
 ---
 

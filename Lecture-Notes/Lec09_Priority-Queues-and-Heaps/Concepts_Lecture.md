@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
 
 > **Learning Objectives:**
 > 1. Implement the heap data structure using an array
@@ -591,7 +591,7 @@ The finish time (length) of this schedule is 21. The objective is to find a sche
 - NP-hard problems are often solved by heuristics (or approximation algorithms), which do not guarantee optimal solutions.
 - The **LPT (Longest Processing Time) rule** is a good heuristic for minimum finish time scheduling.
 
-> **[Theory of Computation]** Strictly, a problem is NP-hard when every problem in NP can be reduced to it in polynomial time. No NP-hard problem has a known polynomial time algorithm, and finding one for even a single NP-hard problem would establish P = NP.
+> **[Theory of Computation]** Theory of computation defines a problem as NP-hard when every problem in NP can be reduced to it in polynomial time. No NP-hard problem has a known polynomial time algorithm, and finding one would establish P = NP, which is why NP-hard problems are described above as problems without a known polynomial time algorithm.
 
 The LPT rule sorts the jobs in decreasing order of processing time and then assigns them in turn to the machine that becomes free first. A **min heap** finds the machine that becomes free first quickly. Keyed by the time at which each machine becomes free, the min heap yields a machine by a delete-min, and after the job is assigned, the machine is reinserted with its new free time as the key. Sorting the jobs (by heap sort) takes $O(n \log n)$ and each assignment takes $O(\log m)$, so the total time is $O(n \log n + n \log m)$.
 

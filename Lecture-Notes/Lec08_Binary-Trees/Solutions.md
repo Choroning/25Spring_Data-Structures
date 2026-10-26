@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Solutions.md) | [한국어](Solutions.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
 
 ---
 
@@ -100,7 +100,7 @@
 
 Evaluation: $(3 + 5) = 8$, $8 \times 2 = 16$, $16 - 7 = 9$. Result: **9**.
 
-**Explanation:** To build an expression tree from postfix, scan left to right. For each operand, create a leaf node and push it on the stack (Lecture 5). For each operator, pop two nodes (right then left), create a new node with the operator, attach them as children, and push the new node. When the scan ends, the single node left on the stack is the root. Postorder traversal of the result gives back the original postfix expression.
+**Explanation:** To build an expression tree from postfix, scan left to right. For each operand, create a leaf node and push it on the stack (Lecture 5). For each operator, pop two nodes (right then left), create a new node with the operator, attach them as children, and push the new node. When the scan ends, the single node left on the stack is the root. Postorder traversal of the tree built this way gives back the original postfix expression.
 
 ---
 
@@ -114,4 +114,4 @@ Evaluation: $(3 + 5) = 8$, $8 \times 2 = 16$, $16 - 7 = 9$. Result: **9**.
 
 **Answer:** Node positions are 1, 3, 7, 15. The array needs $2^h = 2^4 = 16$ slots, positions 0 through 15, but only 4 are used. The other 12 are empty, so the space waste is 75%. Linked representation needs only $4 \times \text{sizeof(node)}$ with no wasted space.
 
-**Explanation:** In the array representation, a right-skewed tree places nodes at positions $1, 3, 7, 15, \ldots$ (following the right child formula $2x+1$). This exponential growth in indices wastes enormous space. Linked representation stores only the nodes that exist, making it far more space-efficient for non-complete trees.
+**Explanation:** In the array representation, a right-skewed tree places nodes at positions $1, 3, 7, 15, \ldots$ (following the right child formula $2x+1$). This exponential growth in indices wastes enormous space. Linked representation stores only the nodes that exist, making it far more space-efficient for incomplete binary trees.

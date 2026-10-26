@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
 
 > **Learning Objectives:**
 > 1. Analyze algorithm performance using step counts
@@ -35,10 +35,10 @@
   - [3.5 Best, Worst, and Average Cases](#35-best-worst-and-average-cases)
 - [4. Asymptotic Complexity](#4-asymptotic-complexity)
   - [4.1 Why Asymptotic Complexity Is Needed](#41-why-asymptotic-complexity-is-needed)
-  - [4.2 Upper Bounds and Big O Notation](#42-upper-bounds-and-big-o-notation)
+  - [4.2 Upper Bounds and Big-O Notation](#42-upper-bounds-and-big-o-notation)
   - [4.3 Lower Bounds and Omega Notation](#43-lower-bounds-and-omega-notation)
   - [4.4 Theta Notation and Optimal Algorithms](#44-theta-notation-and-optimal-algorithms)
-  - [4.5 Little o Notation and the Growth Rate Hierarchy](#45-little-o-notation-and-the-growth-rate-hierarchy)
+  - [4.5 Little-o Notation and the Growth Rate Hierarchy](#45-little-o-notation-and-the-growth-rate-hierarchy)
 - [5. Performance Measurement](#5-performance-measurement)
   - [5.1 Wall-Clock Timing](#51-wall-clock-timing)
   - [5.2 CPU Time vs. Wall-Clock Time](#52-cpu-time-vs-wall-clock-time)
@@ -191,7 +191,7 @@ Recursion is a valuable tool that leads to elegant solutions, but its trade-offs
 ### 2.8 Making Programs More Space Efficient
 
 - Always choose the smallest data type that holds the required range.
-- Study the compiler in use.
+- Know the characteristics of the compiler in use (such as data type sizes).
 - Learn the effects of different compilation settings on space.
 - Choose non-recursive algorithms when appropriate.
 
@@ -223,7 +223,7 @@ Key operations include:
 
 **Sorting** rearranges `a[0]`, `a[1]`, ..., `a[n-1]` into ascending order so that `a[0] <= a[1] <= ... <= a[n-1]`. For example, sorting 8, 6, 9, 4, 3 gives 3, 4, 6, 8, 9. Sort methods include insertion sort, bubble sort, selection sort, count sort, shaker sort, shell sort, heap sort, merge sort, and quick sort. This section uses insertion sort as the example for operation counts and step counts.
 
-**Inserting one element.** Inserting a new element into a sorted sequence is the basic step of insertion sort. Inserting 5 into 3, 6, 9, 14 gives 3, 5, 6, 9, 14. The new element is compared with the elements from the last one backward; each element larger than the new element is shifted one position to the right, and when an element not larger than the new element is found, the new element goes into the empty slot right after it.
+**Inserting one element.** Inserting a new element into a sorted sequence is the basic step of insertion sort. Inserting 5 into 3, 6, 9, 14 gives 3, 5, 6, 9, 14. The new element is compared with the elements from the last one backward; each element larger than the new element is shifted one position to the right, and when an element not larger than the new element is found, the new element goes into the empty slot right after it. If every element is larger than the new element and even the first element has been shifted, the new element goes into the empty first slot.
 
 ```text
 3   6   9   14  _       (1) Compare 5 with 14: 5 < 14
@@ -396,18 +396,18 @@ Neither of the two yields a very accurate measure. Operation counts focus on key
 
 **Example.** Suppose two programs have complexities $c_1n^2 + c_2n$ and $c_3n$, respectively. For sufficiently large values of $n$, the program with complexity $c_3n$ is faster than the one with complexity $c_1n^2 + c_2n$. For small values of $n$, either program could be faster, depending on the values of $c_1$, $c_2$, and $c_3$. If $c_1 = 1$, $c_2 = 2$, and $c_3 = 100$, then $n^2 + 2n \le 100n$ is equivalent to $n \le 98$, so $c_1n^2 + c_2n \le c_3n$ for $n \le 98$ and $c_1n^2 + c_2n > c_3n$ for $n > 98$.
 
-### 4.2 Upper Bounds and Big O Notation
+### 4.2 Upper Bounds and Big-O Notation
 
 **Asymptotic notation** describes the behavior of the time or space complexity for large instance characteristics.
 
-1. **Big O ($O$)** notation provides an upper bound for the function $f$.
+1. **Big-O ($O$)** notation provides an upper bound for the function $f$.
 2. **Omega ($\Omega$)** notation provides a lower bound.
 3. **Theta ($\Theta$)** notation is used when the function can be bounded both from above and below by the same function (it is sometimes called the exact notation).
-4. **Little o ($o$)** notation defines a strict upper bound. It is also called a loose upper bound, meaning a bound that is not tight.
+4. **Little-o ($o$)** notation defines a strict upper bound. It is also called a loose upper bound, meaning a bound that is not tight.
 
 The time complexity $T(n)$ is a function of the problem size $n$. Usually $T(n)$ is the running time in the worst case, that is, the maximum number of steps required for an arbitrary input, while the average case is the mean number of steps required over a large number of random inputs. For example, bubble sort needs $T(n) = n(n-1)/2$ comparison-exchange steps to sort a sequence of $n$ data elements. Often it is not necessary to know the exact value of $T(n)$; an upper bound as an estimate is enough. Since $T(n) \le f(n) = n^2/2$ for all $n$, $f(n)$ is an upper bound for the time complexity $T(n)$ of bubble sort, and bubble sort requires at most $f(n)$ time.
 
-The asymptotic complexity is a function $f(n)$ that forms an upper bound for $T(n)$ for large $n$. In general, only the **order** of the asymptotic complexity is of interest, that is, whether it is a linear, quadratic, or exponential function. The order is denoted by a **complexity class** using Big O notation.
+The asymptotic complexity is a function $f(n)$ that forms an upper bound for $T(n)$ for large $n$. In general, only the **order** of the asymptotic complexity is of interest, that is, whether it is a linear, quadratic, or exponential function. The order is denoted by a **complexity class** using Big-O notation.
 
 > **Definition:** $f(n) = O(g(n))$ (read as "f(n) is Big Oh of g(n)") if positive constants $c$ and $n_0$ exist such that $f(n) \le c \cdot g(n)$ for all $n \ge n_0$. That is, $O(g)$ comprises all functions $f$ for which there exist a constant $c$ and a number $n_0$ such that $f(n)$ is smaller than or equal to $c \cdot g(n)$ for all $n \ge n_0$.
 
@@ -434,9 +434,9 @@ The lower bound for the sorting problem lies in $\Omega(n)$, and the upper bound
 
 > **Caution:** The $\Omega(n \log n)$ lower bound applies to **comparison sorts**, which determine the order only by comparing elements. Methods that do not use comparisons, such as counting sort for integer keys in a small range, are not subject to this bound.
 
-### 4.5 Little o Notation and the Growth Rate Hierarchy
+### 4.5 Little-o Notation and the Growth Rate Hierarchy
 
-$f(n) = o(g(n))$ (read as "f(n) is little oh of g(n)") means that $f$ has a strictly lower growth rate than $g$. Since an equal growth rate is not allowed, little o is a **strict upper bound**, and it is also called a loose upper bound, meaning a bound that is not tight. The precise definition and proofs using limits are covered in Lecture 2.
+$f(n) = o(g(n))$ (read as "f(n) is little oh of g(n)") means that $f$ has a strictly lower growth rate than $g$. Since an equal growth rate is not allowed, little-o is a **strict upper bound**, and it is also called a loose upper bound, meaning a bound that is not tight. The precise definition and proofs using limits are covered in Lecture 2.
 
 The hierarchy of growth rate functions is:
 
@@ -495,6 +495,8 @@ std::cout << "Time: " << duration.count() << " microseconds" << std::endl;
 
 *Table 7. Comparison of running time metrics*
 
+> **[Operating Systems]** The operating system lets several processes take turns on the CPU and runs another process while one process waits for I/O. So wall-clock time also includes the time other processes ran and the time spent waiting for I/O, whereas CPU time includes only the time the process actually used the CPU, and CPU time splits into user-mode time spent running the program's own code and kernel-mode time spent handling its system calls.
+
 ### 5.3 Measurement Best Practices
 
 1. **Run multiple iterations** to reduce variance.
@@ -543,7 +545,7 @@ $T(n)/n$ and $T(n)/(n \ln n)$ keep increasing as $n$ grows, so these functions d
 ### 7.1 Common Pitfalls in Performance Analysis
 
 1. **Ignoring constants**: While $O$-notation hides constants, they matter in practice for moderate $n$.
-2. **Confusing amortized and worst-case**: Some operations are expensive occasionally but cheap on average.
+2. **Confusing amortized and worst-case**: Some operations are expensive occasionally but cheap when averaged over many operations (amortized analysis is covered in Section 10.3 of Lecture 2).
 3. **Cache effects**: Memory access patterns significantly affect real-world performance.
 4. **Compiler optimizations**: The compiler may eliminate dead code or reorder operations.
 

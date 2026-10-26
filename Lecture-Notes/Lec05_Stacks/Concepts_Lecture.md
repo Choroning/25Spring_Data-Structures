@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
 
 > **Learning Objectives:**
 > 1. Define a stack as a restricted linear list and explain its LIFO behavior
@@ -12,8 +12,6 @@
 > 5. Analyze time complexity of stack operations
 
 ---
-
-<br>
 
 ## Table of Contents
 
@@ -34,7 +32,7 @@
   - [4.1 Parentheses Matching](#41-parentheses-matching)
   - [4.2 Function Call Stack](#42-function-call-stack)
   - [4.3 Undo Operations](#43-undo-operations)
-  - [4.4 Tower of Hanoi](#44-tower-of-hanoi)
+  - [4.4 Towers of Hanoi](#44-towers-of-hanoi)
 - [5. Expression Evaluation](#5-expression-evaluation)
   - [5.1 Infix, Prefix, and Postfix](#51-infix-prefix-and-postfix)
   - [5.2 Infix to Postfix Conversion](#52-infix-to-postfix-conversion)
@@ -103,10 +101,10 @@ A stack is a restricted version of a linear list (the array list or linked list 
 
 Use an array with a variable `topIndex` tracking the top:
 - `topIndex = -1` means the stack is empty.
-- `push(x)` increments `topIndex` and stores at `array[topIndex]`.
-- `pop()` returns `array[topIndex]` and decrements `topIndex`.
+- `push(x)` increments `topIndex` and stores at `stack[topIndex]`.
+- `pop()` returns `stack[topIndex]` and decrements `topIndex`.
 
-Since a stack is a restricted version of a linear list, the array-based representation of a linear list can be used as it is. With `length` elements, the top of the stack is `element[length-1]` and the bottom is `element[0]`, so `topIndex = length - 1`. The following implementation includes the resizing of Section 2.2.
+Since a stack is a restricted version of a linear list, the array-based representation of a linear list can be used as it is. With `listSize` elements, the top of the stack is `element[listSize-1]` and the bottom is `element[0]`, so `topIndex = listSize - 1` (`element` and `listSize` of Lecture 3). The following implementation includes the resizing of Section 2.2.
 
 ```cpp
 #include <iostream>
@@ -167,7 +165,7 @@ int main() {
 
 ### 2.2 Dynamic Resizing
 
-When the array is full, double its size (amortized $O(1)$ push).
+Doubling the array when it is full makes the amortized time of push $O(1)$.
 
 Starting from capacity 1, $n$ pushes copy 1, 2, 4, ... elements each time the array grows, so the total number of copies is less than $2n$. The average cost of one push is therefore constant. The particular push that grows the array, however, copies every element and takes $O(n)$ time.
 
@@ -310,7 +308,7 @@ The output consists of the pairs $(u, v)$ such that the left parenthesis at posi
 3. When a right parenthesis is encountered, pop the position of the matching left parenthesis from the stack and output the pair. If the stack is empty, this right parenthesis has no match.
 4. After the scan, the left parentheses at the positions left on the stack have no match.
 
-The most recent left parenthesis is matched first by the next right parenthesis, so a stack, a LIFO structure, fits. The output for the expression `(((a+b)*c+d-e)/(f+g)-(h+j)*(k-1))/(m-n)` is (2, 6) (1, 13) (15, 19) (21, 25) (27, 31) (0, 32) (34, 38), and the stack and output change at each parenthesis as follows.
+A right parenthesis matches the most recent of the left parentheses that are still unmatched, so a stack, a LIFO structure, fits. The output for the expression `(((a+b)*c+d-e)/(f+g)-(h+j)*(k-1))/(m-n)` is (2, 6) (1, 13) (15, 19) (21, 25) (27, 31) (0, 32) (34, 38), and the stack and output change at each parenthesis as follows.
 
 | Parenthesis read (position) | Action | Stack (bottom → top) | Output |
 |:-----|:-----|:-----|:-----|
@@ -412,13 +410,15 @@ The runtime system uses a stack to manage function calls:
 - On return, it pops that activation record.
 - Each recursive call stacks its own activation record, so recursion is supported naturally.
 
+> **[Systems Programming]** In a real program this stack lives in the stack region of the process memory: a call moves the stack pointer register to create the activation record (stack frame), and a return moves it back. The region has a limited size, so recursion that goes too deep causes a stack overflow.
+
 ### 4.3 Undo Operations
 
 Text editors, browsers, and many applications use stacks for undo functionality. The most recent action must be undone first, so a LIFO structure fits.
 
-### 4.4 Tower of Hanoi
+### 4.4 Towers of Hanoi
 
-Classic recursive problem solved elegantly with stacks:
+The Towers of Hanoi is a classic problem solved recursively by representing each tower as a stack, and the minimum number of moves for $n$ disks is given by the following formula, derived at the end of this section.
 
 $$T(n) = 2T(n-1) + 1 = 2^n - 1 \text{ moves}$$
 
@@ -606,14 +606,14 @@ Queues are covered in Lecture 6.
 | Concept | Key Summary |
 |---------|-------------|
 | Stack | A LIFO data structure that inserts and deletes only at the top, and all operations are $O(1)$ with a fixed-size array or a linked list. |
-| Relation to linear lists | A stack is a restricted linear list that inserts and deletes only at the right end. |
+| Relation to linear lists | A stack is a restricted linear list that inserts and deletes only at one end, and with the right end as the top, push and pop become insertion and deletion at the right end. |
 | Array-based | It uses `topIndex` and doubles the array when full, which keeps push amortized $O(1)$. |
 | Two stacks in one array | Using the two ends of an array as the bottoms of two stacks lets them share the free cells without waste. |
-| Linked | It uses the linked list head as the top and has no capacity limit. |
+| Linked | It uses the linked list head as the top and has no capacity limit fixed in advance. |
 | Parentheses matching | Opening brackets or their positions are pushed and popped on closing brackets to form pairs. |
-| Tower of Hanoi | Each tower is represented as a stack, and moving $n$ disks requires at least $2^n - 1$ moves. |
+| Towers of Hanoi | Each tower is represented as a stack, and moving $n$ disks requires at least $2^n - 1$ moves. |
 | Expression evaluation | Infix is converted to postfix, which is then evaluated with a stack. |
-| Recursion | The function call stack is an implicit stack. |
+| Recursion | Each recursive call stacks an activation record on the function call stack, so recursion implicitly uses a stack that the program does not build itself. |
 
 ---
 

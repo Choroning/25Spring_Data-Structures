@@ -2,11 +2,11 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
 
 > **Learning Objectives:**
 > 1. Implement array-based and linked list data structures
-> 2. Compare time complexity of array vs linked list operations
+> 2. Compare the time complexity of array and linked list operations
 > 3. Apply iterator patterns for sequential access
 > 4. Apply several mapping formulas that store a linear list in an array
 > 5. Explain why head nodes and circular lists simplify linked list operations
@@ -225,6 +225,8 @@ struct Node {
 };
 ```
 
+> **[Computer Programming]** A C++ template (`template <typename T>`) takes a type as a parameter so that the same code works for many types; `new` creates an object on the heap (free store) at run time and returns its address, and `delete` returns that memory. The linked representation creates a node with `new` whenever one is needed and returns an unused node with `delete`, so these two operations are the basis of a dynamic structure whose size is not fixed in advance.
+
 ### 3.2 Difference from Array Representation
 
 In the array representation, the location of an element is computed by the mapping formula, so no location information is stored. In the linked representation, the location of the next element is stored explicitly in each node as a link. So the linked representation can place elements anywhere in memory, but accessing the $i$-th element requires following the links from the first node.
@@ -240,6 +242,8 @@ In the array representation, the location of an element is computed by the mappi
 - No random access: $O(n)$ to reach element $i$
 - Extra memory for pointers
 - Cache-unfriendly (nodes scattered in memory)
+
+> **[Computer Architecture]** A cache is a small, fast memory that holds recently accessed addresses and their neighboring data in units of blocks. An array at consecutive addresses lets neighboring elements share a block once it is fetched (spatial locality), but nodes scattered across memory need a different block at every link that is followed, so a linked list is often slower than an array even for the same $O(n)$ traversal.
 
 ---
 
@@ -625,7 +629,7 @@ Extra pointer per node (more memory) but bidirectional traversal and simpler del
 
 ### 5.4 Circular Doubly Linked Lists
 
-In a **circular doubly linked list**, a head node can be added at the left end, the right end, or both. In a non-empty circular doubly linked list, the following hold.
+In a **circular doubly linked list**, a head node can be added at the left end, the right end, or both. In a non-empty circular doubly linked list without a head node, the following hold.
 
 - `LeftEnd->left` is a pointer to the right-most node (i.e., it equals RightEnd).
 - `RightEnd->right` is a pointer to the left-most node (i.e., it equals LeftEnd).

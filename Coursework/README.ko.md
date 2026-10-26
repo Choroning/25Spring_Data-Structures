@@ -2,7 +2,7 @@
 
 [레포지토리 안내](../README.ko.md) | [English](README.md) | [한국어](README.ko.md)
 
-> **최종 수정일:** 2026-10-19
+> **최종 수정일:** 2026-10-26
 
 | 항목 | 내용 | 문서 |
 |:-----|:-----|:-----|
@@ -14,9 +14,9 @@
 | [Lab04_Matrices](Lab04_Matrices/) | 삼중쌍 배열로 저장한 희소 행렬(값 설정과 조회, O(terms + cols) 빠른 전치, 덧셈)과 직교 리스트로 표현한 희소 행렬을 다루는 실습 코드. 4강과 이어진다 | [Lab_SparseMatrix.cpp](Lab04_Matrices/Lab_SparseMatrix.cpp) |
 | [Lab05_Stacks](Lab05_Stacks/) | 동적 크기 조정 배열 스택과 그 응용(괄호 매칭, 중위에서 후위로의 변환, 후위 수식 평가), 단일 연결 리스트 스택과 그 응용(10진수의 2진수 변환, 문자열 뒤집기, 하노이의 탑)을 다루는 실습 코드. 5강과 이어진다 | [Lab_ArrayStack.cpp](Lab05_Stacks/Lab_ArrayStack.cpp), [Lab_LinkedStack.cpp](Lab05_Stacks/Lab_LinkedStack.cpp) |
 | [Lab06_Queues](Lab06_Queues/) | 한 칸을 비워 가득 찬 상태와 빈 상태를 구분하는 템플릿 원형 배열 큐와 Hot Potato 시뮬레이션(요세푸스 문제의 변형)을 다루는 실습 코드. 6강과 이어진다 | [Lab_ArrayQueue.cpp](Lab06_Queues/Lab_ArrayQueue.cpp) |
-| [Lab07_Skip-Lists-and-Hashing](Lab07_Skip-Lists-and-Hashing/) | 무작위 레벨을 쓰는 스킵 리스트의 탐색, 삽입, 삭제와 레벨별 출력, 분리 체이닝 해시 테이블과 지연 삭제를 쓰는 선형 조사 해시 테이블을 다루는 실습 코드. 7강과 이어진다 | [Lab_SkipList.cpp](Lab07_Skip-Lists-and-Hashing/Lab_SkipList.cpp), [Lab_HashTable.cpp](Lab07_Skip-Lists-and-Hashing/Lab_HashTable.cpp) |
+| [Lab07_Skip-Lists-and-Hashing](Lab07_Skip-Lists-and-Hashing/) | 무작위 레벨을 쓰는 스킵 리스트의 탐색, 삽입, 삭제와 레벨별 출력, 분리 체이닝 해시 테이블과 지연 삭제를 쓰는 선형 탐사 해시 테이블을 다루는 실습 코드. 7강과 이어진다 | [Lab_SkipList.cpp](Lab07_Skip-Lists-and-Hashing/Lab_SkipList.cpp), [Lab_HashTable.cpp](Lab07_Skip-Lists-and-Hashing/Lab_HashTable.cpp) |
 | [Lab08_Binary-Trees](Lab08_Binary-Trees/) | 연결 표현 이진 트리의 전위, 중위, 후위, 레벨 순서 순회와 높이, 노드 수 계산, 후위 수식으로 수식 트리를 만들어 계산하는 실습 코드. 8강과 이어진다 | [Lab_BinaryTree.cpp](Lab08_Binary-Trees/Lab_BinaryTree.cpp) |
 | [Lab09_Priority-Queues-and-Heaps](Lab09_Priority-Queues-and-Heaps/) | 1부터 시작하는 인덱스를 쓰는 배열 최대 힙(삽입, 최댓값 삭제, 상향식 초기화, 힙 성질 검사)과 힙 정렬, 합병 연산으로 삽입과 최솟값 삭제를 구현한 최소 좌편향 트리를 다루는 실습 코드. 9강과 이어진다 | [Lab_MaxHeap.cpp](Lab09_Priority-Queues-and-Heaps/Lab_MaxHeap.cpp), [Lab_LeftistTree.cpp](Lab09_Priority-Queues-and-Heaps/Lab_LeftistTree.cpp) |
 | [Lab10_Binary-Search-Trees](Lab10_Binary-Search-Trees/) | 연결 표현 이진 탐색 트리의 탐색, 삽입, 세 가지 경우(리프, 차수 1, 차수 2)의 삭제, 중위, 전위, 레벨 순서 순회, 높이 계산, 정렬된 순서로 삽입한 최악의 경우와 중복 키 삽입을 다루는 실습 코드. 10강과 이어진다 | [Lab_BinarySearchTree.cpp](Lab10_Binary-Search-Trees/Lab_BinarySearchTree.cpp) |
-| [Project_Database-Index-Engine](Project_Database-Index-Engine/) | 관계형 데이터베이스의 인덱스에 쓰이는 B+ 트리를 C++ 템플릿으로 구현한 텀 프로젝트. 점 질의, 리프 연결 리스트를 이용한 범위 질의, 노드 분할을 동반한 삽입, 언더플로 처리를 동반한 삭제, 차수를 정하는 템플릿 매개변수를 다루며, CMU 15-445와 Stanford CS245를 참고했다. 8강과 10강의 트리 내용과 이어진다 | [README](Project_Database-Index-Engine/README.md) |
-| [Project_Huffman-Coding](Project_Huffman-Coding/) | 문자 빈도에 따라 가변 길이 이진 부호를 붙이는 허프만 부호화 압축 도구를 C++로 구현한 텀 프로젝트. 빈도 분석, 최소 힙 우선순위 큐를 이용한 허프만 트리 구성, 부호화와 복호화, 비트 단위 입출력, 압축 통계를 다루며, Stanford CS106B와 Princeton COS226을 참고했다. 8강의 이진 트리와 9강의 우선순위 큐와 이어진다 | [README](Project_Huffman-Coding/README.md) |
+| [Project_Database-Index-Engine](Project_Database-Index-Engine/) | 관계형 데이터베이스의 인덱스에 쓰이는 B+ 트리를 C++ 템플릿으로 구현한 텀 프로젝트. 점 질의, 리프 연결 리스트를 이용한 범위 질의, 노드 분할을 동반한 삽입, 언더플로 처리를 동반한 삭제, 차수를 정하는 템플릿 매개변수를 다루며, CMU 15-445와 Stanford CS245를 참고했다. 8강과 10강의 트리 내용과 이어진다 | [README](Project_Database-Index-Engine/README.ko.md) |
+| [Project_Huffman-Coding](Project_Huffman-Coding/) | 문자 빈도에 따라 가변 길이 이진 부호를 붙이는 허프만 부호화 압축 도구를 C++로 구현한 텀 프로젝트. 빈도 분석, 최소 힙 우선순위 큐를 이용한 허프만 트리 구성, 부호화와 복호화, 비트 단위 입출력, 압축 통계를 다루며, Stanford CS106B와 Princeton COS226을 참고했다. 8강의 이진 트리와 9강의 우선순위 큐와 이어진다 | [README](Project_Huffman-Coding/README.ko.md) |

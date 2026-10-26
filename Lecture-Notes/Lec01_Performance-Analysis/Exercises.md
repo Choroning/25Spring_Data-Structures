@@ -2,7 +2,19 @@
 
 [Repository Guide](../../README.md) | [English](Exercises.md) | [한국어](Exercises.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
+
+---
+
+<br>
+
+## Table of Contents
+
+- [Exercise 1: Space Complexity Definition](#exercise-1-space-complexity-definition)
+- [Exercise 2: Step Count for Loop](#exercise-2-step-count-for-loop)
+- [Exercise 3: Recursive Space Complexity](#exercise-3-recursive-space-complexity)
+- [Exercise 4: Best, Worst, Average Case](#exercise-4-best-worst-average-case)
+- [Exercise 5: Performance Measurement](#exercise-5-performance-measurement)
 
 ---
 

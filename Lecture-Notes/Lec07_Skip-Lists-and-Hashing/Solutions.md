@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Solutions.md) | [한국어](Solutions.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
 
 ---
 
@@ -79,7 +79,7 @@ Final table: [0]=9, [1]=42, [2]=24, [3]=35, [4]-[8]=empty, [9]=20, [10]=31.
 
 *Figure 2. Final hash table of Exercise 3*
 
-**Explanation:** Linear probing resolves collisions by trying $h_i(k) = (h(k) + i) \mod m$ for $i = 0, 1, 2, \ldots$, wrapping from bucket 10 back to bucket 0. This creates clusters of occupied buckets (primary clustering), which increases the average probe length for subsequent insertions. In this example, too, buckets 9, 10, 0, and 1 form one cluster, so 42 finds an empty bucket only on the fourth probe.
+**Explanation:** Linear probing resolves collisions by trying $h_i(k) = (h(k) + i) \mod m$ for $i = 0, 1, 2, \ldots$, wrapping from bucket 10 back to bucket 0. This creates clusters of occupied buckets (primary clustering), which increases the average probe length for subsequent insertions. In this example, too, buckets 9, 10, and 0 form a run of occupied buckets, so 42 finds the empty bucket 1 only on the fourth probe, and buckets 9 through 3 then form one cluster.
 
 ---
 
@@ -109,6 +109,6 @@ Final table: [0]=9, [1]=42, [2]=24, [3]=35, [4]-[8]=empty, [9]=20, [10]=31.
 
 $$C(i) = (1-p)(1+C(i)) + p(1+C(i-1))$$
 
-Simplifying gives $pC(i) = 1 + pC(i-1)$, that is, $C(i) = \frac{1}{p} + C(i-1)$. Solving with $C(0) = 0$ yields $C(i) = i/p$. For $p = 1/2$, substituting $i = \log_2 n$, which corresponds to the number of levels, gives $C(\log_2 n) = 2\log_2 n = O(\log n)$.
+Simplifying gives $pC(i) = 1 + pC(i-1)$, that is, $C(i) = \frac{1}{p} + C(i-1)$. Solving with $C(0) = 0$ yields $C(i) = i/p$. For $p = 1/2$, substituting $i = \log_2 n$, which corresponds to the number of the top level, gives $C(\log_2 n) = 2\log_2 n = O(\log n)$.
 
-**Explanation:** The backward analysis traces the search path in reverse (up and to the left). The recurrence captures the expected number of steps to climb $i$ levels. Since each level takes $1/p$ expected steps and there are $\log_{1/p} n$ levels, the total expected time is $\frac{\log_{1/p} n}{p} = O(\log n)$.
+**Explanation:** The backward analysis traces the search path in reverse (up and to the left). The recurrence captures the expected number of steps to climb $i$ levels. Since each level takes $1/p$ expected steps and the climb to the top level covers $\log_{1/p} n$ levels, the total expected time is $\frac{\log_{1/p} n}{p} = O(\log n)$.

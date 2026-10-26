@@ -2,7 +2,19 @@
 
 [Repository Guide](../../README.md) | [English](Exercises.md) | [한국어](Exercises.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
+
+---
+
+<br>
+
+## Table of Contents
+
+- [Exercise 1: Array Insert Complexity](#exercise-1-array-insert-complexity)
+- [Exercise 2: Linked List Advantages](#exercise-2-linked-list-advantages)
+- [Exercise 3: Doubly Linked List Deletion](#exercise-3-doubly-linked-list-deletion)
+- [Exercise 4: Circular Linked List](#exercise-4-circular-linked-list)
+- [Exercise 5: Dynamic Array Amortized Cost](#exercise-5-dynamic-array-amortized-cost)
 
 ---
 

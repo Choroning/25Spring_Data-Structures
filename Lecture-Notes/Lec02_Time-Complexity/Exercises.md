@@ -2,7 +2,19 @@
 
 [Repository Guide](../../README.md) | [English](Exercises.md) | [한국어](Exercises.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
+
+---
+
+<br>
+
+## Table of Contents
+
+- [Exercise 1: Big-O Proof](#exercise-1-big-o-proof)
+- [Exercise 2: Asymptotic Comparison](#exercise-2-asymptotic-comparison)
+- [Exercise 3: Master Theorem](#exercise-3-master-theorem)
+- [Exercise 4: Code Complexity](#exercise-4-code-complexity)
+- [Exercise 5: Theta Notation](#exercise-5-theta-notation)
 
 ---
 

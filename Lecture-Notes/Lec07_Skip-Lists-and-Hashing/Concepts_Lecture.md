@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
 
 > **Learning Objectives:**
 > 1. Explain the operations of the dictionary ADT and the search time of each linear list representation
@@ -60,11 +60,11 @@ A typical application of a dictionary is the collection of student records in a 
 
 Typical dictionary operations include the following.
 
-1. **empty()**: Determine whether the dictionary is empty.
-2. **size()**: Return the number of (key, value) pairs.
-3. **insert(key, value)**: Insert a new pair into the dictionary.
-4. **search(key)**: Find the pair with a specified key.
-5. **delete(key)**: Remove the pair with a specified key.
+1. `empty()`: Determine whether the dictionary is empty.
+2. `size()`: Return the number of (key, value) pairs.
+3. `insert(key, value)`: Insert a new pair into the dictionary.
+4. `search(key)`: Find the pair with a specified key.
+5. `delete(key)`: Remove the pair with a specified key.
 
 ### 1.3 Dictionary with Duplicates
 
@@ -236,7 +236,7 @@ The search goes through 3 levels and makes 6 key comparisons in all.
 
 ### 2.5 Worst-Case Time Complexity
 
-At level $i$ every $2^i$th node is linked, so at level 0 all nodes are linked ($2^0 = 1$). If the random levels leave all elements at **level 0 only** (no higher-level pointers), the skip list degenerates into a simple sorted linked list. In this case a search may have to pass every node of level 0, so the following holds.
+The level 0 chain links every node regardless of the structure (in the regular structure, where level $i$ links every $2^i$th node, this is the case $2^0 = 1$). If the random levels leave all elements at **level 0 only** (no higher-level pointers), the skip list degenerates into a simple sorted linked list. In this case a search may have to pass every node of level 0, so the following holds.
 
 $$T_{\text{worst}}(n) = \Theta(n)$$
 
@@ -263,11 +263,11 @@ Since the maximum level is $i = \log_{1/p} n$ ($n$ is the number of nodes), the 
 
 $$\Theta(C(i)) = \Theta\left(\frac{\log_{1/p} n}{p}\right) = \Theta(\log n) = O(\log n)$$
 
-Since $p$ is a constant, the factor $1/p$ and the logarithm base $1/p$ change the result only by a constant factor. Intuitively, with $p = 1/2$ each drop by one level halves the search range as in bisection, so the average search time is proportional to about $\log_2 n$.
+Since $p$ is a constant, the factor $1/p$ and the logarithm base $1/p$ change the result only by a constant factor. Intuitively, with $p = 1/2$ each drop by one level halves the search range as in binary search, so the average search time is proportional to about $\log_2 n$.
 
 > **[Probability and Statistics]** The number of independent trials with success probability $p$ performed until the first success follows a geometric distribution with expected value $1/p$. In the backward search, climbing one level is a sequence of such trials in which each node succeeds (moves up) with probability $p$, so climbing one level takes $1/p$ expected steps and climbing $i$ levels takes $i/p$. This agrees with the solution $C(i) = i/p$ of the recurrence.
 
-> **Note:** **Exam tip.** The average-case analysis is a classic problem of setting up and solving a recurrence. With $p = 1/2$, the average search time is $O(\log n)$, essentially equivalent to binary search on a sorted array, while insertion and deletion are also efficient.
+> **Note:** **Significance of the analysis.** The average-case analysis is a classic problem of setting up and solving a recurrence. With $p = 1/2$, the average search time is $O(\log n)$, essentially equivalent to binary search on a sorted array, while insertion and deletion are also efficient.
 
 ---
 
@@ -503,7 +503,7 @@ For example, if at most 530 buckets are available, $530 = 2 \times 5 \times 53$ 
 | Collision and Overflow | A collision is when the home bucket is occupied by a pair with a different key, and an overflow is when the home bucket has no space for the new pair. |
 | Open Addressing | Open addressing finds an empty bucket within the table by linear probing, quadratic probing, random probing, or double hashing. |
 | Deletion in Linear Probing | After clearing a bucket, elements must be moved or a `NeverUsed` field must be used so that searches do not stop wrongly. |
-| Chaining | In chaining, each bucket holds a linked list of the colliding elements. |
+| Chaining | In chaining, each bucket holds a list of all pairs whose home bucket it is, so no overflow occurs. |
 | Load Factor $\alpha$ | The load factor is $\alpha = n/m$, and higher values increase collision frequency. |
 | Choice of Divisor | The divisor $D$ is chosen as a prime or a number with no prime factor less than 20. |
 

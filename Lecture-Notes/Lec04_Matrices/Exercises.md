@@ -2,7 +2,19 @@
 
 [Repository Guide](../../README.md) | [English](Exercises.md) | [한국어](Exercises.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
+
+---
+
+<br>
+
+## Table of Contents
+
+- [Exercise 1: Row-Major Address Calculation](#exercise-1-row-major-address-calculation)
+- [Exercise 2: Sparse Matrix Representation](#exercise-2-sparse-matrix-representation)
+- [Exercise 3: Lower Triangular Mapping](#exercise-3-lower-triangular-mapping)
+- [Exercise 4: Fast Transpose Complexity](#exercise-4-fast-transpose-complexity)
+- [Exercise 5: Symmetric Matrix Storage](#exercise-5-symmetric-matrix-storage)
 
 ---
 

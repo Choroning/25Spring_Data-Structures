@@ -1,21 +1,23 @@
-# Project: Huffman Coding Compression Tool
-> **Author:** Cheolwon Park  
-> **Date:** 2025-06-10
+# Term Project — Huffman Coding Compression Tool
+
+[Repository Guide](../../README.md) | [English](README.md) | [한국어](README.ko.md)
+
+> **Last Updated:** 2026-10-26
 
 ---
 
 ## Overview
 
-A Huffman coding compression tool implemented in C++. Huffman coding is a lossless data compression algorithm that assigns variable-length binary codes to characters based on their frequency of occurrence. More frequent characters receive shorter codes, minimizing the total number of bits.
+This term project implements a Huffman coding compression tool in C++. Huffman coding is a lossless data compression algorithm that assigns variable-length binary codes to characters based on their frequency of occurrence. More frequent characters receive shorter codes, minimizing the total number of bits.
 
 ## Features
 
-- **Frequency analysis** — Automatically compute character frequencies from input text
-- **Huffman tree construction** — Build optimal prefix-free code tree using a min-heap priority queue
-- **Encoding** — Compress text to a bit string using the generated code table
-- **Decoding** — Decompress a bit string back to the original text
-- **Bit-level I/O** — Pack encoded bits into bytes for realistic compression
-- **Compression statistics** — Report original size, compressed size, and compression ratio
+- **Frequency analysis:** Automatically compute character frequencies from input text.
+- **Huffman tree construction:** Build the optimal prefix-free code tree using a min-heap priority queue.
+- **Encoding:** Compress text to a bit string using the generated code table.
+- **Decoding:** Decompress a bit string back to the original text.
+- **Bit-level I/O:** Pack encoded bits into bytes for realistic compression.
+- **Compression statistics:** Report the original size, compressed size, and compression ratio.
 
 ## File Structure
 
@@ -38,16 +40,16 @@ g++ -std=c++17 -O2 -o huffman HuffmanTree.cpp BitStream.cpp PriorityQueue.cpp ma
 
 ## Algorithm
 
-1. **Build frequency table** from input text
-2. **Create leaf nodes** for each character with its frequency
-3. **Insert all nodes** into a min-priority queue
+1. **Build a frequency table** from the input text.
+2. **Create a leaf node** for each character with its frequency.
+3. **Insert all nodes** into a min-priority queue.
 4. **Repeat** until one node remains:
-   - Extract the two nodes with lowest frequency
-   - Create a new internal node with these as children (freq = sum)
-   - Insert the new node back into the priority queue
-5. **Generate codes** by traversing the tree: left = 0, right = 1
-6. **Encode** text by replacing each character with its Huffman code
-7. **Decode** by traversing the tree following the bit string
+   - Extract the two nodes with the lowest frequencies.
+   - Create a new internal node with these as children (its frequency is their sum).
+   - Insert the new node back into the priority queue.
+5. **Generate codes** by traversing the tree, with 0 for a left branch and 1 for a right branch.
+6. **Encode** the text by replacing each character with its Huffman code.
+7. **Decode** by traversing the tree following the bit string.
 
 ## Complexity
 
@@ -73,6 +75,6 @@ Compressed: 23 bits (73.9% compression ratio)
 
 ## References
 
-- **Stanford CS106B: Programming Abstractions** — Huffman encoding assignment and greedy algorithm analysis (https://cs106b.stanford.edu/)
-- **Princeton COS226: Algorithms and Data Structures** — Data compression lecture covering Huffman, LZW, and entropy (https://www.cs.princeton.edu/courses/archive/spring24/cos226/)
+- **Stanford CS106B: Programming Abstractions.** Huffman encoding assignment and greedy algorithm analysis (https://cs106b.stanford.edu/)
+- **Princeton COS226: Algorithms and Data Structures.** Data compression lecture covering Huffman, LZW, and entropy (https://www.cs.princeton.edu/courses/archive/spring24/cos226/)
 - Sahni, S. *Data Structures, Algorithms, and Applications in C++*, Chapter 13 (Greedy Method)

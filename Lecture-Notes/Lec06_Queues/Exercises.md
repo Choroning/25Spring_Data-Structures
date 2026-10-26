@@ -2,7 +2,19 @@
 
 [Repository Guide](../../README.md) | [English](Exercises.md) | [한국어](Exercises.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-10-26
+
+---
+
+<br>
+
+## Table of Contents
+
+- [Exercise 1: Circular Queue Trace](#exercise-1-circular-queue-trace)
+- [Exercise 2: Full vs. Empty](#exercise-2-full-vs-empty)
+- [Exercise 3: Queue vs. Stack](#exercise-3-queue-vs-stack)
+- [Exercise 4: Linked Queue Operations](#exercise-4-linked-queue-operations)
+- [Exercise 5: Array Queue Pop Complexity](#exercise-5-array-queue-pop-complexity)
 
 ---
 
