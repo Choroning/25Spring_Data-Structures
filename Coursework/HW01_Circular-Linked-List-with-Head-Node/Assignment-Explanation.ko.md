@@ -160,14 +160,12 @@ newNode->link = head;             // (2-4) 새 마지막 노드가 헤드 노드
 
 ### 4.2 테스트용 드라이버의 실행 결과
 
-`Test-Driver.cpp`를 위 명령으로 컴파일하고 2를 입력하면, 마지막 줄의 IDE 종료 메시지를 뺀 출력이 그림 4와 줄 단위로 같다. 4를 입력하면 "4 is at the index 5"를 출력하여 안내문의 예시와 같고, 9를 입력하면 값이 없다는 메시지를 출력한다. 그 밖의 경우의 결과는 다음과 같다.
+`Test-Driver.cpp`를 위 명령으로 컴파일하고 2를 입력하면 그림 4의 출력이 나온다. 마지막 줄의 종료 메시지는 IDE가 덧붙이는 것이다. 4를 입력하면 "4 is at the index 5"를 출력하고, 9를 입력하면 값이 없다는 메시지를 출력한다. 그 밖의 경우의 결과는 다음과 같다.
 
 | 경우 | 결과 |
 |:-----|:-----|
 | 빈 리스트에 `InsertRear`로 7, 8을 삽입 | `7`, `7->8`로 바뀐다 (3.2절의 빈 리스트 경우) |
 | 5를 `InsertFront`, 6을 `InsertRear`, 4를 `InsertFront` | `4->5->6`이 된다 |
-| AddressSanitizer와 UndefinedBehaviorSanitizer(`-fsanitize=address,undefined`) | 오류 없음 |
-| macOS `leaks --atExit` | 누수 0바이트 |
 
 *표 2. 테스트용 드라이버의 실행 결과*
 

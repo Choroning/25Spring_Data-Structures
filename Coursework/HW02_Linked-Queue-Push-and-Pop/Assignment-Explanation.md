@@ -213,8 +213,6 @@ Both representations return the elements in the order they were pushed, and the 
 |:-----|:-----|
 | pop on an empty queue | Both representations return 0 and the element count stays 0 |
 | push 1, 2, pop, push 3, pop, pop, push 4, 5, pop | Both representations return 1, 2, 3, 4 in turn and the element count becomes 1 |
-| AddressSanitizer and UndefinedBehaviorSanitizer (2,000 elements) | No errors |
-| macOS `leaks --atExit` (3,000 elements) | 0 bytes leaked |
 
 *Table 2. Results with the test driver*
 

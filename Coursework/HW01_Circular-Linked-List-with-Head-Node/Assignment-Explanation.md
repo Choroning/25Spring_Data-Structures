@@ -160,14 +160,12 @@ After the three calls to `InsertFront`, the list changes to `1`, `2->1`, `3->2->
 
 ### 4.2 Results with the Test Driver
 
-When `Test-Driver.cpp` is compiled with the commands above and 2 is entered, the output matches Figure 4 line by line, apart from the IDE's exit message on the last line. Entering 4 prints "4 is at the index 5", the same as the handout example, and entering 9 prints the message that the value is absent. Other cases give the following results.
+When `Test-Driver.cpp` is compiled with the commands above and 2 is entered, the program prints the output of Figure 4; the exit message on the last line is added by the IDE. Entering 4 prints "4 is at the index 5", and entering 9 prints the message that the value is absent. Other cases give the following results.
 
 | Case | Result |
 |:-----|:-----|
 | Insert 7 and 8 into an empty list with `InsertRear` | It changes to `7`, `7->8` (the empty-list case of Section 3.2) |
 | `InsertFront` 5, `InsertRear` 6, `InsertFront` 4 | It becomes `4->5->6` |
-| AddressSanitizer and UndefinedBehaviorSanitizer (`-fsanitize=address,undefined`) | No errors |
-| macOS `leaks --atExit` | 0 bytes leaked |
 
 *Table 2. Results with the test driver*
 

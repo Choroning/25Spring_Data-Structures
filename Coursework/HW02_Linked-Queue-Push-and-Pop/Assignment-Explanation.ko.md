@@ -213,8 +213,6 @@ type2 pop time : 21651ms
 |:-----|:-----|
 | 빈 큐에서 pop | 두 표현 모두 0을 반환하고 원소 수는 0 그대로이다 |
 | push 1, 2, pop, push 3, pop, pop, push 4, 5, pop | 두 표현 모두 1, 2, 3, 4를 차례로 반환하고 원소 수는 1이 된다 |
-| AddressSanitizer와 UndefinedBehaviorSanitizer (원소 2,000개) | 오류 없음 |
-| macOS `leaks --atExit` (원소 3,000개) | 누수 0바이트 |
 
 *표 2. 테스트용 드라이버의 실행 결과*
 
