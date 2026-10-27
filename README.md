@@ -25,7 +25,7 @@ This repository archives bilingual lecture notes and coursework for the Data Str
 - `Lecture-Notes/` holds lecture notes, exercises, and solutions that follow the slide numbers (`Lec01`-`Lec10`).
 - `Coursework/` holds the C++ lab code for each unit (`Lab01`-`Lab10`), the programming assignments (`HW01`, `HW02`), and two term projects.
 - Every document comes as an English (`.md`) and Korean (`.ko.md`) pair.
-- All code was built and run with C++17.
+- All code builds and runs with C++17.
 
 > **🤖 AI Agent Usage**
 > [Claude Code](https://claude.ai/download) was used to organize and translate the notes and to restructure the repository.

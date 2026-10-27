@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Assignment-Explanation.md) | [한국어](Assignment-Explanation.ko.md)
 
-> **Last Updated:** 2026-10-26
+> **Last Updated:** 2026-10-27
 
 > **Learning Objectives:**
 > 1. Describe the direction of the links and the positions of `front` and `rear` in the two representations of a linked queue (type 1 and type 2)
@@ -25,8 +25,8 @@
   - [3.3 pop in Type 2](#33-pop-in-type-2)
   - [3.4 pop on an Empty Queue](#34-pop-on-an-empty-queue)
 - [4. Testing](#4-testing)
-  - [4.1 Submitted Screenshot](#41-submitted-screenshot)
-  - [4.2 Rerun with the Test Driver](#42-rerun-with-the-test-driver)
+  - [4.1 Screenshot](#41-screenshot)
+  - [4.2 Results with the Test Driver](#42-results-with-the-test-driver)
 - [5. Interpreting the Execution Times](#5-interpreting-the-execution-times)
 - [Summary](#summary)
 - [Self-Check Questions](#self-check-questions)
@@ -37,7 +37,7 @@
 
 ## 1. Homework Layout and How to Run
 
-The homework asks for the member functions `push` and `pop` of the linked queue class `Queue<T>` in two representations (type 1 and type 2), and for a screenshot of the completed program measuring the pop time of the two representations. It uses the linked queue of Lecture 6 (Section 4) directly. The handout is transcribed in [`Original/Assignment.md`](Original/Assignment.md).
+The homework asks for the member functions `push` and `pop` of the linked queue class `Queue<T>` in two representations (type 1 and type 2), and for a screenshot of the completed program measuring the pop time of the two representations. It uses the linked queue of Lecture 6 (Section 4) directly. The handout is in [`Original/Assignment.md`](Original/Assignment.md).
 
 ```text
 Coursework/HW02_Linked-Queue-Push-and-Pop/
@@ -45,7 +45,7 @@ Coursework/HW02_Linked-Queue-Push-and-Pop/
 │   ├── Assignment.md       # handout (English)
 │   └── Assignment.ko.md    # handout (Korean)
 └── Solution/
-    ├── Push-and-Pop.cpp    # submitted push and pop
+    ├── Push-and-Pop.cpp    # solution of push and pop
     └── Test-Driver.cpp     # test driver that runs the two functions
 ```
 
@@ -58,7 +58,7 @@ g++ -std=c++17 -Wall -Wextra -pedantic -o hw2 Test-Driver.cpp
 ./hw2 20000     # the number of elements can be changed with an argument
 ```
 
-> **Note:** The full program used for the submission (the rest of the `Queue` class, the time measurement, `main`) was not kept. `Test-Driver.cpp` is a test driver that compiles and runs the two submitted functions, and its measurement method and number of elements (200,000) follow the submitted screenshot (Section 4.1). The two functions enter the class definition through `#include` and were not modified. The driver is described in the [HW2 Code Walkthrough](Code-Walkthrough.md).
+> **Note:** `Test-Driver.cpp` is a test driver that compiles and runs the two functions, and its measurement method and number of elements (200,000) follow the screenshot in Section 4.1. The two functions enter the class definition through `#include`. The driver is described in the [HW2 Code Walkthrough](Code-Walkthrough.md).
 
 ---
 
@@ -172,7 +172,7 @@ if (front == rear) {                  // only one element
 
 In type 2 the links point toward the front, so there is no way to go from the front to the next front (the node pushed right after the front). That node is the one whose link points to the current front, so the code finds it by starting at `rear` and following the links. With $k$ elements $(k \ge 2)$, `prev` starts at the rear and stops at the second node from the front, so the loop runs $k - 2$ times and one pop takes $\Theta(k)$. After finding the new front, the code deletes the original front and sets the link of the new front to `nullptr` so that it does not point to the freed node.
 
-Handling the one-element case separately is also necessary. Then `front` and `rear` are the same node and its link is `nullptr`, so running the loop as is would make `prev` become `nullptr` and then read `prev->link`, dereferencing a null pointer. The submitted code avoids this case by deleting the node and clearing both pointers when `front == rear`.
+Handling the one-element case separately is also necessary. Then `front` and `rear` are the same node and its link is `nullptr`, so running the loop as is would make `prev` become `nullptr` and then read `prev->link`, dereferencing a null pointer. The solution avoids this case by deleting the node and clearing both pointers when `front == rear`.
 
 ### 3.4 pop on an Empty Queue
 
@@ -186,9 +186,9 @@ In both representations, pop on an empty queue returns `T()` before it reaches `
 
 ## 4. Testing
 
-### 4.1 Submitted Screenshot
+### 4.1 Screenshot
 
-The submitted program pushes 200,000 elements into a type 1 queue and a type 2 queue, then measures and prints the time to pop all of them. The upper part of the screenshot is the code that sets the element count `N` and pushes into the type 1 queue `q1`, and the lower part is the execution result.
+The program pushes 200,000 elements into a type 1 queue and a type 2 queue, then measures and prints the time to pop all of them. The upper part of the screenshot is the code that sets the element count `N` and pushes into the type 1 queue `q1`, and the lower part is the execution result.
 
 ![Figure 3. Run that measures the pop time of type 1 and type 2 with 200,000 elements](../../images/HW02_Pop-Time.png)
 
@@ -196,7 +196,7 @@ The submitted program pushes 200,000 elements into a type 1 queue and a type 2 q
 
 The pop time is 1ms for type 1 and 16,664ms for type 2, a difference of more than a factor of 10,000. The example screenshot in the handout (type 1 2ms, type 2 313ms) shows the same tendency. Section 5 interprets where the difference comes from.
 
-### 4.2 Rerun with the Test Driver
+### 4.2 Results with the Test Driver
 
 `Test-Driver.cpp` first pushes 0-4 into both representations and prints the order in which they are popped, then measures the pop time with 200,000 elements. While measuring, it also checks that the $i$-th pop returns $i$ and prints the position if the first-in, first-out order breaks. Compiled with Apple clang 21 without optimization options and run on an Apple M2 Pro, it gives the following result.
 
@@ -207,16 +207,16 @@ type1 pop time : 2ms
 type2 pop time : 21651ms
 ```
 
-Both representations return the elements in the order they were pushed, and the order did not break in 200,000 pops either. The difference in time is on the same scale as in the submitted screenshot. The following were also checked.
+Both representations return the elements in the order they were pushed, and the order does not break in 200,000 pops either. The difference in time is on the same scale as in Figure 3. Other cases give the following results.
 
-| Check | Result |
+| Case | Result |
 |:-----|:-----|
 | pop on an empty queue | Both representations return 0 and the element count stays 0 |
 | push 1, 2, pop, push 3, pop, pop, push 4, 5, pop | Both representations return 1, 2, 3, 4 in turn and the element count becomes 1 |
 | AddressSanitizer and UndefinedBehaviorSanitizer (2,000 elements) | No errors |
 | macOS `leaks --atExit` (3,000 elements) | 0 bytes leaked |
 
-*Table 2. Items checked with the test driver*
+*Table 2. Results with the test driver*
 
 ---
 
@@ -230,7 +230,7 @@ $$
 \sum_{k=2}^{n} (k - 2) = \frac{(n-1)(n-2)}{2} \approx \frac{n^2}{2}
 $$
 
-For $n = 200{,}000$ this is 19,999,700,001 iterations, about $2.0 \times 10^{10}$. Dividing the 16,664ms of the submitted screenshot by this count gives about 0.83ns per iteration. Each iteration must read the address of the next node with `prev = prev->link` before the next comparison can be made, so the iterations cannot overlap. Measuring with different element counts confirms that the time of type 2 grows with the square of the count.
+For $n = 200{,}000$ this is 19,999,700,001 iterations, about $2.0 \times 10^{10}$. Dividing the 16,664ms of Figure 3 by this count gives about 0.83ns per iteration. Each iteration must read the address of the next node with `prev = prev->link` before the next comparison can be made, so the iterations cannot overlap. Measuring with different element counts confirms that the time of type 2 grows with the square of the count.
 
 | Elements $n$ | Type 1 | Type 2 | Loop iterations of type 2, $(n-1)(n-2)/2$ |
 |-----:|-----:|-----:|-----:|
@@ -300,7 +300,7 @@ Each time the element count doubles, the time of type 2 grows by 3.87, 4.00, and
 
    </details>
 
-5. **Predicting the time:** In the same environment as the submitted screenshot, about how long should the pop time of type 2 be with 400,000 elements?
+5. **Predicting the time:** In the same environment as Figure 3, about how long should the pop time of type 2 be with 400,000 elements?
 
    <details>
    <summary>Answer</summary>

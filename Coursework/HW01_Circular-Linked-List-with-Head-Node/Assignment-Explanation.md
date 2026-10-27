@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Assignment-Explanation.md) | [한국어](Assignment-Explanation.ko.md)
 
-> **Last Updated:** 2026-10-26
+> **Last Updated:** 2026-10-27
 
 > **Learning Objectives:**
 > 1. Describe the structure of a circular linked list with a head node and the shape of the empty list
@@ -23,8 +23,8 @@
   - [3.2 InsertRear](#32-insertrear)
   - [3.3 Counting Search Positions from 1](#33-counting-search-positions-from-1)
 - [4. Testing](#4-testing)
-  - [4.1 Submitted Screenshots](#41-submitted-screenshots)
-  - [4.2 Rerun with the Test Driver](#42-rerun-with-the-test-driver)
+  - [4.1 Screenshots](#41-screenshots)
+  - [4.2 Results with the Test Driver](#42-results-with-the-test-driver)
 - [5. Questions about the Head Node](#5-questions-about-the-head-node)
   - [5.1 Advantages of a Head Node](#51-advantages-of-a-head-node)
   - [5.2 Head Node at the Front and at the Rear](#52-head-node-at-the-front-and-at-the-rear)
@@ -37,7 +37,7 @@
 
 ## 1. Homework Layout and How to Run
 
-The homework asks for the bodies of the member functions `InsertFront` and `InsertRear` of a circular linked list with a head node, a screenshot of the completed program, and answers to two questions about the head node. It uses the head node (Section 4.4) and circular lists (Section 6) of Lecture 3 directly. The handout is transcribed in [`Original/Assignment.md`](Original/Assignment.md).
+The homework asks for the bodies of the member functions `InsertFront` and `InsertRear` of a circular linked list with a head node, a screenshot of the completed program, and answers to two questions about the head node. It uses the head node (Section 4.4) and circular lists (Section 6) of Lecture 3 directly. The handout is in [`Original/Assignment.md`](Original/Assignment.md).
 
 ```text
 Coursework/HW01_Circular-Linked-List-with-Head-Node/
@@ -45,7 +45,7 @@ Coursework/HW01_Circular-Linked-List-with-Head-Node/
 │   ├── Assignment.md                   # handout (English)
 │   └── Assignment.ko.md                # handout (Korean)
 └── Solution/
-    ├── InsertFront-and-InsertRear.cpp  # submitted InsertFront and InsertRear
+    ├── InsertFront-and-InsertRear.cpp  # solution of InsertFront and InsertRear
     └── Test-Driver.cpp                 # test driver that runs the two functions
 ```
 
@@ -57,7 +57,7 @@ g++ -std=c++17 -Wall -Wextra -pedantic -o hw1 Test-Driver.cpp
 ./hw1
 ```
 
-> **Note:** The full program used for the submission (node and list classes, printing, search, destructor, `main`) was not kept. `Test-Driver.cpp` is a test driver that compiles and runs the two submitted functions, and its output format follows the submitted screenshots (Section 4.1). The two functions enter the class definition through `#include` and were not modified. The driver is described in the [HW1 Code Walkthrough](Code-Walkthrough.md).
+> **Note:** `Test-Driver.cpp` is a test driver that compiles and runs the two functions, and its output format follows the screenshots in Section 4.1. The two functions enter the class definition through `#include`. The driver is described in the [HW1 Code Walkthrough](Code-Walkthrough.md).
 
 ---
 
@@ -102,7 +102,7 @@ head --> [H] --+
 
 ### 3.1 InsertFront
 
-Inserting at the front means placing the new node between the head node and the first data node. The submitted code does this with two statements.
+Inserting at the front means placing the new node between the head node and the first data node. The solution does this with two statements.
 
 ```cpp
 newNode->link = head->link;   // (1-1) the new node points to the original first node
@@ -136,7 +136,7 @@ With $n$ data nodes $(n \ge 1)$, the loop runs $n - 1$ times and `cur` stops at 
 
 ### 3.3 Counting Search Positions from 1
 
-In the example screenshots of the handout, searching for 4 in the list 3, 2, 1, 2, 4, 6 prints "4 is at the index 5". 4 is the fifth node, at position 4 counted from 0 and at position 5 counted from 1, so the example program counts positions from 1. The submitted program follows it and also prints positions counted from 1. `CircularList<T>::Search` in Lecture 3, Section 6.6 uses the same rule (positions from 1, 0 when not found), and it is a sentinel search that stores the target in the `data` of the head node so that each iteration makes only one comparison. When a value appears more than once, the search returns the first position met from the first node, so searching for 2 prints 2, not 4.
+In the example screenshots of the handout, searching for 4 in the list 3, 2, 1, 2, 4, 6 prints "4 is at the index 5". 4 is the fifth node, at position 4 counted from 0 and at position 5 counted from 1, so the example program counts positions from 1. The solution program follows it and also prints positions counted from 1. `CircularList<T>::Search` in Lecture 3, Section 6.6 uses the same rule (positions from 1, 0 when not found), and it is a sentinel search that stores the target in the `data` of the head node so that each iteration makes only one comparison. When a value appears more than once, the search returns the first position met from the first node, so searching for 2 prints 2, not 4.
 
 ---
 
@@ -144,9 +144,9 @@ In the example screenshots of the handout, searching for 4 in the list 3, 2, 1, 
 
 ## 4. Testing
 
-### 4.1 Submitted Screenshots
+### 4.1 Screenshots
 
-The submitted program inserts 1, 2, and 3 in turn with `InsertFront`, inserts 2, 4, and 6 in turn with `InsertRear`, prints the list, and searches for the value entered. When the program ends, the destructor deletes the six data nodes in turn from the first node. Figure 4 shows a search for 2, and Figure 5 a search for 9, which is not in the list.
+The program inserts 1, 2, and 3 in turn with `InsertFront`, inserts 2, 4, and 6 in turn with `InsertRear`, prints the list, and searches for the value entered. When the program ends, the destructor deletes the six data nodes in turn from the first node. Figure 4 shows a search for 2, and Figure 5 a search for 9, which is not in the list.
 
 ![Figure 4. Run that searches for 2](../../images/HW01_Output-Search-Found.png)
 
@@ -158,18 +158,18 @@ The submitted program inserts 1, 2, and 3 in turn with `InsertFront`, inserts 2,
 
 After the three calls to `InsertFront`, the list changes to `1`, `2->1`, `3->2->1`, so each new element is attached at the front, and after the three calls to `InsertRear` it changes to `3->2->1->2`, `3->2->1->2->4`, `3->2->1->2->4->6`, so each new element is attached at the rear. The deletion order 3, 2, 1, 2, 4, 6 also matches the list order, which confirms that the link of the last node points to the head node and the circle is not broken. If the circle were broken, the printing loop and the destructor loop could not return to the head node.
 
-### 4.2 Rerun with the Test Driver
+### 4.2 Results with the Test Driver
 
-When `Test-Driver.cpp` is compiled with the commands above and 2 is entered, the output matches Figure 4 line by line, apart from the IDE's exit message on the last line. Entering 4 prints "4 is at the index 5", the same as the handout example, and entering 9 prints the message that the value is absent. The following were also checked.
+When `Test-Driver.cpp` is compiled with the commands above and 2 is entered, the output matches Figure 4 line by line, apart from the IDE's exit message on the last line. Entering 4 prints "4 is at the index 5", the same as the handout example, and entering 9 prints the message that the value is absent. Other cases give the following results.
 
-| Check | Result |
+| Case | Result |
 |:-----|:-----|
 | Insert 7 and 8 into an empty list with `InsertRear` | It changes to `7`, `7->8` (the empty-list case of Section 3.2) |
 | `InsertFront` 5, `InsertRear` 6, `InsertFront` 4 | It becomes `4->5->6` |
 | AddressSanitizer and UndefinedBehaviorSanitizer (`-fsanitize=address,undefined`) | No errors |
 | macOS `leaks --atExit` | 0 bytes leaked |
 
-*Table 2. Items checked with the test driver*
+*Table 2. Results with the test driver*
 
 ---
 
@@ -179,7 +179,7 @@ When `Test-Driver.cpp` is compiled with the commands above and 2 is entered, the
 
 ### 5.1 Advantages of a Head Node
 
-The submitted answer is as follows. Introducing a head node makes insert and delete operations uniform whether the list is empty or non-empty. You never have to check separately if the list has zero elements; you always insert a new node after head or remove the node immediately following head. This consistency greatly simplifies boundary cases. Combined with the circular linkage, you can traverse all data nodes without special null-checks via a simple loop such as `for (p = head->link; p != head; p = p->link)`, making search routines straightforward.
+The answer is as follows. Introducing a head node makes insert and delete operations uniform whether the list is empty or non-empty. You never have to check separately if the list has zero elements; you always insert a new node after head or remove the node immediately following head. This consistency greatly simplifies boundary cases. Combined with the circular linkage, you can traverse all data nodes without special null-checks via a simple loop such as `for (p = head->link; p != head; p = p->link)`, making search routines straightforward.
 
 In short, the answer makes three points.
 
@@ -191,7 +191,7 @@ The two functions of Section 3 confirm this answer directly: neither `InsertFron
 
 ### 5.2 Head Node at the Front and at the Rear
 
-The submitted answer is as follows. When you place the head node at the front, `head->link` always points to the first data node, making front-insert operations straightforward; only tail-find operations require traversal. Conversely, if you place the head node at the rear, the head itself acts as the last node. Rear insertion then becomes an $O(1)$ operation, simply `head->link = newNode; head = newNode;`, but front insertion requires linking the new node before the current first node and then updating the head's link to maintain the tail position. In practice, if front insertions dominate, it is more efficient to keep the head at the front; if rear insertions dominate, place the head at the rear.
+The answer is as follows. When you place the head node at the front, `head->link` always points to the first data node, making front-insert operations straightforward; only tail-find operations require traversal. Conversely, if you place the head node at the rear, the head itself acts as the last node. Rear insertion then becomes an $O(1)$ operation, simply `head->link = newNode; head = newNode;`, but front insertion requires linking the new node before the current first node and then updating the head's link to maintain the tail position. In practice, if front insertions dominate, it is more efficient to keep the head at the front; if rear insertions dominate, place the head at the rear.
 
 In short, the answer makes two points.
 
