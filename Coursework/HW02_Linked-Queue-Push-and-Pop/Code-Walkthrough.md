@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Code-Walkthrough.md) | [한국어](Code-Walkthrough.ko.md)
 
-> **Last Updated:** 2026-10-26
+> **Last Updated:** 2026-10-27
 
 > **Learning Objectives:**
 > 1. Explain the pointers that each branch of `push` and `pop` changes in the two representations
@@ -33,16 +33,16 @@
 
 ## 1. File Layout
 
-The companion document [HW2 Assignment Explanation](Assignment-Explanation.md) covers the two representations, the design, testing, and the interpretation of the execution times. This document reads the two files in `Solution` from beginning to end. All line numbers refer to the respective file. `Push-and-Pop.cpp` (82 lines) holds the two submitted functions, and `Test-Driver.cpp` (111 lines) is a test driver that runs them.
+The companion document [HW2 Assignment Explanation](Assignment-Explanation.md) covers the two representations, the design, testing, and the interpretation of the execution times. This document reads the two files in `Solution` from beginning to end. All line numbers refer to the respective file. `Push-and-Pop.cpp` (82 lines) holds the two solution functions, and `Test-Driver.cpp` (111 lines) is a test driver that runs them.
 
 | File | Lines | Part | Kind |
 |:-----|:-----|:-----|:-----|
-| `Push-and-Pop.cpp` | 1-12 | Doxygen header | Comment outside the submitted code |
-| `Push-and-Pop.cpp` | 14-40 | `push` | Submitted code |
-| `Push-and-Pop.cpp` | 42-82 | `pop` | Submitted code |
+| `Push-and-Pop.cpp` | 1-12 | Doxygen header | File description comment |
+| `Push-and-Pop.cpp` | 14-40 | `push` | Solution code |
+| `Push-and-Pop.cpp` | 42-82 | `pop` | Solution code |
 | `Test-Driver.cpp` | 1-19 | Header comment and `#include` | Test driver |
 | `Test-Driver.cpp` | 21-32 | `Node<T>` | Test driver |
-| `Test-Driver.cpp` | 34-69 | `Queue<T>` (includes the submitted functions at line 60) | Test driver |
+| `Test-Driver.cpp` | 34-69 | `Queue<T>` (includes the solution functions at line 60) | Test driver |
 | `Test-Driver.cpp` | 71-98 | `showPopOrder`, `popTime` | Test driver |
 | `Test-Driver.cpp` | 100-111 | `main` | Test driver |
 
@@ -84,7 +84,7 @@ void push(const T& item)
 }
 ```
 
-Line 16, which comes from the skeleton code, allocates a new node whose data is `item` and whose link is `nullptr`. Lines 19-26 handle type 1. If the queue is empty (line 20), the new node becomes both the front and the rear (line 21); otherwise the link of the current rear is made to point to the new node (line 23) and the rear moves to the new node (line 24). The link of the new node stays `nullptr` as set by the constructor, so the new rear ends the chain. Lines 30-37 handle type 2. The empty queue is handled the same way; otherwise the link of the new node is made to point to the current rear (line 34) and the rear moves to the new node (line 35). The blank lines 27-28 are as in the submitted code. Even with blank lines and a comment between the `if` block and `else`, the syntax is a single `if`-`else` statement. Line 39 is the skeleton code's increment of the element count.
+Line 16, which comes from the skeleton code, allocates a new node whose data is `item` and whose link is `nullptr`. Lines 19-26 handle type 1. If the queue is empty (line 20), the new node becomes both the front and the rear (line 21); otherwise the link of the current rear is made to point to the new node (line 23) and the rear moves to the new node (line 24). The link of the new node stays `nullptr` as set by the constructor, so the new rear ends the chain. Lines 30-37 handle type 2. The empty queue is handled the same way; otherwise the link of the new node is made to point to the current rear (line 34) and the rear moves to the new node (line 35). Even with the blank lines 27-28 and a comment between the `if` block and `else`, the syntax is a single `if`-`else` statement. Line 39 is the skeleton code's increment of the element count.
 
 ---
 
@@ -167,7 +167,7 @@ public:
 };
 ```
 
-`Node<T>` on lines 25-32 has a data field and a link field, and its constructor sets the link to `nullptr`. The submitted `push` relies on this initial value for the first node pushed onto an empty queue and for the new rear of type 1 to end the chain, so this constructor is a precondition for the two functions to work correctly. Both fields are `public`, so the member functions of `Queue<T>` access them directly.
+`Node<T>` on lines 25-32 has a data field and a link field, and its constructor sets the link to `nullptr`. The solution's `push` relies on this initial value for the first node pushed onto an empty queue and for the new rear of type 1 to end the chain, so this constructor is a precondition for the two functions to work correctly. Both fields are `public`, so the member functions of `Queue<T>` access them directly.
 
 ---
 
@@ -193,7 +193,7 @@ The constructor on line 44 sets the representation and creates an empty queue. T
 
 > **[Computer Programming]** The copy constructor and copy assignment operator that the C++ compiler generates copy the members one by one, so a pointer member copies only the address, not the node it points to (a shallow copy). A class that owns dynamically allocated nodes must therefore define these two operations itself or delete them with `= delete`, together with its destructor; this principle is called the rule of three.
 
-Lines 59-60 `#include` the file `Push-and-Pop.cpp` inside the class definition. The preprocessor replaces the line with the contents of the file, so the submitted `push` and `pop` become member functions without any change, and `type`, `front`, `rear`, and `queueSize` inside them refer to the member variables on lines 64-68. `size` on line 62 returns the element count, which the driver uses to avoid popping from an empty queue.
+Lines 59-60 `#include` the file `Push-and-Pop.cpp` inside the class definition. The preprocessor replaces the line with the contents of the file, so the solution's `push` and `pop` become member functions as they are, and `type`, `front`, `rear`, and `queueSize` inside them refer to the member variables on lines 64-68. `size` on line 62 returns the element count, which the driver uses to avoid popping from an empty queue.
 
 ---
 
@@ -242,7 +242,7 @@ static long long popTime(int type, int n) {
 
 ## 8. main
 
-Line 101 sets the element count for the measurement to 200,000, as in the submitted screenshot, and lines 102-103 replace it with the command-line argument if one is given. The single quote in `200'000` is the digit separator available since C++14. Lines 105-106 check the pop order of both representations with five elements, and lines 108-109 print the pop time of both representations in the same format as the submitted screenshot (`type1 pop time : 1ms`). Each queue is a local variable of its function, so its destructor frees the remaining nodes when the function ends.
+Line 101 sets the element count for the measurement to 200,000, and lines 102-103 replace it with the command-line argument if one is given. The single quote in `200'000` is the digit separator available since C++14. Lines 105-106 check the pop order of both representations with five elements, and lines 108-109 print the pop time of both representations in the format `type1 pop time : 1ms`. Each queue is a local variable of its function, so its destructor frees the remaining nodes when the function ends.
 
 ---
 
@@ -289,11 +289,11 @@ With $k$ elements in the queue, the time complexity of each function is as follo
 
 | Concept | Key Summary |
 |:-----|:-----|
-| File layout | `Push-and-Pop.cpp` holds the two submitted functions, and `Test-Driver.cpp` is the test driver written to run them. |
+| File layout | `Push-and-Pop.cpp` holds the two solution functions, and `Test-Driver.cpp` is the test driver that runs them. |
 | `push` | On an empty queue the new node becomes both front and rear; otherwise type 1 changes the link of the rear and type 2 the link of the new node, and then `rear` moves. |
 | `pop` in type 1 | It copies the data, moves `front` to the next node, frees the original front, and clears `rear` too when the queue becomes empty. |
 | `pop` in type 2 | With one element it frees the node at once; otherwise it finds, starting at the rear, the node whose link is the front, makes it the new front, and cuts its link. |
-| Constructor of `Node<T>` | It sets the link to `nullptr` so that the submitted `push` does not have to set the link of a new end node separately. |
+| Constructor of `Node<T>` | It sets the link to `nullptr` so that the solution's `push` does not have to set the link of a new end node separately. |
 | Driver | The destructor frees the nodes starting at `front` or `rear` depending on the representation, and `popTime` times only the pops while also checking the first-in, first-out order. |
 
 ---
@@ -302,7 +302,7 @@ With $k$ elements in the queue, the time complexity of each function is as follo
 
 ## Self-Check Questions
 
-1. **Initial value in the constructor:** If the constructor of `Node<T>` did not initialize the link, in which cases of the submitted `push` would problems arise?
+1. **Initial value in the constructor:** If the constructor of `Node<T>` did not initialize the link, in which cases of the solution's `push` would problems arise?
 
    <details>
    <summary>Answer</summary>
