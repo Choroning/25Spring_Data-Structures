@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Solutions.md) | [한국어](Solutions.ko.md)
 
-> **Last Updated:** 2026-10-26
+> **Last Updated:** 2026-11-04
 
 ---
 
@@ -38,14 +38,20 @@
 
 **Problem:** Given the following binary tree (Figure 1), write the preorder, inorder, postorder, and level-order traversals.
 
-```text
-        A
-       / \
-      B    C
-     / \    \
-    D   E    F
-   /       / \
-  G       H   I
+```mermaid
+graph TD
+    A(("A")) --> B(("B"))
+    A --> C(("C"))
+    B --> D(("D"))
+    B --> E(("E"))
+    C ~~~ p1[" "]
+    C --> F(("F"))
+    D --> G(("G"))
+    D ~~~ p2[" "]
+    F --> H(("H"))
+    F --> I(("I"))
+    classDef hidden fill:none,stroke:none
+    class p1,p2 hidden
 ```
 
 *Figure 1. Binary tree of Exercise 2*
@@ -86,14 +92,14 @@
 
 **Answer:** The expression tree is shown in Figure 2.
 
-```text
-        -
-       / \
-      *   7
-     / \
-    +   2
-   / \
-  3   5
+```mermaid
+graph TD
+    r(("-")) --> m(("*"))
+    r --> n7(("7"))
+    m --> p(("+"))
+    m --> n2(("2"))
+    p --> n3(("3"))
+    p --> n5(("5"))
 ```
 
 *Figure 2. Expression tree of the postfix expression 3 5 + 2 * 7 -*

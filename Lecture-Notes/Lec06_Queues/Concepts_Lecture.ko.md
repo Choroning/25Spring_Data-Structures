@@ -2,7 +2,7 @@
 
 [레포지토리 안내](../../README.ko.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **최종 수정일:** 2026-10-26
+> **최종 수정일:** 2026-11-04
 
 > **학습 목표:**
 > 1. 큐를 FIFO 선형 리스트로 정의하고 스택과 비교할 수 있다
@@ -310,20 +310,29 @@ T pop() {
 
 a, b, c, d, e 순서로 넣은 큐를 두 방법으로 나타내면 다음과 같다.
 
-```text
-(a) head = front, tail = rear
-
-  front                                         rear
-    |                                             |
-    v                                             v
-  [ a ] ---> [ b ] ---> [ c ] ---> [ d ] ---> [ e ] ---> NULL
-
-(b) head = rear, tail = front
-
-  rear                                          front
-    |                                             |
-    v                                             v
-  [ e ] ---> [ d ] ---> [ c ] ---> [ b ] ---> [ a ] ---> NULL
+```mermaid
+graph TB
+    subgraph s1 ["(a) head = front, tail = rear"]
+        direction LR
+        front1["front"] --> a["a"]
+        rear1["rear"] --> e["e"]
+        a --> b["b"]
+        b --> c["c"]
+        c --> d["d"]
+        d --> e
+        e --> n1["NULL"]
+    end
+    subgraph s2 ["(b) head = rear, tail = front"]
+        direction LR
+        rear2["rear"] --> e2["e"]
+        front2["front"] --> a2["a"]
+        e2 --> d2["d"]
+        d2 --> c2["c"]
+        c2 --> b2["b"]
+        b2 --> a2
+        a2 --> n2["NULL"]
+    end
+    s1 ~~~ s2
 ```
 
 *그림 6. 체인의 머리와 꼬리를 큐의 전단과 후단에 배정하는 두 방법*

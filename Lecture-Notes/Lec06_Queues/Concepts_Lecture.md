@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-10-26
+> **Last Updated:** 2026-11-04
 
 > **Learning Objectives:**
 > 1. Define a queue as a FIFO linear list and compare it with a stack
@@ -310,20 +310,29 @@ A queue can be represented using a chain (linked list), with two variables, `fro
 
 A queue that received a, b, c, d, e in order looks as follows under the two options.
 
-```text
-(a) head = front, tail = rear
-
-  front                                         rear
-    |                                             |
-    v                                             v
-  [ a ] ---> [ b ] ---> [ c ] ---> [ d ] ---> [ e ] ---> NULL
-
-(b) head = rear, tail = front
-
-  rear                                          front
-    |                                             |
-    v                                             v
-  [ e ] ---> [ d ] ---> [ c ] ---> [ b ] ---> [ a ] ---> NULL
+```mermaid
+graph TB
+    subgraph s1 ["(a) head = front, tail = rear"]
+        direction LR
+        front1["front"] --> a["a"]
+        rear1["rear"] --> e["e"]
+        a --> b["b"]
+        b --> c["c"]
+        c --> d["d"]
+        d --> e
+        e --> n1["NULL"]
+    end
+    subgraph s2 ["(b) head = rear, tail = front"]
+        direction LR
+        rear2["rear"] --> e2["e"]
+        front2["front"] --> a2["a"]
+        e2 --> d2["d"]
+        d2 --> c2["c"]
+        c2 --> b2["b"]
+        b2 --> a2
+        a2 --> n2["NULL"]
+    end
+    s1 ~~~ s2
 ```
 
 *Figure 6. Two ways to assign the head and tail of a chain to the front and rear of a queue*

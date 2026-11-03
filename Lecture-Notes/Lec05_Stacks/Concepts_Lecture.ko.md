@@ -2,7 +2,7 @@
 
 [레포지토리 안내](../../README.ko.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **최종 수정일:** 2026-10-26
+> **최종 수정일:** 2026-11-04
 
 > **학습 목표:**
 > 1. 스택을 제한된 선형 리스트로 정의하고 LIFO 동작을 설명할 수 있다
@@ -210,20 +210,26 @@ index   0   1   2   3   4   5   6   7   8   9
 
 따라서 체인의 왼쪽 끝(머리)을 스택의 탑으로 쓴다.
 
-```text
-(a) top = right end: insert(n, x) and erase(n-1) take O(n)
-
-    firstNode                               top
-        |                                    |
-        v                                    v
-      [ a ] ---> [ b ] ---> [ c ] ---> [ d ] ---> NULL
-
-(b) top = left end: insert(0, x) and erase(0) take O(1)
-
-       top
-        |
-        v
-      [ d ] ---> [ c ] ---> [ b ] ---> [ a ] ---> NULL
+```mermaid
+graph TB
+    subgraph s1 ["(a) top = right end: insert(n, x) and erase(n-1) take O(n)"]
+        direction LR
+        firstNode --> a["a"]
+        top1["top"] --> d["d"]
+        a --> b["b"]
+        b --> c["c"]
+        c --> d
+        d --> n1["NULL"]
+    end
+    subgraph s2 ["(b) top = left end: insert(0, x) and erase(0) take O(1)"]
+        direction LR
+        top2["top"] --> d2["d"]
+        d2 --> c2["c"]
+        c2 --> b2["b"]
+        b2 --> a2["a"]
+        a2 --> n2["NULL"]
+    end
+    s1 ~~~ s2
 ```
 
 *그림 3. 체인의 오른쪽 끝을 탑으로 쓴 경우와 왼쪽 끝을 탑으로 쓴 경우*

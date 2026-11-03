@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Assignment-Explanation.md) | [한국어](Assignment-Explanation.ko.md)
 
-> **Last Updated:** 2026-10-27
+> **Last Updated:** 2026-11-04
 
 > **Learning Objectives:**
 > 1. Describe the structure of a circular linked list with a head node and the shape of the empty list
@@ -69,16 +69,25 @@ g++ -std=c++17 -Wall -Wextra -pedantic -o hw1 Test-Driver.cpp
 
 A node is a `ChainNode<T>` with a data field `data` and a link field `link`. The list keeps one **head node** that holds no data, and the pointer `head` always points to it. The link of the head node points to the first data node, and the link of the last data node points not to `NULL` but back to the head node. The empty list, which has no data node, is the state in which the link of the head node points to the head node itself. The structure is the one in Figure 9 of Lecture 3, Section 6.3, and the pointer `first` of Lecture 3 corresponds to `head` in this homework.
 
-```text
-List with six data nodes (3, 2, 1, 2, 4, 6)
-head --> [H] --> [3] --> [2] --> [1] --> [2] --> [4] --> [6] --+
-          ^                                                    |
-          +----------------------------------------------------+
-
-Empty list
-head --> [H] --+
-          ^    |
-          +----+
+```mermaid
+graph TB
+    subgraph s1 ["List with six data nodes (3, 2, 1, 2, 4, 6)"]
+        direction LR
+        head1["head"] --> h1["H"]
+        h1 --> n3["3"]
+        n3 --> n2["2"]
+        n2 --> n1["1"]
+        n1 --> n2b["2"]
+        n2b --> n4["4"]
+        n4 --> n6["6"]
+        n6 --> h1
+    end
+    subgraph s2 ["Empty list"]
+        direction LR
+        head2["head"] --> h2["H"]
+        h2 --> h2
+    end
+    s1 ~~~ s2
 ```
 
 *Figure 2. A circular linked list with a head node and the empty list (H is the head node)*
@@ -111,10 +120,29 @@ head->link = newNode;         // (1-2) the head node points to the new node
 
 The order of the two statements matters. If (1-2) runs first, it overwrites `head->link`, which held the address of the original first node, so the following (1-1) makes the new node point to itself and the original data nodes can no longer be reached. On the empty list, `head->link` is `head`, so (1-1) sets the link of the new node to the head node, and after (1-2) the head node and the new node form one circle. The empty list therefore needs no separate check, and the link of the last node does not have to change either, because the last node points to the head node, not to the first data node. The time complexity is $O(1)$.
 
-```text
-Before           head --> [H] --> [2] --> [1] --> (back to H)
-After (1-1)             [3] ----> [2]
-After (1-2)      head --> [H] --> [3] --> [2] --> [1] --> (back to H)
+```mermaid
+graph TB
+    subgraph s1 ["Before"]
+        direction LR
+        head1["head"] --> h1["H"]
+        h1 --> a2["2"]
+        a2 --> a1["1"]
+        a1 --> h1
+    end
+    subgraph s2 ["After (1-1)"]
+        direction LR
+        b3["3"] --> b2["2"]
+    end
+    subgraph s3 ["After (1-2)"]
+        direction LR
+        head3["head"] --> h3["H"]
+        h3 --> c3["3"]
+        c3 --> c2["2"]
+        c2 --> c1["1"]
+        c1 --> h3
+    end
+    s1 ~~~ s2
+    s2 ~~~ s3
 ```
 
 *Figure 3. Inserting 3 at the front of the list 2, 1*

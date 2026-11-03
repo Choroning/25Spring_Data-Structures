@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-10-26
+> **Last Updated:** 2026-11-04
 
 > **Learning Objectives:**
 > 1. Implement array-based and linked list data structures
@@ -255,8 +255,12 @@ In the array representation, the location of an element is computed by the mappi
 
 Representing $L = (e_1, e_2, \ldots, e_n)$ as a singly linked list puts each element $e_i$ in a separate node, and each node has exactly one link field that is used to locate the next element in the linear list. The last node, $e_n$, has no node to link to, so its link field is `NULL`. This structure is also called a **chain**.
 
-```text
-head -> [data|next] -> [data|next] -> [data|next] -> nullptr
+```mermaid
+graph LR
+    head --> n1["data | next"]
+    n1 --> n2["data | next"]
+    n2 --> n3["data | next"]
+    n3 --> null["nullptr"]
 ```
 
 *Figure 3. Structure of a singly linked list (chain)*
@@ -453,9 +457,27 @@ int Chain<T>::Search(const T& x) const
 
 **`Delete`.** To delete the fourth element from the chain, we locate the third and fourth nodes, link the third node to the fifth, and free the fourth node so that it becomes available for reuse.
 
-```text
-Before:   first -> [20] -> [10] -> [30] -> [80] -> [11] -> NULL
-After:    first -> [20] -> [10] -> [30] ---------> [11] -> NULL    ([80] is freed)
+```mermaid
+graph TB
+    subgraph s1 ["Before"]
+        direction LR
+        first1["first"] --> a20["20"]
+        a20 --> a10["10"]
+        a10 --> a30["30"]
+        a30 --> a80["80"]
+        a80 --> a11["11"]
+        a11 --> n1["NULL"]
+    end
+    subgraph s2 ["After"]
+        direction LR
+        first2["first"] --> b20["20"]
+        b20 --> b10["10"]
+        b10 --> b30["30"]
+        b30 --> b11["11"]
+        b11 --> n2["NULL"]
+        b80["80 (freed)"]
+    end
+    s1 ~~~ s2
 ```
 
 *Figure 4. Deleting the fourth element 80 from a chain*
@@ -488,9 +510,24 @@ bool Chain<T>::Delete(int k, T& x)
 
 **`Insert`.** To insert an element following the $k$th element in the chain, we locate the $k$th node, make the new node's link point to the $k$th node's link, and then make the $k$th node's link point to the new node. If $k = 0$, the new node becomes the first node, so the new node's link points to the old first node and `first` points to the new node. The new element is placed after $k$ elements, so its index becomes $k$.
 
-```text
-k = 0:   first -> [new] -> [e1] -> [e2] -> ...
-k > 0:   first -> ... -> [kth node] -> [new] -> [(k+1)th node] -> ...
+```mermaid
+graph TB
+    subgraph s1 ["k = 0"]
+        direction LR
+        first1["first"] --> new1["new"]
+        new1 --> e1["e1"]
+        e1 --> e2["e2"]
+        e2 --> d1["..."]
+    end
+    subgraph s2 ["k > 0"]
+        direction LR
+        first2["first"] --> d2["..."]
+        d2 --> kth["kth node"]
+        kth --> new2["new"]
+        new2 --> k1["(k+1)th node"]
+        k1 --> d3["..."]
+    end
+    s1 ~~~ s2
 ```
 
 *Figure 5. Results of inserting at the front of a chain (k = 0) and after the kth node (k > 0)*
@@ -560,12 +597,17 @@ Index#3 Element found: 40
 
 A chain may have a **head node** at the front that holds no data. Pointer `first` points to the head node, and the head node points to the first node of the chain. `first` always points to the head node, and the head node remains undeleted. If the first node of the chain changes, the link of the head node is changed to the new first node, so insertion and deletion of the first node can be handled in the same way as at any other position.
 
-```text
-first       del
-  |          |
-  v          v
-[0|*] --> [3|*] --> [2|*] --> [1|*] --> [2|*] --> [4|*] --> [6|NULL]
-head node
+```mermaid
+graph LR
+    first --> h["0 (head node)"]
+    del --> h
+    h --> n3["3"]
+    n3 --> n2["2"]
+    n2 --> n1["1"]
+    n1 --> n2b["2"]
+    n2b --> n4["4"]
+    n4 --> n6["6"]
+    n6 --> null["NULL"]
 ```
 
 *Figure 6. A chain with a head node and the destructor's pointer del*
@@ -606,11 +648,15 @@ struct DNode {
 };
 ```
 
-```text
-       LeftEnd                                                 RightEnd
-          |                                                       |
-          v                                                       v
-NULL <- [left|1|right] <-> [left|2|right] <-> [left|3|right] <-> [left|4|right] -> NULL
+```mermaid
+graph LR
+    LeftEnd --> n1["1"]
+    RightEnd --> n4["4"]
+    n1 --> null1["NULL"]
+    n1 <--> n2["2"]
+    n2 <--> n3["3"]
+    n3 <--> n4
+    n4 --> null2["NULL"]
 ```
 
 *Figure 7. A doubly linked list and its two end nodes LeftEnd and RightEnd*
@@ -636,11 +682,13 @@ In a **circular doubly linked list**, a head node can be added at the left end, 
 
 With a head node at the left end only, the head node's right points to the first data node and its left to the last data node, and the first data node's left and the last data node's right point to the head node. An empty list consists of the head node alone, whose left and right both point to itself.
 
-```text
-+-> [head] <-> [ 2 ] <-> [ 7 ] <-> [ 1 ] <-> [ 8 ] <-+
-|                                                    |
-+----------------------------------------------------+
-      (head's left = [8], [8]'s right = head)
+```mermaid
+graph LR
+    head["head"] <--> n2["2"]
+    n2 <--> n7["7"]
+    n7 <--> n1["1"]
+    n1 <--> n8["8"]
+    n8 <--> head
 ```
 
 *Figure 8. A circular doubly linked list with a head node at the left end*
@@ -668,21 +716,33 @@ Programs that use chains can be simplified or run faster by doing one or both of
 1. Represent the linear list as a **singly linked circular list** (or simply **circular list**) rather than as a chain. All other nodes can be reached from any node.
 2. Add an additional node, called the **head node**, at the front. Adding and deleting become simpler.
 
-```text
-(a) Circular list
-first --> [e1] --> [e2] --> [e3] --> ... --> [en] --+
-           ^                                        |
-           +----------------------------------------+
-
-(b) Circular list with head node
-first --> [head] --> [e1] --> [e2] --> ... --> [en] --+
-            ^                                         |
-            +-----------------------------------------+
-
-(c) Empty list with head node
-first --> [head] --+
-            ^      |
-            +------+
+```mermaid
+graph TB
+    subgraph s1 ["(a) Circular list"]
+        direction LR
+        first1["first"] --> e1["e1"]
+        e1 --> e2["e2"]
+        e2 --> e3["e3"]
+        e3 --> d1["..."]
+        d1 --> en["en"]
+        en --> e1
+    end
+    subgraph s2 ["(b) Circular list with head node"]
+        direction LR
+        first2["first"] --> h2["head"]
+        h2 --> f1["e1"]
+        f1 --> f2["e2"]
+        f2 --> d2["..."]
+        d2 --> fn["en"]
+        fn --> h2
+    end
+    subgraph s3 ["(c) Empty list with head node"]
+        direction LR
+        first3["first"] --> h3["head"]
+        h3 --> h3
+    end
+    s1 ~~~ s2
+    s2 ~~~ s3
 ```
 
 *Figure 9. A circular list, a circular list with a head node, and an empty list*
@@ -710,16 +770,24 @@ CircularList<T>::~CircularList()
 
 Inserting a new node at the front of a circular list requires changing the link field of the last node. If the name (pointer) of the list points to the first node, the whole list must be followed to find the last node, so it is more convenient if the name of the circular list points to the last node. Then the first node is obtained directly as `last->link`.
 
-```text
-Name points to the first node:
-a --> [x1|*] --> [x2|*] --> [x3|*] --+
-       ^                             |
-       +-----------------------------+
-
-Name points to the last node:
-      [x1|*] --> [x2|*] --> [x3|*] <-- a
-       ^                      |
-       +----------------------+
+```mermaid
+graph TB
+    subgraph s1 ["Name points to the first node"]
+        direction LR
+        a1["a"] --> x1["x1"]
+        x1 --> x2["x2"]
+        x2 --> x3["x3"]
+        x3 --> x1
+    end
+    subgraph s2 ["Name points to the last node"]
+        direction LR
+        a2["a"] ~~~ y1["x1"]
+        y1 --> y2["x2"]
+        y2 --> y3["x3"]
+        y3 --> y1
+        a2 --> y3
+    end
+    s1 ~~~ s2
 ```
 
 *Figure 10. The name of a circular list pointing to the first node and to the last node*
@@ -793,12 +861,23 @@ The chain search tests two things in every iteration: whether `current` is not `
 
 Each term of a polynomial is represented by one node. A node has three fields, the coefficient (data field 1), the exponent (data field 2), and the link (link field), and the terms are linked in decreasing order of exponent.
 
-```text
-a = 3x^14 + 2x^8 + 1
-a --> [ 3 | 14 | *] --> [ 2 |  8 | *] --> [ 1 |  0 | NULL]
-
-b = 8x^14 - 3x^10 + 10x^6
-b --> [ 8 | 14 | *] --> [-3 | 10 | *] --> [10 |  6 | NULL]
+```mermaid
+graph TB
+    subgraph s1 ["a = 3x^14 + 2x^8 + 1"]
+        direction LR
+        a["a"] --> a1["3 | 14"]
+        a1 --> a2["2 | 8"]
+        a2 --> a3["1 | 0"]
+        a3 --> na["NULL"]
+    end
+    subgraph s2 ["b = 8x^14 - 3x^10 + 10x^6"]
+        direction LR
+        b["b"] --> b1["8 | 14"]
+        b1 --> b2["-3 | 10"]
+        b2 --> b3["10 | 6"]
+        b3 --> nb["NULL"]
+    end
+    s1 ~~~ s2
 ```
 
 *Figure 11. Linked list representation of the polynomials a and b*
@@ -833,16 +912,22 @@ Nodes that are no longer in use are freed so that we can reuse them later, and t
 
 To avoid the special case of the zero polynomial, each polynomial may contain one additional head node. The `expon` and `coef` fields of this node are irrelevant; the figure below stores the exponent -1, which does not clash with any real term.
 
-```text
-Zero polynomial:
-a --> [ - | -1 | *] --+
-        ^             |
-        +-------------+
-
-a = 3x^14 + 2x^8 + 1:
-a --> [ - | -1 | *] --> [ 3 | 14 | *] --> [ 2 | 8 | *] --> [ 1 | 0 | *] --+
-        ^                                                                |
-        +----------------------------------------------------------------+
+```mermaid
+graph TB
+    subgraph s1 ["Zero polynomial"]
+        direction LR
+        a1["a"] --> h1["- | -1"]
+        h1 --> h1
+    end
+    subgraph s2 ["a = 3x^14 + 2x^8 + 1"]
+        direction LR
+        a2["a"] --> h2["- | -1"]
+        h2 --> p1["3 | 14"]
+        p1 --> p2["2 | 8"]
+        p2 --> p3["1 | 0"]
+        p3 --> h2
+    end
+    s1 ~~~ s2
 ```
 
 *Figure 12. Polynomials represented as circular lists with a head node*
@@ -855,12 +940,26 @@ a --> [ - | -1 | *] --> [ 3 | 14 | *] --> [ 2 | 8 | *] --> [ 1 | 0 | *] --+
 
 When several stacks and queues coexist, there is no efficient way to represent them sequentially in an array. With the linked representation, each stack and queue uses only as many nodes as it needs. The direction of the links also makes insertion and deletion of nodes easy for both the stack and the queue.
 
-```text
-(a) Linked stack (LIFO)
-top --> [ |*] --> [ |*] --> ... --> [ |NULL]
-
-(b) Linked queue (FIFO)
-front --> [ |*] --> [ |*] --> ... --> [ |NULL] <-- rear
+```mermaid
+graph TB
+    subgraph s1 ["(a) Linked stack (LIFO)"]
+        direction LR
+        top --> a1[" "]
+        a1 --> a2[" "]
+        a2 --> a3["..."]
+        a3 --> a4[" "]
+        a4 --> na["NULL"]
+    end
+    subgraph s2 ["(b) Linked queue (FIFO)"]
+        direction LR
+        front --> b1[" "]
+        b1 --> b2[" "]
+        b2 --> b3["..."]
+        b3 --> b4[" "]
+        b4 --> nb["NULL"]
+        rear --> b4
+    end
+    s1 ~~~ s2
 ```
 
 *Figure 13. A linked stack and a linked queue*

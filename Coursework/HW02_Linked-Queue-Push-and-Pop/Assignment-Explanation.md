@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Assignment-Explanation.md) | [한국어](Assignment-Explanation.ko.md)
 
-> **Last Updated:** 2026-10-27
+> **Last Updated:** 2026-11-04
 
 > **Learning Objectives:**
 > 1. Describe the direction of the links and the positions of `front` and `rear` in the two representations of a linked queue (type 1 and type 2)
@@ -73,18 +73,29 @@ The queue is a chain of nodes of the class `Node<T>` (data field `data`, link fi
 - **Type 1:** Each node points to the node pushed right after it. The links run from `front` toward `rear`, and the link of `rear` is `nullptr`.
 - **Type 2:** Each node points to the node pushed right before it. The links run from `rear` toward `front`, and the link of `front` is `nullptr`.
 
-```text
-(a) Type 1: the links run from the front toward the rear
- front                                         rear
-   |                                             |
-   v                                             v
- [ 1 ] ---> [ 2 ] ---> [ 3 ] ---> [ 4 ] ---> [ 5 ] ---> NULL
-
-(b) Type 2: the links run from the rear toward the front
-          front                                         rear
-            |                                             |
-            v                                             v
-NULL <--- [ 1 ] <--- [ 2 ] <--- [ 3 ] <--- [ 4 ] <--- [ 5 ]
+```mermaid
+graph TB
+    subgraph s1 ["(a) Type 1: the links run from the front toward the rear"]
+        direction LR
+        front1["front"] --> a1["1"]
+        rear1["rear"] --> a5["5"]
+        a1 --> a2["2"]
+        a2 --> a3["3"]
+        a3 --> a4["4"]
+        a4 --> a5
+        a5 --> n1["NULL"]
+    end
+    subgraph s2 ["(b) Type 2: the links run from the rear toward the front"]
+        direction RL
+        front2["front"] --> b1["1"]
+        rear2["rear"] --> b5["5"]
+        b5 --> b4["4"]
+        b4 --> b3["3"]
+        b3 --> b2["2"]
+        b2 --> b1
+        b1 --> n2["NULL"]
+    end
+    s1 ~~~ s2
 ```
 
 *Figure 2. Type 1 and type 2 queues after pushing 1, 2, 3, 4, 5 in turn*

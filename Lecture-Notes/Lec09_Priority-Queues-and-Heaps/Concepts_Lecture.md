@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-10-26
+> **Last Updated:** 2026-11-04
 
 > **Learning Objectives:**
 > 1. Implement the heap data structure using an array
@@ -141,12 +141,25 @@ A **max heap** (min heap) is a **max (min) tree** that is also a **complete bina
 
 As defined in Lecture 8, a complete binary tree is a binary tree in which every level except possibly the last is completely filled and the nodes on the last level are as far left as possible.
 
-```text
-(a)      14             (b)    9          (c)   30
-       /    \                 /                /
-     12      7               6               25
-    /  \    /               /
-  10    8  6               5
+```mermaid
+graph TD
+    la["(a)"] ~~~ a14(("14"))
+    a14 --> a12(("12"))
+    a14 --> a7(("7"))
+    a12 --> a10(("10"))
+    a12 --> a8(("8"))
+    a7 --> a6(("6"))
+    a7 ~~~ p1[" "]
+    lb["(b)"] ~~~ b9(("9"))
+    b9 --> b6(("6"))
+    b9 ~~~ p2[" "]
+    b6 --> b5(("5"))
+    b6 ~~~ p3[" "]
+    lc["(c)"] ~~~ c30(("30"))
+    c30 --> c25(("25"))
+    c30 ~~~ p4[" "]
+    classDef hidden fill:none,stroke:none
+    class la,lb,lc,p1,p2,p3,p4 hidden
 ```
 
 *Figure 3. Three binary trees to be checked for the max heap property*
@@ -161,14 +174,16 @@ Figure 4 in Section 3.2 is an example of a max heap with 9 nodes. A min heap of 
 
 Since a heap is a complete binary tree, it is efficiently represented as an array using the node number properties. As in the numbering of Lecture 8, the nodes are numbered from 1 level by level from top to bottom and from left to right within a level, and node $i$ is stored in `heap[i]` (`heap[0]` is unused). A complete binary tree uses the numbers 1 through $n$ without gaps, so the array has no empty slots.
 
-```text
-            9
-         /     \
-        8       7
-      /   \    / \
-     6     7  2   6
-    / \
-   5   1
+```mermaid
+graph TD
+    n9(("9")) --> n8(("8"))
+    n9 --> n7(("7"))
+    n8 --> n6(("6"))
+    n8 --> n7b(("7"))
+    n7 --> n2(("2"))
+    n7 --> n6b(("6"))
+    n6 --> n5(("5"))
+    n6 --> n1(("1"))
 ```
 
 *Figure 4. A max heap with 9 nodes*
@@ -198,14 +213,20 @@ To insert a new element into a max heap:
 
 Inserting 5 into the heap of Figure 4 creates the new slot `heap[10]`, whose parent is 7 in `heap[5]`. Since 5 is not larger than 7, the insertion ends immediately. Inserting 20 instead of 5 into the same heap moves 20 up past its parents 7 (`heap[5]`), 8 (`heap[2]`), and 9 (`heap[1]`), since it is larger than each, so it reaches the root after three exchanges. Figure 6 shows the result.
 
-```text
-            20
-         /      \
-        9        7
-      /   \     / \
-     6     8   2   6
-    / \   /
-   5   1 7
+```mermaid
+graph TD
+    n20(("20")) --> n9(("9"))
+    n20 --> n7(("7"))
+    n9 --> n6(("6"))
+    n9 --> n8(("8"))
+    n7 --> n2(("2"))
+    n7 --> n6b(("6"))
+    n6 --> n5(("5"))
+    n6 --> n1(("1"))
+    n8 --> n7b(("7"))
+    n8 ~~~ p1[" "]
+    classDef hidden fill:none,stroke:none
+    class p1 hidden
 ```
 
 *Figure 6. The result of inserting 20 into the max heap of Figure 4*
@@ -234,14 +255,18 @@ To delete the max element from a max heap:
 
 We delete the maximum 20 from the max heap of Figure 7 (11 elements).
 
-```text
-              20
-          /        \
-        15          7
-      /    \       / \
-     6      9     2   6
-    / \    / \
-   5   1  7   8
+```mermaid
+graph TD
+    n20(("20")) --> n15(("15"))
+    n20 --> n7(("7"))
+    n15 --> n6(("6"))
+    n15 --> n9(("9"))
+    n7 --> n2(("2"))
+    n7 --> n6b(("6"))
+    n6 --> n5(("5"))
+    n6 --> n1(("1"))
+    n9 --> n7b(("7"))
+    n9 --> n8(("8"))
 ```
 
 *Figure 7. A max heap before deletion*
@@ -367,16 +392,26 @@ To define leftist trees, we first introduce external nodes.
 
 An extended binary tree with $n$ internal nodes has exactly $n + 1$ external nodes. The $n$ internal nodes have $2n$ child slots, and the $n - 1$ nodes other than the root each occupy one slot, so the remaining $2n - (n - 1) = n + 1$ slots become external nodes. Figure 8 shows an extended binary tree with 10 external nodes added to 9 internal nodes.
 
-```text
-                        A
-                 /             \
-              B                   C
-           /     \             /     \
-         D         E          H       []
-       /   \      / \       /   \
-      F     G    [] []     I     []
-     / \   / \            / \
-    [] [] [] []          [] []
+```mermaid
+graph TD
+    A(("A")) --> B(("B"))
+    A --> C(("C"))
+    B --> D(("D"))
+    B --> E(("E"))
+    C --> H(("H"))
+    C --> x1["[ ]"]
+    D --> F(("F"))
+    D --> G(("G"))
+    E --> x2["[ ]"]
+    E --> x3["[ ]"]
+    H --> I(("I"))
+    H --> x4["[ ]"]
+    F --> x5["[ ]"]
+    F --> x6["[ ]"]
+    G --> x7["[ ]"]
+    G --> x8["[ ]"]
+    I --> x9["[ ]"]
+    I --> x10["[ ]"]
 ```
 
 *Figure 8. An extended binary tree with 9 internal nodes (A through I) and 10 external nodes ([])*
@@ -390,16 +425,26 @@ For a node $x$ of an extended binary tree, the **s-value** (or **rank**) is the 
 
 Figure 9 writes the s-value of each node of Figure 8. The leaves F, G, E, and I have external nodes as both children, so their s-value is 1. H and C have an external node as the right child, so their s-value is 1. D has $\min(1, 1) + 1 = 2$, B has $\min(2, 1) + 1 = 2$, and the root A has $\min(2, 1) + 1 = 2$.
 
-```text
-                        2
-                 /             \
-              2                   1
-           /     \             /     \
-         2         1          1       0
-       /   \      / \       /   \
-      1     1    0  0      1     0
-     / \   / \            / \
-    0  0  0  0           0  0
+```mermaid
+graph TD
+    A(("2")) --> B(("2"))
+    A --> C(("1"))
+    B --> D(("2"))
+    B --> E(("1"))
+    C --> H(("1"))
+    C --> x1["0"]
+    D --> F(("1"))
+    D --> G(("1"))
+    E --> x2["0"]
+    E --> x3["0"]
+    H --> I(("1"))
+    H --> x4["0"]
+    F --> x5["0"]
+    F --> x6["0"]
+    G --> x7["0"]
+    G --> x8["0"]
+    I --> x9["0"]
+    I --> x10["0"]
 ```
 
 *Figure 9. The s-value of each node of Figure 8*
@@ -437,12 +482,18 @@ For max leftist trees, step 1 picks the larger root and the other steps are the 
 
 The process of merging the two max HBLTs of Figure 10 is as follows. The number in parentheses next to each node is its s-value.
 
-```text
-       40(2)                      18(2)
-      /     \                    /     \
-   30(1)    10(1)             6(1)     7(1)
-   /        /
- 20(1)    5(1)
+```mermaid
+graph TD
+    a40(("40(2)")) --> a30(("30(1)"))
+    a40 --> a10(("10(1)"))
+    a30 --> a20(("20(1)"))
+    a30 ~~~ p1[" "]
+    a10 --> a5(("5(1)"))
+    a10 ~~~ p2[" "]
+    b18(("18(2)")) --> b6(("6(1)"))
+    b18 --> b7(("7(1)"))
+    classDef hidden fill:none,stroke:none
+    class p1,p2 hidden
 ```
 
 *Figure 10. Two max HBLTs to be merged*
@@ -453,14 +504,18 @@ The process of merging the two max HBLTs of Figure 10 is as follows. The number 
 4. Back at 18, the s-value 1 of the left child 6 is smaller than the s-value 2 of the right child 10, so the two children are swapped. As a result, $s(18) = s(6) + 1 = 2$.
 5. Back at 40, the s-value 1 of the left child 30 is smaller than the s-value 2 of the right child 18, so they are swapped. As a result, $s(40) = s(30) + 1 = 2$.
 
-```text
-            40(2)
-          /       \
-       18(2)      30(1)
-      /     \      /
-   10(2)   6(1)  20(1)
-   /   \
- 5(1)  7(1)
+```mermaid
+graph TD
+    n40(("40(2)")) --> n18(("18(2)"))
+    n40 --> n30(("30(1)"))
+    n18 --> n10(("10(2)"))
+    n18 --> n6(("6(1)"))
+    n30 --> n20(("20(1)"))
+    n30 ~~~ p1[" "]
+    n10 --> n5(("5(1)"))
+    n10 --> n7(("7(1)"))
+    classDef hidden fill:none,stroke:none
+    class p1 hidden
 ```
 
 *Figure 11. The result of merging the two max HBLTs of Figure 10*
@@ -506,30 +561,44 @@ To build a leftist tree from $n$ elements, create a single-node tree for each el
 
 For example, suppose that while building a max leftist tree from 12 elements, the first six merges have produced six trees of two nodes each. Written as (root, left child) pairs, they are (5, 3), (7, 6), (20, 8), (9, 2), (15, 12), and (30, 17). The next three merges combine the trees two at a time from the front of the queue and produce the three trees of Figure 12.
 
-```text
-     7(2)            20(2)            30(2)
-    /    \          /     \          /     \
-  6(1)   5(1)     8(1)    9(1)     17(1)   15(1)
-         /                /                /
-       3(1)             2(1)             12(1)
+```mermaid
+graph TD
+    a7(("7(2)")) --> a6(("6(1)"))
+    a7 --> a5(("5(1)"))
+    a5 --> a3(("3(1)"))
+    a5 ~~~ p1[" "]
+    b20(("20(2)")) --> b8(("8(1)"))
+    b20 --> b9(("9(1)"))
+    b9 --> b2(("2(1)"))
+    b9 ~~~ p2[" "]
+    c30(("30(2)")) --> c17(("17(1)"))
+    c30 --> c15(("15(1)"))
+    c15 --> c12(("12(1)"))
+    c15 ~~~ p3[" "]
+    classDef hidden fill:none,stroke:none
+    class p1,p2,p3 hidden
 ```
 
 *Figure 12. The three max leftist trees produced by the ninth merge*
 
 The tenth merge combines the tree of 7 and the tree of 20 at the front of the queue. Merging the right subtree of 20 (9 and its left child 2) with the tree of 7 makes 9 the root. The tree of 7 is attached to the right of 9 and then swapped to the left, because its s-value 2 is larger than the s-value 1 of the left child 2. At 20 as well, the tree of 9 on the right (s-value 2) is larger than 8 on the left (s-value 1), so the two children are swapped. The last, eleventh merge combines the tree of 30 with this result, and Figure 13 shows the final tree.
 
-```text
-                 30(2)
-               /       \
-           20(3)        17(1)
-          /      \
-       9(2)       15(2)
-      /    \      /    \
-   7(2)   2(1)  12(1)  8(1)
-   /   \
- 6(1)  5(1)
-       /
-     3(1)
+```mermaid
+graph TD
+    n30(("30(2)")) --> n20(("20(3)"))
+    n30 --> n17(("17(1)"))
+    n20 --> n9(("9(2)"))
+    n20 --> n15(("15(2)"))
+    n9 --> n7(("7(2)"))
+    n9 --> n2(("2(1)"))
+    n15 --> n12(("12(1)"))
+    n15 --> n8(("8(1)"))
+    n7 --> n6(("6(1)"))
+    n7 --> n5(("5(1)"))
+    n5 --> n3(("3(1)"))
+    n5 ~~~ p1[" "]
+    classDef hidden fill:none,stroke:none
+    class p1 hidden
 ```
 
 *Figure 13. A max leftist tree initialized from 12 elements*

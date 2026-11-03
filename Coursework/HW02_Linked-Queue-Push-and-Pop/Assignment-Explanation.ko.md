@@ -2,7 +2,7 @@
 
 [레포지토리 안내](../../README.ko.md) | [English](Assignment-Explanation.md) | [한국어](Assignment-Explanation.ko.md)
 
-> **최종 수정일:** 2026-10-27
+> **최종 수정일:** 2026-11-04
 
 > **학습 목표:**
 > 1. 연결 큐의 두 표현(type 1, type 2)에서 링크의 방향과 `front`, `rear`의 위치를 설명할 수 있다
@@ -73,18 +73,29 @@ g++ -std=c++17 -Wall -Wextra -pedantic -o hw2 Test-Driver.cpp
 - **type 1:** 각 노드가 자기 다음에 push된 노드를 가리킨다. 링크는 `front`에서 `rear` 쪽을 향하고, `rear`의 링크가 `nullptr`이다.
 - **type 2:** 각 노드가 자기 직전에 push된 노드를 가리킨다. 링크는 `rear`에서 `front` 쪽을 향하고, `front`의 링크가 `nullptr`이다.
 
-```text
-(a) type 1: 링크가 전단에서 후단 쪽을 향한다
- front                                         rear
-   |                                             |
-   v                                             v
- [ 1 ] ---> [ 2 ] ---> [ 3 ] ---> [ 4 ] ---> [ 5 ] ---> NULL
-
-(b) type 2: 링크가 후단에서 전단 쪽을 향한다
-          front                                         rear
-            |                                             |
-            v                                             v
-NULL <--- [ 1 ] <--- [ 2 ] <--- [ 3 ] <--- [ 4 ] <--- [ 5 ]
+```mermaid
+graph TB
+    subgraph s1 ["(a) type 1: 링크가 전단에서 후단 쪽을 향한다"]
+        direction LR
+        front1["front"] --> a1["1"]
+        rear1["rear"] --> a5["5"]
+        a1 --> a2["2"]
+        a2 --> a3["3"]
+        a3 --> a4["4"]
+        a4 --> a5
+        a5 --> n1["NULL"]
+    end
+    subgraph s2 ["(b) type 2: 링크가 후단에서 전단 쪽을 향한다"]
+        direction RL
+        front2["front"] --> b1["1"]
+        rear2["rear"] --> b5["5"]
+        b5 --> b4["4"]
+        b4 --> b3["3"]
+        b3 --> b2["2"]
+        b2 --> b1
+        b1 --> n2["NULL"]
+    end
+    s1 ~~~ s2
 ```
 
 *그림 2. 1, 2, 3, 4, 5를 차례로 push한 type 1과 type 2의 큐*

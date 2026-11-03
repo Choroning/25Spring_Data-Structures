@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-10-26
+> **Last Updated:** 2026-11-04
 
 > **Learning Objectives:**
 > 1. Implement binary search tree (BST) operations (insert, delete, search)
@@ -65,22 +65,33 @@ Properties 2 and 3 are conditions on all keys of a subtree, not on a single chil
 
 ### 1.3 Examples
 
-```text
-(a)      20
-       /    \
-     15      25
-    /  \       \
-  12    10      22
+```mermaid
+graph TD
+    la["(a)"] ~~~ n20(("20"))
+    n20 --> n15(("15"))
+    n20 --> n25(("25"))
+    n15 --> n12(("12"))
+    n15 --> n10(("10"))
+    n25 ~~~ p1[" "]
+    n25 --> n22(("22"))
+    classDef hidden fill:none,stroke:none
+    class la,p1 hidden
 ```
 
 *Figure 1. Binary tree (a), which is not a BST*
 
-```text
-    30            60
-   /  \            \
-  5    40          70
- / \              /  \
-2   -            65   80
+```mermaid
+graph TD
+    n30(("30")) --> n5(("5"))
+    n30 --> n40(("40"))
+    n5 --> n2(("2"))
+    n5 --> e1(("-"))
+    n60(("60")) ~~~ p1[" "]
+    n60 --> n70(("70"))
+    n70 --> n65(("65"))
+    n70 --> n80(("80"))
+    classDef hidden fill:none,stroke:none
+    class p1 hidden
 ```
 
 *Figure 2. Binary trees (b) and (c), which are BSTs*
@@ -116,14 +127,20 @@ struct Node {
 
 The operation that outputs all elements in ascending order of keys (ascend) is an inorder traversal (left, root, right). By properties 2 and 3, all keys in the left subtree of each node are smaller than the node's key and all keys in the right subtree are larger, so outputting the whole left subtree first, then the node, then the right subtree gives sorted order. Each node is visited once, so the time is $O(n)$.
 
-```text
-              20
-           /      \
-         10        40
-        /  \      /
-       6    15   30
-      / \       /
-     2   8     25
+```mermaid
+graph TD
+    n20(("20")) --> n10(("10"))
+    n20 --> n40(("40"))
+    n10 --> n6(("6"))
+    n10 --> n15(("15"))
+    n40 --> n30(("30"))
+    n40 ~~~ p1[" "]
+    n6 --> n2(("2"))
+    n6 --> n8(("8"))
+    n30 --> n25(("25"))
+    n30 ~~~ p2[" "]
+    classDef hidden fill:none,stroke:none
+    class p1,p2 hidden
 ```
 
 *Figure 3. The BST used in the examples of Sections 2.1 and 2.3*
@@ -172,16 +189,24 @@ Inserting 35, 7, 18, and 40 in turn into the BST of Figure 3 proceeds as follows
 - 18 is compared with 20, 10, and 15 and goes into the right child slot of 15.
 - 40 is not inserted, because the search succeeds at the right child of the root.
 
-```text
-                20
-            /        \
-          10          40
-        /    \       /
-       6      15    30
-      / \       \   / \
-     2   8      18 25  35
-        /
-       7
+```mermaid
+graph TD
+    n20(("20")) --> n10(("10"))
+    n20 --> n40(("40"))
+    n10 --> n6(("6"))
+    n10 --> n15(("15"))
+    n40 --> n30(("30"))
+    n40 ~~~ p1[" "]
+    n6 --> n2(("2"))
+    n6 --> n8(("8"))
+    n15 ~~~ p2[" "]
+    n15 --> n18(("18"))
+    n30 --> n25(("25"))
+    n30 --> n35(("35"))
+    n8 --> n7(("7"))
+    n8 ~~~ p3[" "]
+    classDef hidden fill:none,stroke:none
+    class p1,p2,p3 hidden
 ```
 
 *Figure 4. The result of inserting 35, 7, and 18 into the BST of Figure 3*
@@ -231,14 +256,22 @@ The three cases are illustrated in turn on the tree of Figure 4.
 - **Case 2:** In the tree with 7 and 35 deleted, the degree 1 nodes are 40 (left child 30), 30 (left child 25), and 15 (right child 18). Deleting 40 lets 30 take the position of 40, so 30 becomes the right child of 20. Then deleting 15 makes 18 the right child of 10.
 - **Case 3:** Back in the tree of Figure 4, the degree 2 nodes are 20, 10, 6, and 30. To delete 10 by replacing it with the largest key in the left subtree, go from the left child 6 of 10 to the right until 8, whose right pointer is NULL, so 8 is the replacement key. Put 8 in the place of 10 and delete the original node of 8 (a degree 1 node with the left child 7) by Case 2, which makes 7 the right child of 6. Figure 5 shows the result.
 
-```text
-                20
-            /        \
-           8          40
-        /    \       /
-       6      15    30
-      / \       \   / \
-     2   7      18 25  35
+```mermaid
+graph TD
+    n20(("20")) --> n8(("8"))
+    n20 --> n40(("40"))
+    n8 --> n6(("6"))
+    n8 --> n15(("15"))
+    n40 --> n30(("30"))
+    n40 ~~~ p1[" "]
+    n6 --> n2(("2"))
+    n6 --> n7(("7"))
+    n15 ~~~ p2[" "]
+    n15 --> n18(("18"))
+    n30 --> n25(("25"))
+    n30 --> n35(("35"))
+    classDef hidden fill:none,stroke:none
+    class p1,p2 hidden
 ```
 
 *Figure 5. The result of deleting 10 from the tree of Figure 4 by replacing it with the largest key in the left subtree*
@@ -315,12 +348,14 @@ This occurs when keys are inserted in **sorted order** (ascending or descending)
 
 An **indexed BST** is a BST that adds a `leftSize` field to each node, and `leftSize` stores the number of elements in the node's left subtree. Since all elements of the left subtree are smaller than the node, `leftSize` equals the **rank** of the node within the subtree rooted at it, counted from 0 (its index).
 
-```text
-         8 [20]         <- leftSize=8, key=20
-        /       \
-    4 [10]     3 [40]
-    /    \     /    \
- 1[6]  1[15] 1[30]  0[42]
+```mermaid
+graph TD
+    n20(("8 [20]")) --> n10(("4 [10]"))
+    n20 --> n40(("3 [40]"))
+    n10 --> n6(("1 [6]"))
+    n10 --> n15(("1 [15]"))
+    n40 --> n30(("1 [30]"))
+    n40 --> n42(("0 [42]"))
 ```
 
 *Figure 6. The top three levels of an indexed BST with the leftSize and [key] of each node*

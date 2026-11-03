@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Solutions.md) | [한국어](Solutions.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-11-04
 
 ---
 
@@ -28,14 +28,18 @@
 
 **Answer:**
 
-```text
-         20
-        /   \
-      10     40
-     /  \    /
-    6   15  30
-           /  \
-          25   35
+```mermaid
+graph TD
+    n20(("20")) --> n10(("10"))
+    n20 --> n40(("40"))
+    n10 --> n6(("6"))
+    n10 --> n15(("15"))
+    n40 --> n30(("30"))
+    n40 ~~~ p1[" "]
+    n30 --> n25(("25"))
+    n30 --> n35(("35"))
+    classDef hidden fill:none,stroke:none
+    class p1 hidden
 ```
 
 *Figure 1. The BST obtained by inserting 20, 10, 40, 6, 15, 30, 25, 35 in turn*
@@ -60,12 +64,16 @@ Inorder traversal: 6, 10, 15, 20, 25, 30, 35, 40.
 - (b) Delete 40 (degree 1, has left child 30): replace 40 with 30. The tree is 20(10(_, 15), 30(25, 35)).
 - (c) Delete 20 (degree 2): the inorder successor is 25 (smallest in right subtree). Replace 20 with 25, then remove the original 25 node. The final tree is 25(10(_, 15), 30(_, 35)).
 
-```text
-       25
-     /    \
-   10      30
-     \       \
-      15      35
+```mermaid
+graph TD
+    n25(("25")) --> n10(("10"))
+    n25 --> n30(("30"))
+    n10 ~~~ p1[" "]
+    n10 --> n15(("15"))
+    n30 ~~~ p2[" "]
+    n30 --> n35(("35"))
+    classDef hidden fill:none,stroke:none
+    class p1,p2 hidden
 ```
 
 *Figure 2. The BST after the three deletions*

@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Solutions.md) | [한국어](Solutions.ko.md)
 
-> **Last Updated:** 2026-10-18
+> **Last Updated:** 2026-11-04
 
 ---
 
@@ -81,8 +81,11 @@
 
 **Answer:** Final state: front -> [30] -> nullptr, rear -> [30]. Queue contains only 30.
 
-```text
-frontNode ---> [ 30 | nullptr ] <--- rearNode
+```mermaid
+graph LR
+    frontNode --> n30["30"]
+    rearNode --> n30
+    n30 --> null["nullptr"]
 ```
 
 *Figure 2. The linked queue after all operations*
