@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Solutions.md) | [한국어](Solutions.ko.md)
 
-> **Last Updated:** 2026-10-26
+> **Last Updated:** 2026-11-04
 
 ---
 
@@ -34,14 +34,20 @@
 
 The final heap is `[-, 25, 20, 7, 6, 15, 2, 6, 5, 1, 9]`.
 
-```text
-              25
-          /        \
-        20          7
-      /    \       / \
-     6      15    2   6
-    / \    /
-   5   1  9
+```mermaid
+graph TD
+    n25(("25")) --> n20(("20"))
+    n25 --> n7(("7"))
+    n20 --> n6(("6"))
+    n20 --> n15(("15"))
+    n7 --> n2(("2"))
+    n7 --> n6b(("6"))
+    n6 --> n5(("5"))
+    n6 --> n1(("1"))
+    n15 --> n9(("9"))
+    n15 ~~~ p1[" "]
+    classDef hidden fill:none,stroke:none
+    class p1 hidden
 ```
 
 *Figure 1. The max heap after inserting 25*
@@ -94,12 +100,25 @@ The final heap is `[-, 15, 9, 7, 6, 8, 2, 6, 5, 1]`.
 
 **Problem:** Determine whether each of the following binary trees is a valid max heap: (a) the complete binary tree that holds 14, 12, 7, 10, 8, 6 in level order, that is, the array `[-, 14, 12, 7, 10, 8, 6]` (b) the tree in which the root 9 has the left child 6 and 6 has only a right child 5 (c) the tree in which the root 30 has only a left child 25, that is, the array `[-, 30, 25]`
 
-```text
-(a)      14             (b)    9          (c)   30
-       /    \                 /                /
-     12      7               6               25
-    /  \    /                 \
-  10    8  6                   5
+```mermaid
+graph TD
+    la["(a)"] ~~~ a14(("14"))
+    a14 --> a12(("12"))
+    a14 --> a7(("7"))
+    a12 --> a10(("10"))
+    a12 --> a8(("8"))
+    a7 --> a6(("6"))
+    a7 ~~~ p1[" "]
+    lb["(b)"] ~~~ b9(("9"))
+    b9 --> b6(("6"))
+    b9 ~~~ p2[" "]
+    b6 ~~~ p3[" "]
+    b6 --> b5(("5"))
+    lc["(c)"] ~~~ c30(("30"))
+    c30 --> c25(("25"))
+    c30 ~~~ p4[" "]
+    classDef hidden fill:none,stroke:none
+    class la,lb,lc,p1,p2,p3,p4 hidden
 ```
 
 *Figure 2. Three binary trees to be checked for the max heap property*
