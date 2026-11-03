@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-10-26
+> **Last Updated:** 2026-11-04
 
 > **Learning Objectives:**
 > 1. Define a stack as a restricted linear list and explain its LIFO behavior
@@ -210,20 +210,26 @@ Multiple stacks can be represented efficiently using one chain (linked list) for
 
 Therefore the left end (head) of the chain is used as the stack top.
 
-```text
-(a) top = right end: insert(n, x) and erase(n-1) take O(n)
-
-    firstNode                               top
-        |                                    |
-        v                                    v
-      [ a ] ---> [ b ] ---> [ c ] ---> [ d ] ---> NULL
-
-(b) top = left end: insert(0, x) and erase(0) take O(1)
-
-       top
-        |
-        v
-      [ d ] ---> [ c ] ---> [ b ] ---> [ a ] ---> NULL
+```mermaid
+graph TB
+    subgraph s1 ["(a) top = right end: insert(n, x) and erase(n-1) take O(n)"]
+        direction LR
+        firstNode --> a["a"]
+        top1["top"] --> d["d"]
+        a --> b["b"]
+        b --> c["c"]
+        c --> d
+        d --> n1["NULL"]
+    end
+    subgraph s2 ["(b) top = left end: insert(0, x) and erase(0) take O(1)"]
+        direction LR
+        top2["top"] --> d2["d"]
+        d2 --> c2["c"]
+        c2 --> b2["b"]
+        b2 --> a2["a"]
+        a2 --> n2["NULL"]
+    end
+    s1 ~~~ s2
 ```
 
 *Figure 3. The right end of the chain as the top versus the left end as the top*
