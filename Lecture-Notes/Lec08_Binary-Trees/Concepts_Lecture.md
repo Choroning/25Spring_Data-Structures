@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-10-26
+> **Last Updated:** 2026-11-04
 
 > **Learning Objectives:**
 > 1. Apply tree terms such as root, leaf, level, height, and degree to a given tree
@@ -126,10 +126,12 @@ A **binary tree** is a finite (possibly empty) collection of elements.
 
 *Table 2. Differences between a tree and a binary tree*
 
-```text
-    a           a
-   / \         / \
-  b   c       c   b
+```mermaid
+graph TD
+    a1(("a")) --> b1(("b"))
+    a1 --> c1(("c"))
+    a2(("a")) --> c2(("c"))
+    a2 --> b2(("b"))
 ```
 
 *Figure 2. Two trees with the left and right children swapped*
@@ -322,23 +324,23 @@ struct BinaryTreeNode {
 
 `T` is the element type, and in C++ the structure is declared as a template by writing `template <class T>` before it. A pointer whose child does not exist is a null pointer. In Figure 7 each node is `[leftChild | element | rightChild]`, `*` is a pointer to a child, and `-` is a null pointer.
 
-```text
-root
-  │
-  ▼
-[ * | a | * ]
-  │       └─────────────────┐
-  ▼                         ▼
-[ * | b | - ]             [ - | c | * ]
-  │                                 └───────┐
-  ▼                                         ▼
-[ * | d | - ]                             [ * | e | - ]
-  │                                         │
-  ▼                                         ▼
-[ - | f | - ]                             [ - | g | * ]
-                                                    └───────┐
-                                                            ▼
-                                                          [ - | h | - ]
+```mermaid
+graph TD
+    root --> a(("a"))
+    a --> b(("b"))
+    a --> c(("c"))
+    b --> d(("d"))
+    b ~~~ p1[" "]
+    c ~~~ p2[" "]
+    c --> e(("e"))
+    d --> f(("f"))
+    d ~~~ p3[" "]
+    e --> g(("g"))
+    e ~~~ p4[" "]
+    g ~~~ p5[" "]
+    g --> h(("h"))
+    classDef hidden fill:none,stroke:none
+    class p1,p2,p3,p4,p5 hidden
 ```
 
 *Figure 7. Linked representation of a binary tree*
@@ -362,14 +364,22 @@ Many binary tree operations are done by performing a **traversal** of the binary
 
 The examples in this section treat a visit as printing and traverse the binary tree of Figure 8.
 
-```text
-              a
-           /     \
-         b         c
-       /   \      /
-      d     e    f
-     / \     \    \
-    g   h     i    j
+```mermaid
+graph TD
+    a(("a")) --> b(("b"))
+    a --> c(("c"))
+    b --> d(("d"))
+    b --> e(("e"))
+    c --> f(("f"))
+    c ~~~ p1[" "]
+    d --> g(("g"))
+    d --> h(("h"))
+    e ~~~ p2[" "]
+    e --> i(("i"))
+    f ~~~ p3[" "]
+    f --> j(("j"))
+    classDef hidden fill:none,stroke:none
+    class p1,p2,p3 hidden
 ```
 
 *Figure 8. Binary tree used in the traversal examples*
@@ -388,14 +398,18 @@ Preorder(node):
 
 **Example:** Preorder traversal of the tree in Figure 8 visits the nodes in the order `a b d g h e i c f j`. It visits the root a first, then the whole left subtree (b, d, g, h, e, i), and finally the right subtree (c, f, j).
 
-```text
-              /
-          /       \
-        *           +
-      /   \        / \
-     +     -      e   f
-    / \   / \
-   a   b c   d
+```mermaid
+graph TD
+    r(("/")) --> q1(("*"))
+    r --> q2(("+"))
+    q1 --> q3(("+"))
+    q1 --> s(("-"))
+    q2 --> e(("e"))
+    q2 --> f(("f"))
+    q3 --> a(("a"))
+    q3 --> b(("b"))
+    s --> c(("c"))
+    s --> d(("d"))
 ```
 
 *Figure 9. Expression tree of ((a + b) * (c - d)) / (e + f)*
@@ -484,42 +498,51 @@ An **expression tree** is a binary tree where:
 
 A binary operator node has two children, and a unary sign operator node (e.g., the - in -a) has one child. Figure 10 shows the expression trees of three expressions.
 
-```text
-(a)       +
-        /   \
-       *     /
-      / \   / \
-     a   b c   d
-
-(b)          +
-            / \
-           +   d
-          / \
-         +   c
-        / \
-       a   b
-
-(c)            /
-           /       \
-         +           *
-       /   \       /   \
-      -     +     +     *
-      |    / \    |    / \
-      a   x   y   b   c   a
+```mermaid
+graph TD
+    la["(a)"] ~~~ a1(("+"))
+    a1 --> a2(("*"))
+    a1 --> a3(("/"))
+    a2 --> a4(("a"))
+    a2 --> a5(("b"))
+    a3 --> a6(("c"))
+    a3 --> a7(("d"))
+    lb["(b)"] ~~~ b1(("+"))
+    b1 --> b2(("+"))
+    b1 --> b3(("d"))
+    b2 --> b4(("+"))
+    b2 --> b5(("c"))
+    b4 --> b6(("a"))
+    b4 --> b7(("b"))
+    lc["(c)"] ~~~ c1(("/"))
+    c1 --> c2(("+"))
+    c1 --> c3(("*"))
+    c2 --> c4(("-"))
+    c2 --> c5(("+"))
+    c4 --> c6(("a"))
+    c5 --> c7(("x"))
+    c5 --> c8(("y"))
+    c3 --> c9(("+"))
+    c3 --> c10(("*"))
+    c9 --> c11(("b"))
+    c10 --> c12(("c"))
+    c10 --> c13(("a"))
+    classDef hidden fill:none,stroke:none
+    class la,lb,lc hidden
 ```
 
 *Figure 10. Expression trees of (a) (a * b) + (c / d), (b) ((a + b) + c) + d, (c) ((-a) + (x + y)) / ((+b) * (c * a))*
 
 **Example:** The expression `3 + ((5 + 9) * 2)` is represented as follows.
 
-```text
-        +
-       / \
-      3   *
-         / \
-        +   2
-       / \
-      5   9
+```mermaid
+graph TD
+    r(("+")) --> n3(("3"))
+    r --> m(("*"))
+    m --> p(("+"))
+    m --> n2(("2"))
+    p --> n5(("5"))
+    p --> n9(("9"))
 ```
 
 *Figure 11. Expression tree of 3 + ((5 + 9) * 2)*

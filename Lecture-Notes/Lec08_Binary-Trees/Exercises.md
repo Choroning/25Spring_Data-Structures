@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Exercises.md) | [한국어](Exercises.ko.md)
 
-> **Last Updated:** 2026-10-26
+> **Last Updated:** 2026-11-04
 
 ---
 
@@ -34,14 +34,20 @@
 
 **Problem:** Given the following binary tree (Figure 1), write the preorder, inorder, postorder, and level-order traversals.
 
-```text
-        A
-       / \
-      B    C
-     / \    \
-    D   E    F
-   /       / \
-  G       H   I
+```mermaid
+graph TD
+    A(("A")) --> B(("B"))
+    A --> C(("C"))
+    B --> D(("D"))
+    B --> E(("E"))
+    C ~~~ p1[" "]
+    C --> F(("F"))
+    D --> G(("G"))
+    D ~~~ p2[" "]
+    F --> H(("H"))
+    F --> I(("I"))
+    classDef hidden fill:none,stroke:none
+    class p1,p2 hidden
 ```
 
 *Figure 1. Binary tree of Exercise 2*
