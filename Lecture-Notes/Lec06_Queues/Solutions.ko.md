@@ -2,7 +2,7 @@
 
 [레포지토리 안내](../../README.ko.md) | [English](Solutions.md) | [한국어](Solutions.ko.md)
 
-> **최종 수정일:** 2026-10-18
+> **최종 수정일:** 2026-11-04
 
 ---
 
@@ -81,8 +81,11 @@
 
 **정답:** 최종 상태는 front -> [30] -> nullptr, rear -> [30]이다. 큐에는 30만 존재한다.
 
-```text
-frontNode ---> [ 30 | nullptr ] <--- rearNode
+```mermaid
+graph LR
+    frontNode --> n30["30"]
+    rearNode --> n30
+    n30 --> null["nullptr"]
 ```
 
 *그림 2. 연산을 모두 마친 연결 큐*
