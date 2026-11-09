@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-10-26
+> **Last Updated:** 2026-11-10
 
 > **Learning Objectives:**
 > 1. Classify algorithms by time complexity classes
@@ -126,7 +126,7 @@ For example, $f(n) = O(n^2)$ means that $f(n)$ ultimately (for all $n$ greater t
 | $n^2 + 10n$ | 11 | 75 | 171 | 200 | 231 | 375 |
 | $2n^2$ | 2 | 50 | 162 | 200 | 242 | 450 |
 
-*Table 3. Comparison of the values of $n^2 + 10n$ and $2n^2$*
+*Table 3. Values of $`n^2 + 10n`$ and $`2n^2`$ compared*
 
 For $n < 10$, $n^2 + 10n$ is larger, but the two values become equal at $n = 10$, and after that $n^2 + 10n$ stays beneath $2n^2$.
 
@@ -206,7 +206,7 @@ $O(n^2)$, $\Omega(n^2)$, and $\Theta(n^2)$ are each sets of functions. The follo
 | $6n^6 + n^4$ | No | Yes | No |
 | $2^n + 4n$ | No | Yes | No |
 
-*Table 4. Membership of example functions in $O(n^2)$, $\Omega(n^2)$, and $\Theta(n^2)$*
+*Table 4. $`O(n^2)`$, $`\Omega(n^2)`$, and $`\Theta(n^2)`$ membership of example functions*
 
 $\Theta(n^2) = O(n^2) \cap \Omega(n^2)$. The functions $4n^2$, $6n^2 + 9$, and $5n^2 + 2n$ in $\Theta(n^2)$ share the same upper bound and lower bound of order $n^2$, and this bound cannot be made any tighter.
 
