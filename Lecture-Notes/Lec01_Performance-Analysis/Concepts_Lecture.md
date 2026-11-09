@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-10-26
+> **Last Updated:** 2026-11-10
 
 > **Learning Objectives:**
 > 1. Analyze algorithm performance using step counts
@@ -409,7 +409,7 @@ The time complexity $T(n)$ is a function of the problem size $n$. Usually $T(n)$
 
 The asymptotic complexity is a function $f(n)$ that forms an upper bound for $T(n)$ for large $n$. In general, only the **order** of the asymptotic complexity is of interest, that is, whether it is a linear, quadratic, or exponential function. The order is denoted by a **complexity class** using Big-O notation.
 
-> **Definition:** $f(n) = O(g(n))$ (read as "f(n) is Big Oh of g(n)") if positive constants $c$ and $n_0$ exist such that $f(n) \le c \cdot g(n)$ for all $n \ge n_0$. That is, $O(g)$ comprises all functions $f$ for which there exist a constant $c$ and a number $n_0$ such that $f(n)$ is smaller than or equal to $c \cdot g(n)$ for all $n \ge n_0$.
+> **Definition:** **Big-O notation.** $f(n) = O(g(n))$ (read as "f(n) is Big Oh of g(n)") if positive constants $c$ and $n_0$ exist such that $f(n) \le c \cdot g(n)$ for all $n \ge n_0$. That is, $O(g)$ comprises all functions $f$ for which there exist a constant $c$ and a number $n_0$ such that $f(n)$ is smaller than or equal to $c \cdot g(n)$ for all $n \ge n_0$.
 
 - The time complexity $T(n)$ of bubble sort lies in the complexity class $O(n^2)$. $O(n^2)$ is the class of all functions that grow at most quadratically; for example, $n^2 + 2n + 1$, which grows at most quadratically, is also in $O(n^2)$.
 - $O(n)$ is the set of all functions that grow at most linearly.
@@ -422,13 +422,13 @@ Once an algorithm for solving a specific problem is found, the question arises w
 
 Again, only the order of the lower bound is considered, namely whether it is linear, quadratic, exponential, or some other function, and this order is given by a function class using Omega notation.
 
-> **Definition:** $f(n) = \Omega(g(n))$ (read as "f(n) is Omega of g(n)") if positive constants $c$ and $n_0$ exist such that $f(n) \ge c \cdot g(n)$ for all $n \ge n_0$.
+> **Definition:** **Omega notation.** $f(n) = \Omega(g(n))$ (read as "f(n) is Omega of g(n)") if positive constants $c$ and $n_0$ exist such that $f(n) \ge c \cdot g(n)$ for all $n \ge n_0$.
 
 ### 4.4 Theta Notation and Optimal Algorithms
 
 Let $f(n) = n^2 + 2n + 1$ and $g(n) = n^2$. With $c = 1$ and $n_0 = 2$ we have $n^2 + 2n + 1 \ge c \cdot n^2$ for $n \ge n_0$, so $f(n) = \Omega(n^2)$ (in fact, the inequality holds for all $n \ge 0$). This function also lies in $O(n^2)$, so it grows at least quadratically and also at most quadratically. To express the exact order of a function, the class $\Theta$ is used.
 
-> **Definition:** $f(n) = \Theta(g(n))$ (read as "f(n) is Theta of g(n)") if positive constants $c_1$, $c_2$, and $n_0$ exist such that $c_1 \cdot g(n) \le f(n) \le c_2 \cdot g(n)$ for all $n \ge n_0$. That is, $f$ lies between $c_1$ times $g$ and $c_2$ times $g$, except possibly when $n$ is smaller than $n_0$.
+> **Definition:** **Theta notation.** $f(n) = \Theta(g(n))$ (read as "f(n) is Theta of g(n)") if positive constants $c_1$, $c_2$, and $n_0$ exist such that $c_1 \cdot g(n) \le f(n) \le c_2 \cdot g(n)$ for all $n \ge n_0$. That is, $f$ lies between $c_1$ times $g$ and $c_2$ times $g$, except possibly when $n$ is smaller than $n_0$.
 
 The lower bound for the sorting problem lies in $\Omega(n)$, and the upper bound obtained with bubble sort lies in $O(n^2)$. This gap can be bridged. Heap sort sorts in $O(n \log n)$ time, and the lower bound can also be improved to $\Omega(n \log n)$. Since the upper and lower bounds match, the complexity of sorting is $\Theta(n \log n)$, and heap sort is an **optimal** sorting algorithm whose upper bound matches the lower bound for the problem.
 

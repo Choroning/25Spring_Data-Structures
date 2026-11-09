@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-11-04
+> **Last Updated:** 2026-11-10
 
 > **Learning Objectives:**
 > 1. Apply tree terms such as root, leaf, level, height, and degree to a given tree
@@ -224,7 +224,7 @@ For a node numbered $x$ in a full or complete binary tree with $n$ nodes, the fo
 | Right child of $x$ | $2x + 1$ | $2x + 1 \leq n$ |
 | Node is a leaf | $2x > n$ | |
 
-*Table 3. Parent, children, and leaf test from the node number $x$*
+*Table 3. Using the node number $`x`$ to find the parent, children, and leaf status*
 
 Checking these on the full binary tree of Figure 3 ($n = 15$) gives the following.
 
