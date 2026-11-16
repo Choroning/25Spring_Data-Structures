@@ -2,7 +2,7 @@
 
 [레포지토리 안내](../../README.ko.md) | [English](Code-Walkthrough.md) | [한국어](Code-Walkthrough.ko.md)
 
-> **최종 수정일:** 2026-10-27
+> **최종 수정일:** 2026-11-16
 
 > **학습 목표:**
 > 1. `InsertFront`와 `InsertRear`의 각 문장이 바꾸는 링크를 설명할 수 있다
@@ -32,6 +32,8 @@
 <br>
 
 ## 1. 파일 구성
+
+> **풀어 보기:** 이 문서는 작성한 코드 전체와 줄별 설명을 담고 있다. 먼저 [과제 안내문](Original/Assignment.ko.md)의 문제를 직접 풀어 본 뒤 읽는다.
 
 짝이 되는 문서 [HW1 과제 해설](Assignment-Explanation.ko.md)은 요구사항, 설계, 테스트, 서술형 답을 정리한다. 이 문서는 `Solution`의 두 파일을 처음부터 끝까지 읽는다. 줄 번호는 모두 각 파일 기준이다. `InsertFront-and-InsertRear.cpp`(38줄)는 풀이의 두 함수이고, `Test-Driver.cpp`(133줄)는 두 함수를 실행하기 위한 테스트용 드라이버이다.
 

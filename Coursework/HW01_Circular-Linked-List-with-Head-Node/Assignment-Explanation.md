@@ -2,11 +2,11 @@
 
 [Repository Guide](../../README.md) | [English](Assignment-Explanation.md) | [한국어](Assignment-Explanation.ko.md)
 
-> **Last Updated:** 2026-11-04
+> **Last Updated:** 2026-11-16
 
 > **Learning Objectives:**
 > 1. Describe the structure of a circular linked list with a head node and the shape of the empty list
-> 2. Explain the two links that `InsertFront` changes and why their order matters
+> 2. Explain the links that `InsertFront` changes and the role of each statement
 > 3. Trace the termination condition of the loop with which `InsertRear` finds the last node, and its behavior on the empty list
 > 4. Compare the advantages of a head node and the costs of front and rear insertion depending on where the head node is placed
 
@@ -36,6 +36,8 @@
 <br>
 
 ## 1. Homework Layout and How to Run
+
+> **Try It First:** This document contains the answers and solutions. Solve the problems in the [assignment handout](Original/Assignment.md) yourself before reading on.
 
 The homework asks for the bodies of the member functions `InsertFront` and `InsertRear` of a circular linked list with a head node, a screenshot of the completed program, and answers to two questions about the head node. It uses the head node (Section 4.4) and circular lists (Section 6) of Lecture 3 directly. The handout is in [`Original/Assignment.md`](Original/Assignment.md).
 

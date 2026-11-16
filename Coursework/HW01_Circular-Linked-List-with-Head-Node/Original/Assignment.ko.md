@@ -2,7 +2,7 @@
 
 [레포지토리 안내](../../../README.ko.md) | [English](Assignment.md) | [한국어](Assignment.ko.md)
 
-> **최종 수정일:** 2026-10-19
+> **최종 수정일:** 2026-11-16
 
 자료구조 1차 프로그래밍 과제(Programming Homework #1), 헤드 노드가 있는 원형 연결 리스트(Circular Linked List with Head Node)이다. 과제는 네 문제로 이루어지며 모두 100점이다. 문제 1과 2는 헤드 노드가 있는 원형 연결 리스트의 멤버 함수 본문을 채운다.
 
@@ -121,3 +121,9 @@ Destructor is executed successfully!
 
 1. 원형 연결 리스트에서 헤드 노드를 쓰는 장점을 설명하라.
 2. 헤드 노드를 앞에 두는 것과 뒤에 두는 것의 차이를 설명하라.
+
+---
+
+<br>
+
+문제를 풀어 본 뒤 [과제 해설](../Assignment-Explanation.ko.md)에서 정답과 풀이를, [코드 총정리](../Code-Walkthrough.ko.md)에서 작성한 코드 전체를 볼 수 있다.

@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Code-Walkthrough.md) | [한국어](Code-Walkthrough.ko.md)
 
-> **Last Updated:** 2026-10-27
+> **Last Updated:** 2026-11-16
 
 > **Learning Objectives:**
 > 1. Explain the link that each statement of `InsertFront` and `InsertRear` changes
@@ -32,6 +32,8 @@
 <br>
 
 ## 1. File Layout
+
+> **Try It First:** This document contains the complete code and line-by-line explanations. Solve the problems in the [assignment handout](Original/Assignment.md) yourself before reading on.
 
 The companion document [HW1 Assignment Explanation](Assignment-Explanation.md) covers the requirements, design, testing, and written answers. This document reads the two files in `Solution` from beginning to end. All line numbers refer to the respective file. `InsertFront-and-InsertRear.cpp` (38 lines) holds the two solution functions, and `Test-Driver.cpp` (133 lines) is a test driver that runs them.
 

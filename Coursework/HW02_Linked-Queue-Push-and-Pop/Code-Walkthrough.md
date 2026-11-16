@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Code-Walkthrough.md) | [한국어](Code-Walkthrough.ko.md)
 
-> **Last Updated:** 2026-10-27
+> **Last Updated:** 2026-11-16
 
 > **Learning Objectives:**
 > 1. Explain the pointers that each branch of `push` and `pop` changes in the two representations
@@ -32,6 +32,8 @@
 <br>
 
 ## 1. File Layout
+
+> **Try It First:** This document contains the complete code and line-by-line explanations. Solve the problems in the [assignment handout](Original/Assignment.md) yourself before reading on.
 
 The companion document [HW2 Assignment Explanation](Assignment-Explanation.md) covers the two representations, the design, testing, and the interpretation of the execution times. This document reads the two files in `Solution` from beginning to end. All line numbers refer to the respective file. `Push-and-Pop.cpp` (82 lines) holds the two solution functions, and `Test-Driver.cpp` (111 lines) is a test driver that runs them.
 

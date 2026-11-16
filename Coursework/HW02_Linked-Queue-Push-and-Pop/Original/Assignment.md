@@ -2,7 +2,7 @@
 
 [Repository Guide](../../../README.md) | [English](Assignment.md) | [한국어](Assignment.ko.md)
 
-> **Last Updated:** 2026-10-19
+> **Last Updated:** 2026-11-16
 
 Data Structures Programming Homework #2, Linked Queue Pop and Push Operation. The homework has three problems worth 100 points in total. Problems 1 and 2 fill in the parts of the member functions `push` and `pop` of the class `Queue` for the two representations of a linked queue, type 1 and type 2.
 
@@ -73,3 +73,9 @@ Run the program with the completed code and capture screenshots of the results. 
 type1 pop time : 2ms
 type2 pop time : 313ms
 ```
+
+---
+
+<br>
+
+After solving the problems, see the [assignment explanation](../Assignment-Explanation.md) for the answers and solutions and the [code walkthrough](../Code-Walkthrough.md) for the complete code.

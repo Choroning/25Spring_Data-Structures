@@ -2,12 +2,12 @@
 
 [Repository Guide](../../README.md) | [English](Assignment-Explanation.md) | [한국어](Assignment-Explanation.ko.md)
 
-> **Last Updated:** 2026-11-04
+> **Last Updated:** 2026-11-16
 
 > **Learning Objectives:**
 > 1. Describe the direction of the links and the positions of `front` and `rear` in the two representations of a linked queue (type 1 and type 2)
-> 2. Explain why push takes $O(1)$ in both representations
-> 3. Explain why pop in type 2 takes $O(n)$ to find the new front, and the cost of popping all $n$ elements
+> 2. Explain the time complexity of push in the two representations
+> 3. Explain the time complexity of pop in the two representations and the cost of popping all $n$ elements
 > 4. Handle the boundary cases of an empty queue and a one-element queue in push and pop
 > 5. Interpret measured execution times in terms of time complexity
 
@@ -36,6 +36,8 @@
 <br>
 
 ## 1. Homework Layout and How to Run
+
+> **Try It First:** This document contains the answers and solutions. Solve the problems in the [assignment handout](Original/Assignment.md) yourself before reading on.
 
 The homework asks for the member functions `push` and `pop` of the linked queue class `Queue<T>` in two representations (type 1 and type 2), and for a screenshot of the completed program measuring the pop time of the two representations. It uses the linked queue of Lecture 6 (Section 4) directly. The handout is in [`Original/Assignment.md`](Original/Assignment.md).
 

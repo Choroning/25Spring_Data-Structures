@@ -2,7 +2,7 @@
 
 [Repository Guide](../../../README.md) | [English](Assignment.md) | [한국어](Assignment.ko.md)
 
-> **Last Updated:** 2026-10-19
+> **Last Updated:** 2026-11-16
 
 Data Structures Programming Homework #1, Circular Linked List with Head Node. The homework has four problems worth 100 points in total. Problems 1 and 2 fill in the bodies of member functions of a circular linked list that has a head node.
 
@@ -121,3 +121,9 @@ Explain the following questions about the head node for a circular linked list.
 
 1. Explain the pros of using a head node for a circular linked list.
 2. Explain the difference between putting the head node at the front and putting the head node at the rear.
+
+---
+
+<br>
+
+After solving the problems, see the [assignment explanation](../Assignment-Explanation.md) for the answers and solutions and the [code walkthrough](../Code-Walkthrough.md) for the complete code.

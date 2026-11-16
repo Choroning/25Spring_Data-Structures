@@ -2,7 +2,7 @@
 
 [레포지토리 안내](../../../README.ko.md) | [English](Assignment.md) | [한국어](Assignment.ko.md)
 
-> **최종 수정일:** 2026-10-19
+> **최종 수정일:** 2026-11-16
 
 자료구조 2차 프로그래밍 과제(Programming Homework #2), 연결 큐의 pop과 push 연산(Linked Queue Pop and Push Operation)이다. 과제는 세 문제로 이루어지며 모두 100점이다. 문제 1과 2는 연결 큐의 두 가지 표현인 type 1과 type 2에 대해 `Queue` 클래스의 멤버 함수 `push`와 `pop`의 빈 부분을 채운다.
 
@@ -73,3 +73,9 @@ T pop()
 type1 pop time : 2ms
 type2 pop time : 313ms
 ```
+
+---
+
+<br>
+
+문제를 풀어 본 뒤 [과제 해설](../Assignment-Explanation.ko.md)에서 정답과 풀이를, [코드 총정리](../Code-Walkthrough.ko.md)에서 작성한 코드 전체를 볼 수 있다.
