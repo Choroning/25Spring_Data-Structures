@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-11-10
+> **Last Updated:** 2026-11-18
 
 > **Learning Objectives:**
 > 1. Analyze algorithm performance using step counts
@@ -16,8 +16,8 @@
 ## Table of Contents
 
 - [1. Introduction to Performance Analysis](#1-introduction-to-performance-analysis)
-  - [1.1 What is Performance?](#11-what-is-performance)
-  - [1.2 Why Analyze Performance?](#12-why-analyze-performance)
+  - [1.1 The Concept of Performance](#11-the-concept-of-performance)
+  - [1.2 Reasons to Analyze Performance](#12-reasons-to-analyze-performance)
 - [2. Space Complexity](#2-space-complexity)
   - [2.1 Components of Space](#21-components-of-space)
   - [2.2 Fixed vs. Variable Space](#22-fixed-vs-variable-space)
@@ -57,7 +57,7 @@
 
 ## 1. Introduction to Performance Analysis
 
-### 1.1 What is Performance?
+### 1.1 The Concept of Performance
 
 The **performance** of a program is the amount of computer memory and time needed to run it. Performance of a program is measured by two key resources:
 
@@ -66,7 +66,7 @@ The **performance** of a program is the amount of computer memory and time neede
 
 Performance is determined analytically by **performance analysis** and experimentally by **performance measurement**. Performance analysis helps us predict the behavior of a program **before** running it, while performance measurement gives us **empirical** data from actual execution.
 
-### 1.2 Why Analyze Performance?
+### 1.2 Reasons to Analyze Performance
 
 - Determine whether an algorithm is practical.
 - Compare alternative algorithms for the same problem. For example, compare an algorithm of asymptotic complexity $O(n)$ with one of $O(n^2)$.

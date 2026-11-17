@@ -121,7 +121,7 @@ A **binary tree** is a finite (possibly empty) collection of elements.
 
 | Property | Tree | Binary Tree |
 |:---------|:-----|:------------|
-| Empty? | Cannot be empty | May be empty |
+| Emptiness allowed | Cannot be empty | May be empty |
 | Max degree | No limit | At most 2 |
 | Subtree ordering | Unordered | Ordered (left and right are distinguished) |
 
