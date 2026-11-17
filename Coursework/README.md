@@ -2,7 +2,7 @@
 
 [Repository Guide](../README.md) | [English](README.md) | [한국어](README.ko.md)
 
-> **Last Updated:** 2026-11-16
+> **Last Updated:** 2026-11-17
 
 | Item | Description | Documents |
 |:-----|:-----|:-----|
@@ -18,5 +18,5 @@
 | [Lab08_Binary-Trees](Lab08_Binary-Trees/) | Lab code on preorder, inorder, postorder, and level-order traversals, height, and node count of a linked binary tree, and on building an expression tree from a postfix expression and evaluating it. It connects to Lecture 8 | [Lab_BinaryTree.cpp](Lab08_Binary-Trees/Lab_BinaryTree.cpp) |
 | [Lab09_Priority-Queues-and-Heaps](Lab09_Priority-Queues-and-Heaps/) | Lab code on an array max heap with 1-based indexing (insertion, deletion of the maximum, bottom-up initialization, heap property check) and heap sort, and a min leftist tree that implements insertion and deletion of the minimum through the merge operation. It connects to Lecture 9 | [Lab_MaxHeap.cpp](Lab09_Priority-Queues-and-Heaps/Lab_MaxHeap.cpp), [Lab_LeftistTree.cpp](Lab09_Priority-Queues-and-Heaps/Lab_LeftistTree.cpp) |
 | [Lab10_Binary-Search-Trees](Lab10_Binary-Search-Trees/) | Lab code on search, insertion, deletion in three cases (leaf, degree 1, degree 2), inorder, preorder, and level-order traversals, and height of a linked binary search tree, the worst case of insertion in sorted order, and insertion of duplicate keys. It connects to Lecture 10 | [Lab_BinarySearchTree.cpp](Lab10_Binary-Search-Trees/Lab_BinarySearchTree.cpp) |
-| [Project_Database-Index-Engine](Project_Database-Index-Engine/) | A term project that implements, as a C++ template, the B+ tree used for indexing in relational databases. It covers point queries, range queries through the leaf linked list, insertion with node splitting, deletion with underflow handling, and a template parameter that sets the order, draws on CMU 15-445 and Stanford CS245, and connects to the tree content of Lectures 8 and 10 | [README](Project_Database-Index-Engine/README.md) |
+| [Project_Database-Index-Engine](Project_Database-Index-Engine/) | A term project that implements, as a C++ template, the B+ tree used for indexing in relational databases. It covers point queries, range queries through the leaf linked list, insertion with node splitting, key deletion from leaves, and a template parameter that sets the order, draws on CMU 15-445 and Stanford CS245, and connects to the tree content of Lectures 8 and 10 | [README](Project_Database-Index-Engine/README.md) |
 | [Project_Huffman-Coding](Project_Huffman-Coding/) | A term project that implements in C++ a Huffman coding compression tool, which assigns variable-length binary codes to characters by frequency. It covers frequency analysis, Huffman tree construction with a min-heap priority queue, encoding and decoding, bit-level I/O, and compression statistics, draws on Stanford CS106B and Princeton COS226, and connects to binary trees in Lecture 8 and priority queues in Lecture 9 | [README](Project_Huffman-Coding/README.md) |

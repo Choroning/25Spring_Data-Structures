@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Solutions.md) | [한국어](Solutions.ko.md)
 
-> **Last Updated:** 2026-11-04
+> **Last Updated:** 2026-11-17
 
 ---
 
@@ -145,4 +145,4 @@ graph TD
 
 **Answer:** Merging two array heaps requires either dumping both arrays together and re-heapifying, or inserting the elements of one heap into the other one at a time. Re-heapifying takes $O(m+n)$, and inserting the elements of the heap of size $m$ takes $O(m \log(m+n))$, so either way the time is at least proportional to the size of one heap. Leftist tree merge follows only the rightmost paths of both trees, which have at most $\lfloor \log_2(m+1) \rfloor$ and $\lfloor \log_2(n+1) \rfloor$ internal nodes, giving $O(\log m + \log n)$ time.
 
-**Explanation:** The leftist property ($s(\text{left}) \geq s(\text{right})$) ensures the right path is short. Since merge only traverses right paths and then adjusts by swapping children, the total work is proportional to the sum of right path lengths, which is logarithmic in the tree sizes.
+**Explanation:** The leftist property ($`s(\text{left}) \geq s(\text{right})`$) ensures the right path is short. Since merge only traverses right paths and then adjusts by swapping children, the total work is proportional to the sum of right path lengths, which is logarithmic in the tree sizes.

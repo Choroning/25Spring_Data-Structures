@@ -3,10 +3,10 @@
  * @brief   Test driver for push and pop of the type 1 and type 2 linked queues (HW2)
  * @author  Cheolwon Park
  * @date    2026-10-19
- * @note    Test driver that only compiles and runs the submitted functions.
- *          It is not part of the submitted homework; the full program used
- *          for the submission was not kept. The timing experiment follows
- *          the screenshot of the submission (N = 200,000).
+ * @note    Test driver that compiles and runs the submitted functions in
+ *          Push-and-Pop.cpp, which it includes inside the class Queue.
+ *          The driver itself is not part of the submitted homework. The
+ *          timing experiment uses N = 200,000 elements by default.
  *
  * Build and run from this folder (an optional argument replaces N):
  *     g++ -std=c++17 -Wall -Wextra -pedantic -o hw2 Test-Driver.cpp
@@ -56,7 +56,7 @@ public:
     Queue(const Queue&) = delete;
     Queue& operator=(const Queue&) = delete;
 
-    // The submitted functions, included unchanged
+    // The submitted functions push and pop
 #include "Push-and-Pop.cpp"
 
     int size() const { return queueSize; }

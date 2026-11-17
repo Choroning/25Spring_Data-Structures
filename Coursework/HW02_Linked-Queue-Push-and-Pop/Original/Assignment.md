@@ -2,9 +2,38 @@
 
 [Repository Guide](../../../README.md) | [English](Assignment.md) | [한국어](Assignment.ko.md)
 
-> **Last Updated:** 2026-11-16
+> **Last Updated:** 2026-11-17
 
 Data Structures Programming Homework #2, Linked Queue Pop and Push Operation. The homework has three problems worth 100 points in total. Problems 1 and 2 fill in the parts of the member functions `push` and `pop` of the class `Queue` for the two representations of a linked queue, type 1 and type 2.
+
+The queue is a chain of nodes `Node<T>` (data field `data`, link field `link`); the pointer `front` points to the node to be popped next, and `rear` points to the node pushed last. The two representations differ in the direction of the links. In type 1 each node links to the node pushed right after it, so the link of `rear` is `NULL`; in type 2 each node links to the node pushed right before it, so the link of `front` is `NULL`.
+
+```mermaid
+graph TB
+    subgraph s1 ["(a) Type 1: the links run from the front toward the rear"]
+        direction LR
+        front1["front"] --> a1["1"]
+        rear1["rear"] --> a5["5"]
+        a1 --> a2["2"]
+        a2 --> a3["3"]
+        a3 --> a4["4"]
+        a4 --> a5
+        a5 --> n1["NULL"]
+    end
+    subgraph s2 ["(b) Type 2: the links run from the rear toward the front"]
+        direction RL
+        front2["front"] --> b1["1"]
+        rear2["rear"] --> b5["5"]
+        b5 --> b4["4"]
+        b4 --> b3["3"]
+        b3 --> b2["2"]
+        b2 --> b1
+        b1 --> n2["NULL"]
+    end
+    s1 ~~~ s2
+```
+
+*Figure 1. Type 1 and type 2 queues after pushing 1, 2, 3, 4, 5 in turn*
 
 ---
 

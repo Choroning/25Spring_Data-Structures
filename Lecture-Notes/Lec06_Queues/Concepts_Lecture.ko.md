@@ -2,7 +2,7 @@
 
 [레포지토리 안내](../../README.ko.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **최종 수정일:** 2026-11-04
+> **최종 수정일:** 2026-11-17
 
 > **학습 목표:**
 > 1. 큐를 FIFO 선형 리스트로 정의하고 스택과 비교할 수 있다
@@ -422,6 +422,7 @@ T pop() {
 ### 6.2 너비 우선 탐색 (BFS)
 
 ```text
+mark start visited
 enqueue(start)
 while queue is not empty:
     node = dequeue()
@@ -432,19 +433,6 @@ while queue is not empty:
 ```
 
 큐는 먼저 발견한 정점을 먼저 꺼내므로, 너비 우선 탐색은 시작 정점에서 가까운 정점부터 차례로 방문한다.
-
-> **참고:** 위 의사코드는 시작 정점을 방문했다고 표시하지 않는다. 그래서 시작 정점과 연결된 이웃을 처리할 때 시작 정점이 방문하지 않은 정점으로 보여 큐에 다시 들어갈 수 있다. 시작 정점을 큐에 넣기 전에 방문 표시를 해야 하며, 고친 의사코드는 다음과 같다.
-
-```text
-mark start visited
-enqueue(start)
-while queue is not empty:
-    node = dequeue()
-    for each neighbor of node:
-        if not visited:
-            mark visited
-            enqueue(neighbor)
-```
 
 > **[알고리즘]** 그래프는 정점과 두 정점을 잇는 간선으로 이루어지며, 간선으로 이어진 두 정점을 서로의 이웃이라 한다. 너비 우선 탐색은 기본적인 그래프 알고리즘으로, 큐가 시작 정점에서 간선 수가 적은 정점부터 꺼내 주므로 가중치가 없는 그래프에서 시작 정점으로부터의 최단 경로(간선 수 기준)를 구하는 데 쓰인다.
 
@@ -535,7 +523,7 @@ while queue is not empty:
 
    </details>
 
-5. **너비 우선 탐색:** 간선이 A-B, A-C, B-D, C-D, D-E인 무방향 그래프에서 A부터 6.2절의 고친 의사코드로 너비 우선 탐색을 한다. 이웃은 알파벳 순서로 처리할 때, 정점이 큐에서 나오는 순서를 쓰라.
+5. **너비 우선 탐색:** 간선이 A-B, A-C, B-D, C-D, D-E인 무방향 그래프에서 A부터 6.2절의 의사코드로 너비 우선 탐색을 한다. 이웃은 알파벳 순서로 처리할 때, 정점이 큐에서 나오는 순서를 쓰라.
 
    <details>
    <summary>정답</summary>

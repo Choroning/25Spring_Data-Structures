@@ -3,10 +3,10 @@
  * @brief   Test driver for InsertFront and InsertRear (HW1)
  * @author  Cheolwon Park
  * @date    2026-10-19
- * @note    Test driver that only compiles and runs the submitted functions.
- *          It is not part of the submitted homework; the full program used
- *          for the submission was not kept. The output format follows the
- *          screenshots of the submission.
+ * @note    Test driver that compiles and runs the submitted functions in
+ *          InsertFront-and-InsertRear.cpp, which it includes inside the
+ *          class CircularList. The driver itself is not part of the
+ *          submitted homework.
  *
  * Build and run from this folder, then enter the value to search for:
  *     g++ -std=c++17 -Wall -Wextra -pedantic -o hw1 Test-Driver.cpp
@@ -64,7 +64,7 @@ public:
         std::cout << "\nDestructor is executed successfully!\n" << std::endl;
     }
 
-    // The submitted functions, included unchanged
+    // The submitted functions InsertFront and InsertRear
 #include "InsertFront-and-InsertRear.cpp"
 
     /** @brief Print the elements from the first node, separated by "->" */

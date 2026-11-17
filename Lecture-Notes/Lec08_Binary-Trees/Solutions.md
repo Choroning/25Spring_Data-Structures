@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Solutions.md) | [한국어](Solutions.ko.md)
 
-> **Last Updated:** 2026-11-04
+> **Last Updated:** 2026-11-17
 
 ---
 
@@ -94,9 +94,9 @@ graph TD
 
 ```mermaid
 graph TD
-    r(("-")) --> m(("*"))
+    r(("#45;")) --> m(("*"))
     r --> n7(("7"))
-    m --> p(("+"))
+    m --> p(("#43;"))
     m --> n2(("2"))
     p --> n3(("3"))
     p --> n5(("5"))

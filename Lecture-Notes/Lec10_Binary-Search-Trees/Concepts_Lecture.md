@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-11-04
+> **Last Updated:** 2026-11-18
 
 > **Learning Objectives:**
 > 1. Implement binary search tree (BST) operations (insert, delete, search)
@@ -33,7 +33,6 @@
 - [5. BST with Duplicates](#5-bst-with-duplicates)
 - [6. Appendix](#6-appendix)
   - [6.1 Comparison with Other Dictionary Structures](#61-comparison-with-other-dictionary-structures)
-  - [6.2 Interview Tips](#62-interview-tips)
 - [Summary](#summary)
 - [Self-Check Questions](#self-check-questions)
 
@@ -85,7 +84,7 @@ graph TD
     n30(("30")) --> n5(("5"))
     n30 --> n40(("40"))
     n5 --> n2(("2"))
-    n5 --> e1(("-"))
+    n5 --> e1(("#45;"))
     n60(("60")) ~~~ p1[" "]
     n60 --> n70(("70"))
     n70 --> n65(("65"))
@@ -338,6 +337,8 @@ This occurs when keys are inserted in **sorted order** (ascending or descending)
 
 > **Key Point:** To guarantee $O(\log n)$ height, use self-balancing BSTs such as AVL trees or Red-Black trees. B-trees, which keep several keys in one node, are balanced multiway search trees rather than binary trees, and they serve the same purpose.
 
+> **Note:** **Rotations that restore balance.** When an insertion or a deletion breaks the balance condition of a self-balancing BST, the tree restores its balance with rotations, which change the parent-child relationships of a few nodes. For example, the balance condition of an AVL tree is that the heights of the two subtrees of every node differ by at most 1. A right rotation, which lifts the left child $y$ of a node $x$ into the place of $x$, moves the right subtree of $y$ to become the left subtree of $x$ and makes $x$ the right child of $y$. Both before and after the rotation, the inorder traversal is the left subtree of $y$, $y$, the right subtree of $y$, $x$, and the right subtree of $x$, in this order, so the BST property is preserved. Because the height is kept at $O(\log n)$ in this way, search, insertion, and deletion take $O(\log n)$ even in the worst case (Table 3 in Section 6.1).
+
 ---
 
 <br>
@@ -437,12 +438,6 @@ The structures marked avg are slower in the worst case. For example, a BST takes
 
 BSTs are particularly ideal for **sequential access** (inorder traversal) and **rank-based queries**, which hash tables cannot efficiently support.
 
-### 6.2 Interview Tips
-
-- Know all three delete cases and be able to trace through examples.
-- Understand when a BST degenerates and how balanced BSTs prevent it.
-- Checking that the inorder traversal of a BST is in ascending order is a classic way to verify the BST property.
-
 ---
 
 <br>
@@ -502,5 +497,23 @@ BSTs are particularly ideal for **sequential access** (inorder traversal) and **
    <summary>Answer</summary>
 
    The 6th smallest element is the element with index 5. At the root 20, $5 < 8$, so go left to 10. At 10, $5 > 4$, so the index becomes $5 - 4 - 1 = 0$ and go right to 15. At 15, $0 < 1$, so go left to 12, and at 12, $0 = 0$, so the answer is 12. For the rank of 7, go left at 20 and 10, add $1 + 1 = 2$ when going right at 6, go left at 8 to find 7, and add its `leftSize` 0, so the rank is 2. Both results agree with Table 2 (key 12 at index 5, key 7 at index 2).
+
+   </details>
+
+5. **Tracing a deletion:** Delete the key 6 from the tree of Figure 4. For each of the two methods of case 3 (replacing it with the largest key in the left subtree and replacing it with the smallest key in the right subtree), give the key that takes the place of 6 and the children of that node, and write the inorder traversal of both results.
+
+   <details>
+   <summary>Answer</summary>
+
+   6 is a degree 2 node with the children 2 and 8, so case 3 applies. The search for the largest key in the left subtree starts at the left child 2, and since the right pointer of 2 is NULL, the key is 2. When 2 is put in the place of 6 and the original node of 2 (a leaf) is deleted by case 1, the node in the place of 6 holds the key 2, has no left child, and has the right child 8 (with the left child 7). The smallest key in the right subtree is reached from the right child 8 by following the left pointer to 7, and since the left pointer of 7 is NULL, the key is 7. When 7 is put in the place of 6 and the original node of 7 (a leaf) is deleted by case 1, the left pointer of 8 becomes NULL, and the node in the place of 6 holds the key 7 with the left child 2 and the right child 8. In both results, the inorder traversal is 2, 7, 8, 10, 15, 18, 20, 25, 30, 35, 40, so both are BSTs.
+
+   </details>
+
+6. **Checking a BST by inorder traversal:** Show that a binary tree with all keys distinct is a BST if its inorder traversal is in ascending order, and find the time needed to decide in this way whether a binary tree is a BST.
+
+   <details>
+   <summary>Answer</summary>
+
+   The inorder traversal of the subtree rooted at any node $x$ is the inorder traversal of the left subtree of $x$, then $x$, then the inorder traversal of the right subtree, joined in this order. Therefore, in the whole inorder traversal, all keys of the left subtree of $x$ appear before $x$, and all keys of the right subtree appear after $x$. If the result is in ascending order, all keys of the left subtree are smaller than the key in $x$ and all keys of the right subtree are larger, so properties 2 and 3 hold at every node, and as a result property 4 also holds. Since all keys are distinct, property 1 holds as well. Conversely, Section 2.1 showed that the inorder traversal of a BST is in ascending order. The decision compares each visited key with the key visited immediately before it during an inorder traversal and concludes that the tree is not a BST as soon as a key is not larger than the previous one, so it takes $O(n)$. Comparing only parents and children, as in Self-Check Question 1, cannot check this condition.
 
    </details>

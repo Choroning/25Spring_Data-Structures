@@ -2,9 +2,38 @@
 
 [레포지토리 안내](../../../README.ko.md) | [English](Assignment.md) | [한국어](Assignment.ko.md)
 
-> **최종 수정일:** 2026-11-16
+> **최종 수정일:** 2026-11-17
 
 자료구조 2차 프로그래밍 과제(Programming Homework #2), 연결 큐의 pop과 push 연산(Linked Queue Pop and Push Operation)이다. 과제는 세 문제로 이루어지며 모두 100점이다. 문제 1과 2는 연결 큐의 두 가지 표현인 type 1과 type 2에 대해 `Queue` 클래스의 멤버 함수 `push`와 `pop`의 빈 부분을 채운다.
+
+큐는 노드 `Node<T>`(데이터 필드 `data`, 링크 필드 `link`)를 이은 체인이며, 포인터 `front`는 다음에 pop할 노드를, `rear`는 마지막에 push한 노드를 가리킨다. 두 표현은 링크의 방향이 다르다. type 1에서는 각 노드의 링크가 자기 다음에 push된 노드를 가리키므로 `rear`의 링크가 `NULL`이고, type 2에서는 각 노드의 링크가 자기 직전에 push된 노드를 가리키므로 `front`의 링크가 `NULL`이다.
+
+```mermaid
+graph TB
+    subgraph s1 ["(a) type 1: 링크가 전단에서 후단 쪽을 향한다"]
+        direction LR
+        front1["front"] --> a1["1"]
+        rear1["rear"] --> a5["5"]
+        a1 --> a2["2"]
+        a2 --> a3["3"]
+        a3 --> a4["4"]
+        a4 --> a5
+        a5 --> n1["NULL"]
+    end
+    subgraph s2 ["(b) type 2: 링크가 후단에서 전단 쪽을 향한다"]
+        direction RL
+        front2["front"] --> b1["1"]
+        rear2["rear"] --> b5["5"]
+        b5 --> b4["4"]
+        b4 --> b3["3"]
+        b3 --> b2["2"]
+        b2 --> b1
+        b1 --> n2["NULL"]
+    end
+    s1 ~~~ s2
+```
+
+*그림 1. 1, 2, 3, 4, 5를 차례로 push한 type 1과 type 2의 큐*
 
 ---
 

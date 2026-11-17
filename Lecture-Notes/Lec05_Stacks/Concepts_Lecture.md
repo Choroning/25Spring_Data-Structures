@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-11-04
+> **Last Updated:** 2026-11-18
 
 > **Learning Objectives:**
 > 1. Define a stack as a restricted linear list and explain its LIFO behavior
@@ -39,7 +39,6 @@
   - [5.3 Postfix Evaluation](#53-postfix-evaluation)
 - [6. Appendix](#6-appendix)
   - [6.1 Stack vs. Queue](#61-stack-vs-queue)
-  - [6.2 Common Interview Problems](#62-common-interview-problems)
 - [Summary](#summary)
 - [Self-Check Questions](#self-check-questions)
 
@@ -596,13 +595,6 @@ The 9 left on the stack after the scan is the result, which equals the value of 
 
 Queues are covered in Lecture 6.
 
-### 6.2 Common Interview Problems
-
-1. **Min Stack:** Design a stack that supports `getMin()` in $O(1)$.
-2. **Evaluate Reverse Polish Notation:** Evaluate a postfix expression, which uses the algorithm of Section 5.3 directly.
-3. **Valid Parentheses** (LeetCode #20): Decide whether several kinds of brackets are properly nested, which is the problem of Section 4.1.
-4. **Daily Temperatures:** A problem solved with a monotonic stack.
-
 ---
 
 <br>
@@ -669,5 +661,23 @@ Queues are covered in Lecture 6.
    <summary>Answer</summary>
 
    `A ^ B ^ C` becomes `A B C ^ ^`. When the second `^` arrives, the `^` on top has equal precedence but is right-associative, so it is not popped and the new `^` is pushed, and both `^` are output at the end. `A - B - C` becomes `A B - C -`. When the second `-` arrives, the `-` on top has equal precedence and is left-associative, so it is popped and output first, and then the new `-` is pushed. Therefore `A - B` is computed first.
+
+   </details>
+
+6. **Min stack:** Design a stack that supports push, pop, and reading the top, together with `getMin`, which returns the minimum of the elements in the stack, all in $O(1)$.
+
+   <details>
+   <summary>Answer</summary>
+
+   Next to the stack that holds the elements, one more auxiliary stack is kept so that its top is always the minimum of the current elements. On push, the smaller of the new element and the top of the auxiliary stack is pushed onto the auxiliary stack (if the auxiliary stack is empty, the new element is pushed), and on pop, both stacks are popped together. Then the $`i`$th slot from the bottom of the auxiliary stack holds the minimum of the bottom $i$ elements of the original stack, so `getMin` only reads the top of the auxiliary stack. Every operation is $O(1)$, and the extra space is $O(n)$. Pushing onto the auxiliary stack only when the new element is less than or equal to the current minimum, and popping it only when the popped element equals its top, reduces the elements stored in the auxiliary stack, but the extra space is still $O(n)$ in the worst case.
+
+   </details>
+
+7. **Monotonic stack:** Given the daily temperatures $T[0], T[1], \ldots, T[n-1]$, describe an $O(n)$ method that finds, for every day $i$, how many days one has to wait until the first day whose temperature is higher than $T[i]$ (0 if there is no such day). For example, if $T = (73, 74, 75, 71, 69, 72, 76, 73)$, the answer is $(1, 1, 4, 2, 1, 1, 0, 0)$.
+
+   <details>
+   <summary>Answer</summary>
+
+   The indices of the days whose answers are not yet decided are kept on a stack so that the temperatures of those days never increase from the bottom to the top. Such a stack is called a **monotonic stack**. The days $i$ are examined in order, and while the stack is not empty and the temperature of the day $j$ on top is lower than $T[i]$, $j$ is popped and its answer is set to $i - j$. Then $i$ is pushed. After the last day, the days left on the stack have no warmer day, so their answer is 0. In the example, when day 5 (temperature 72) is examined, the stack holds days 2 (75), 3 (71), and 4 (69) from the bottom; 4 and 3 are popped with answers 1 and 2, respectively, and since 75 is higher than 72, 2 stays and 5 is pushed. Each index is pushed once and popped at most once, so the pushes and pops together number at most $2n$, and the total time is $O(n)$. Comparing every pair of days takes $O(n^2)$.
 
    </details>

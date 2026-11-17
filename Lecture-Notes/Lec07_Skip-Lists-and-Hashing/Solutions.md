@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Solutions.md) | [한국어](Solutions.ko.md)
 
-> **Last Updated:** 2026-10-26
+> **Last Updated:** 2026-11-17
 
 ---
 
@@ -105,7 +105,7 @@ Final table: [0]=9, [1]=42, [2]=24, [3]=35, [4]-[8]=empty, [9]=20, [10]=31.
 
 ### Solution
 
-**Answer:** At each node during backward traversal, with probability $1-p$ the node has no higher pointer (cost $1 + C(i)$), and with probability $p$ the node has a higher pointer (cost $1 + C(i-1)$). The recurrence is as follows.
+**Answer:** At each node during backward traversal, with probability $1-p$ the node has no higher pointer (cost $`1 + C(i)`$), and with probability $p$ the node has a higher pointer (cost $`1 + C(i-1)`$). The recurrence is as follows.
 
 $$C(i) = (1-p)(1+C(i)) + p(1+C(i-1))$$
 

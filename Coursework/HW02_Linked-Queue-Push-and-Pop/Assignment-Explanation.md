@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Assignment-Explanation.md) | [한국어](Assignment-Explanation.ko.md)
 
-> **Last Updated:** 2026-11-16
+> **Last Updated:** 2026-11-17
 
 > **Learning Objectives:**
 > 1. Describe the direction of the links and the positions of `front` and `rear` in the two representations of a linked queue (type 1 and type 2)
@@ -220,14 +220,14 @@ type1 pop time : 2ms
 type2 pop time : 21651ms
 ```
 
-Both representations return the elements in the order they were pushed, and the order does not break in 200,000 pops either. The difference in time is on the same scale as in Figure 3. Other cases give the following results.
+Both representations return the elements in the order they were pushed, and the order does not break in 200,000 pops either. The difference in time is on the same scale as in Figure 3. Calling push and pop in other orders gives the following results.
 
 | Case | Result |
 |:-----|:-----|
 | pop on an empty queue | Both representations return 0 and the element count stays 0 |
 | push 1, 2, pop, push 3, pop, pop, push 4, 5, pop | Both representations return 1, 2, 3, 4 in turn and the element count becomes 1 |
 
-*Table 2. Results with the test driver*
+*Table 2. Results of different call orders*
 
 ---
 
@@ -250,7 +250,7 @@ For $n = 200{,}000$ this is 19,999,700,001 iterations, about $2.0 \times 10^{10}
 | 100,000 | 1ms | 5,466ms | 4,999,850,001 |
 | 200,000 | 2ms | 21,651ms | 19,999,700,001 |
 
-*Table 3. Pop time by number of elements (test driver, same environment as Table 2)*
+*Table 3. Pop time by number of elements (test driver, same environment as Section 4.2)*
 
 Each time the element count doubles, the time of type 2 grows by 3.87, 4.00, and 3.96 times, about four times each, while type 1 stays near 0 at millisecond resolution. Even for the same queue operation, the direction of the links alone changes the cost of pop from $O(1)$ to $\Theta(n)$, which becomes the difference between $O(n)$ and $O(n^2)$ in a program that repeats the operation $n$ times. A linked queue is therefore implemented as type 1, with the links running from the front toward the rear, as Lecture 6 concludes.
 

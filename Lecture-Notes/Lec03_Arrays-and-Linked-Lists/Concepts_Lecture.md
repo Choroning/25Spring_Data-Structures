@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-11-04
+> **Last Updated:** 2026-11-18
 
 > **Learning Objectives:**
 > 1. Implement array-based and linked list data structures
@@ -56,7 +56,6 @@
 - [9. Comparison: Array vs. Linked List](#9-comparison-array-vs-linked-list)
 - [10. Appendix](#10-appendix)
   - [10.1 Iterator Design Pattern](#101-iterator-design-pattern)
-  - [10.2 Common Interview Questions](#102-common-interview-questions)
 - [Summary](#summary)
 - [Self-Check Questions](#self-check-questions)
 
@@ -433,7 +432,7 @@ bool Chain<T>::Find(int k, T& x) const
 
 To use this implementation, also change `checkIndex` in the class declaration to `bool checkIndex(int Index) const;`.
 
-**`Search`.** Locates the value `x` and returns its position (index), or -1 if it is not found. The time complexity is $O(n)$. The difference is that `Find` finds the value of the element at a given position `k` ($O(k)$), while `Search` finds the position of a given value `x`.
+**`Search`.** Locates the value `x` and returns its position (index), or -1 if it is not found. The time complexity is $O(n)$. The difference is that `Find` finds the value of the element at a given position `k` ($`O(k)`$), while `Search` finds the position of a given value `x`.
 
 ```cpp
 template <class T>
@@ -508,7 +507,7 @@ bool Chain<T>::Delete(int k, T& x)
 }
 ```
 
-**`Insert`.** To insert an element following the $k$th element in the chain, we locate the $k$th node, make the new node's link point to the $k$th node's link, and then make the $k$th node's link point to the new node. If $k = 0$, the new node becomes the first node, so the new node's link points to the old first node and `first` points to the new node. The new element is placed after $k$ elements, so its index becomes $k$.
+**`Insert`.** To insert an element following the $`k`$th element in the chain, we locate the $`k`$th node, make the new node's link point to the $`k`$th node's link, and then make the $`k`$th node's link point to the new node. If $k = 0$, the new node becomes the first node, so the new node's link points to the old first node and `first` points to the new node. The new element is placed after $k$ elements, so its index becomes $k$.
 
 ```mermaid
 graph TB
@@ -904,6 +903,8 @@ When one list is exhausted, the remaining terms of the other are attached to `d`
 
 The result is $d = 11x^{14} - 3x^{10} + 2x^8 + 10x^6 + 1$. In every step at least one of `a` and `b` advances to its next term, so if `a` and `b` have $m$ and $n$ terms, respectively, the time complexity is $O(m + n)$.
 
+> **Note:** **Merging two sorted chains.** Adding polynomials is an instance of merging, in which two lists sorted in descending order of exponent are each scanned once to build one sorted list. Two chains sorted in ascending order are merged in the same way. The elements in the current nodes of the two chains are compared, the node with the smaller element is attached to the end of the result chain and that chain advances by one node, and when one chain is exhausted, the remaining nodes of the other chain are linked as they are. If the nodes are attached by changing only their links instead of creating new nodes, the extra space is $O(1)$, and if the two chains have lengths $m$ and $n$, the time is $O(m + n)$.
+
 ### 7.3 Representation with a Circular List and a Head Node
 
 If the link field of the last node points to the first node in the list (a circular list), all the nodes of a polynomial can be freed more efficiently. Representing the polynomial $\text{ptr} = 3x^{14} + 2x^8 + 1$ as a circular list makes the node of the last term 1 point to the node of the first term $3x^{14}$. For reference, a **chain** is a singly linked list in which the last node has a null link.
@@ -1007,13 +1008,6 @@ public:
 };
 ```
 
-### 10.2 Common Interview Questions
-
-1. **Reverse a linked list** (iterative and recursive)
-2. **Detect a cycle** (Floyd's tortoise and hare algorithm)
-3. **Find the middle element** (two-pointer technique)
-4. **Merge two sorted linked lists**
-
 ---
 
 <br>
@@ -1080,5 +1074,23 @@ public:
    <summary>Answer</summary>
 
    The exponents 7 are equal, so $9x^7$ is created. The exponents 2 are equal and the sum of the coefficients is $3 + (-3) = 0$, so no term is created. Next, the exponent 0 of $a$ is less than the exponent 1 of $b$, so $2x$ is attached, and since $b$ is exhausted, the remaining $1$ is attached. The result is $9x^7 + 2x + 1$.
+
+   </details>
+
+6. **Reversing a chain:** Describe how to reverse a chain of $n$ nodes $(e_1, e_2, \ldots, e_n)$ into $(e_n, \ldots, e_2, e_1)$ without creating new nodes, and give the time and the extra space.
+
+   <details>
+   <summary>Answer</summary>
+
+   Three pointers are used. Starting with `prev = NULL` and `curr = first`, while `curr` is not `NULL`, the next node is remembered with `next = curr->link`, the link is reversed with `curr->link = prev`, and the pointers advance by one node with `prev = curr` and `curr = next`. When the loop ends, `prev` is the original last node, so `first = prev` is set. The link of each node is changed once, so the time is $O(n)$, and the extra space is only three pointers, which is $O(1)$. If the next node is not remembered in `next` first, the rest of the chain becomes unreachable the moment `curr->link` is changed. A recursive implementation is also possible, but its calls pile up as deep as the length of the chain, so its extra space is $O(n)$.
+
+   </details>
+
+7. **Slow and fast pointers:** Describe how to find the middle node of a chain in a single traversal without counting its length first. Using the same idea, also describe how to decide with $O(1)$ extra space whether a singly linked list has a cycle (following the links from the first node returns to a node already passed instead of reaching `NULL`).
+
+   <details>
+   <summary>Answer</summary>
+
+   Both pointers `slow` and `fast` start at `first`, and in each step `slow` advances by one node and `fast` by two nodes. When `fast` reaches the end of the chain, `slow` has moved half as far, so it is at the middle node. When the number of nodes is even, it is one of the two middle nodes, depending on the stopping condition. If there is no cycle, `fast` reaches `NULL` first. If there is a cycle, both pointers eventually enter it, and from then on `fast` closes the distance to `slow` by one node in every step, so the two pointers meet at the same node in fewer steps than the length of the cycle. This method is called Floyd's cycle detection (tortoise and hare) algorithm, and it takes $O(n)$ time and $O(1)$ extra space.
 
    </details>

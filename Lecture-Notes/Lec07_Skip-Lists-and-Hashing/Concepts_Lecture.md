@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-10-26
+> **Last Updated:** 2026-11-18
 
 > **Learning Objectives:**
 > 1. Explain the operations of the dictionary ADT and the search time of each linear list representation
@@ -38,7 +38,6 @@
   - [3.7 Hash Table Design](#37-hash-table-design)
 - [4. Appendix](#4-appendix)
   - [4.1 Real-World Applications](#41-real-world-applications)
-  - [4.2 Interview Tips](#42-interview-tips)
 - [Summary](#summary)
 - [Self-Check Questions](#self-check-questions)
 
@@ -125,7 +124,7 @@ A skip list is built by adding forward pointers to a sorted chain with a head no
 - The **level 0** chain includes **all elements**.
 - The **level 1** chain includes one element out of **every 2**.
 - The **level 2** chain includes one element out of **every 4**.
-- The **level $i$** chain includes one element out of every $2^i$. For example, the level 3 chain includes every $2^3 = 8$th element.
+- The **level $i$** chain includes one element out of every $2^i$. For example, the level 3 chain includes every $`2^3 = 8`$th element.
 
 > **Definition:** An element is a **level $i$ element** if it is in the chains for levels 0 through $i$. Since a level 3 element is also in the chains for levels 0-2, the level of an element is taken to be the number of the highest chain that contains it.
 
@@ -199,7 +198,7 @@ When the upper levels barely narrow the search range, as in Figure 3, the search
 
 ### 2.4 Insertion and Deletion
 
-Keeping the regular structure (in which the level $i$ chain contains exactly every $2^i$th element) after an insertion or deletion requires $O(n)$ work, because inserting or removing one element changes the rank of every element after it. A skip list therefore chooses the level of a new element at random.
+Keeping the regular structure (in which the level $i$ chain contains exactly every $`2^i`$th element) after an insertion or deletion requires $O(n)$ work, because inserting or removing one element changes the rank of every element after it. A skip list therefore chooses the level of a new element at random.
 
 **Insertion:**
 - Choose the level of the new element so that it enters the chains up to level $i$ with probability $p^i$. Typically $p = 1/2$, but $p = 1/3$ or $p = 1/4$ can also be used.
@@ -208,7 +207,7 @@ Keeping the regular structure (in which the level $i$ chain contains exactly eve
 
 > **Note:** **Interpreting the probability.** To reach the level $i$ chain, an element must be promoted with probability $p$ at every level from 1 to $i$, so the probability is $p^i$. For its level to be exactly $i$, it must also not be promoted to level $i+1$, so when the highest level is unbounded that probability is $p^i(1-p)$. With $p = 1/2$, the probability of reaching the level 2 chain is 1/4, and the probability that the level is exactly 2 is 1/8.
 
-When levels are chosen at random, the level $i$ chain does not contain exactly every $2^i$th element. Figure 5 links the same elements as Figure 1 with random levels: the level 1 chain contains 24, 40, 60, and 80, and the level 2 chain contains 40 and 80. The search method is the same.
+When levels are chosen at random, the level $i$ chain does not contain exactly every $`2^i`$th element. Figure 5 links the same elements as Figure 1 with random levels: the level 1 chain contains 24, 40, 60, and 80, and the level 2 chain contains 40 and 80. The search method is the same.
 
 ```text
 Level 2:  H ───────────────────────> 40 ────────────────> 80 ──> T
@@ -236,7 +235,7 @@ The search goes through 3 levels and makes 6 key comparisons in all.
 
 ### 2.5 Worst-Case Time Complexity
 
-The level 0 chain links every node regardless of the structure (in the regular structure, where level $i$ links every $2^i$th node, this is the case $2^0 = 1$). If the random levels leave all elements at **level 0 only** (no higher-level pointers), the skip list degenerates into a simple sorted linked list. In this case a search may have to pass every node of level 0, so the following holds.
+The level 0 chain links every node regardless of the structure (in the regular structure, where level $i$ links every $`2^i`$th node, this is the case $2^0 = 1$). If the random levels leave all elements at **level 0 only** (no higher-level pointers), the skip list degenerates into a simple sorted linked list. In this case a search may have to pass every node of level 0, so the following holds.
 
 $$T_{\text{worst}}(n) = \Theta(n)$$
 
@@ -268,6 +267,8 @@ Since $p$ is a constant, the factor $1/p$ and the logarithm base $1/p$ change th
 > **[Probability and Statistics]** The number of independent trials with success probability $p$ performed until the first success follows a geometric distribution with expected value $1/p$. In the backward search, climbing one level is a sequence of such trials in which each node succeeds (moves up) with probability $p$, so climbing one level takes $1/p$ expected steps and climbing $i$ levels takes $i/p$. This agrees with the solution $C(i) = i/p$ of the recurrence.
 
 > **Note:** **Significance of the analysis.** The average-case analysis is a classic problem of setting up and solving a recurrence. With $p = 1/2$, the average search time is $O(\log n)$, essentially equivalent to binary search on a sorted array, while insertion and deletion are also efficient.
+
+> **Note:** **Comparison with balanced binary search trees.** Balanced binary search trees (Lecture 10, Section 6.1) search, insert, and delete in $O(\log n)$ even in the worst case, but they adjust the structure of the tree after insertions and deletions to keep the height low. A skip list obtains the same $O(\log n)$ as an expected time through random level assignment, and since insertion and deletion update only the forward pointers of the immediately preceding node on each level (Section 2.4), no other node is moved and the structure is not readjusted. In exchange, the worst-case time is $\Theta(n)$ (Section 2.5), and each node needs as many forward pointers as the number of level chains it belongs to.
 
 ---
 
@@ -354,7 +355,7 @@ There are two ways to handle overflows.
 
 ### 3.4 Collision Resolution: Open Addressing
 
-In open addressing, all elements are stored within the hash table itself. When a collision occurs, buckets are probed in a fixed order to find an empty one. In the formulas below, $h_i(k)$ is the bucket examined by the $i$th probe.
+In open addressing, all elements are stored within the hash table itself. When a collision occurs, buckets are probed in a fixed order to find an empty one. In the formulas below, $h_i(k)$ is the bucket examined by the $`i`$th probe.
 
 **Linear Probing:**
 $$h_i(k) = (h(k) + i) \mod m, \quad i = 0, 1, 2, \ldots$$
@@ -479,12 +480,6 @@ For example, if at most 530 buckets are available, $530 = 2 \times 5 \times 53$ 
 - **Skip lists** are used in Redis (sorted sets), LevelDB, and concurrent data structures.
 - **Bloom filters** are data structures that extend hashing for probabilistic membership testing.
 
-### 4.2 Interview Tips
-
-- Be able to explain the differences between open addressing and chaining (where elements are stored, clustering, and the allowed load factor).
-- Be able to analyze collision probability and expected probe lengths.
-- Skip lists are a common alternative to balanced binary search trees (Lecture 10) in system design.
-
 ---
 
 <br>
@@ -495,7 +490,7 @@ For example, if at most 530 buckets are available, $530 = 2 \times 5 \times 53$ 
 |:--------|:----------|
 | Dictionary ADT | A dictionary is a collection of (key, value) pairs that supports search, insertion, and deletion. |
 | Skip List | A skip list is a multi-level linked list that adds forward pointers to a sorted chain and gives $O(\log n)$ expected search, insertion, and deletion time. |
-| Skip List Levels | In the regular structure level $i$ includes every $2^i$th element, and the number of levels is $\lfloor \log_{1/p} n \rfloor + 1$, which is $\lfloor \log_2 n \rfloor + 1$ for $p = 1/2$. |
+| Skip List Levels | In the regular structure level $i$ includes every $`2^i`$th element, and the number of levels is $\lfloor \log_{1/p} n \rfloor + 1$, which is $\lfloor \log_2 n \rfloor + 1$ for $p = 1/2$. |
 | Level Assignment | The level of a new element is chosen at random so that it enters the chains up to level $i$ with probability $p^i$. |
 | Skip List Worst Case | If all elements are at level 0 only, the skip list degenerates into a linked list and takes $\Theta(n)$. |
 | Skip List Average Case | The solution $C(i) = i/p$ of the backward-analysis recurrence yields $O(\log n)$. |
@@ -527,7 +522,7 @@ For example, if at most 530 buckets are available, $530 = 2 \times 5 \times 53$ 
    <details>
    <summary>Answer</summary>
 
-   In the regular structure, the level $i$ chain must contain exactly every $2^i$th element. Inserting or deleting one element changes the rank of every element after it, so keeping the structure requires fixing the levels of $O(n)$ nodes. With random levels, only the pointers on the search path change and no other node is touched, so the expected time becomes $O(\log n)$. The price is that performance is guaranteed only probabilistically: with bad luck all elements end up at level 0 and the worst case takes $\Theta(n)$, and the structure left after a deletion cannot be controlled.
+   In the regular structure, the level $i$ chain must contain exactly every $`2^i`$th element. Inserting or deleting one element changes the rank of every element after it, so keeping the structure requires fixing the levels of $O(n)$ nodes. With random levels, only the pointers on the search path change and no other node is touched, so the expected time becomes $O(\log n)$. The price is that performance is guaranteed only probabilistically: with bad luck all elements end up at level 0 and the worst case takes $\Theta(n)$, and the structure left after a deletion cannot be controlled.
 
    </details>
 
@@ -555,5 +550,14 @@ For example, if at most 530 buckets are available, $530 = 2 \times 5 \times 53$ 
    <summary>Answer</summary>
 
    From $\frac{1}{2}\left(1 + \frac{1}{1-\alpha}\right) \le 2$ we get $\frac{1}{1-\alpha} \le 3$, so $\alpha \le 2/3$. From $\frac{1}{2}\left(1 + \frac{1}{(1-\alpha)^2}\right) \le 5$ we get $(1-\alpha)^2 \ge 1/9$, so again $\alpha \le 2/3$. Thus the largest $\alpha$ is $2/3$, and $m \ge 1000 / (2/3) = 1500$. From 1500 upward, 1500, 1502, 1504, and so on are divisible by 2, 1503 and 1509 by 3, 1505 by 5, 1507 by 11, and 1501 by 19, so they are excluded; 1511 is a prime, so $D = m = 1511$.
+
+   </details>
+
+6. **Open addressing and chaining:** Compare open addressing and chaining from three viewpoints: where the elements are stored, clustering, and the allowed load factor.
+
+   <details>
+   <summary>Answer</summary>
+
+   Open addressing stores every element in a bucket of the hash table itself, and when the home bucket is occupied, it looks for another bucket in a fixed probe sequence. In chaining, each bucket keeps a list of the pairs whose home bucket it is, so the elements are stored in the lists attached to the buckets. In open addressing, an overflowing element occupies another bucket, so linear probing suffers from primary clustering, in which occupied buckets form long runs, and quadratic probing from secondary clustering, in which keys with the same home bucket follow the same probe sequence, and both make probes longer. In chaining, an overflowing element never occupies another bucket, so there is no clustering. Open addressing requires every element to be inside the table, so $0 \le \alpha \le 1$, and as $\alpha$ approaches 1, the average numbers of probes in Table 4 grow sharply. Chaining also allows $\alpha > 1$, and the number of buckets examined grows gently in proportion to $\alpha$, as in the average $1 + \alpha$ for an unsuccessful search.
 
    </details>

@@ -2,7 +2,7 @@
 
 [레포지토리 안내](../../README.ko.md) | [English](README.md) | [한국어](README.ko.md)
 
-> **최종 수정일:** 2026-10-26
+> **최종 수정일:** 2026-11-18
 
 ---
 
@@ -66,15 +66,15 @@ g++ -std=c++17 -O2 -o huffman HuffmanTree.cpp BitStream.cpp PriorityQueue.cpp ma
 | 문자 | 빈도 | 부호 | 사용 비트 |
 |:-----|:-----|:-----|:----------|
 | A | 5 | 0 | 5 |
-| B | 2 | 10 | 4 |
-| R | 2 | 110 | 6 |
-| C | 1 | 1110 | 4 |
-| D | 1 | 1111 | 4 |
+| R | 2 | 10 | 4 |
+| B | 2 | 110 | 6 |
+| D | 1 | 1110 | 4 |
+| C | 1 | 1111 | 4 |
 
-압축 결과: 23비트 (압축률 73.9%)
+압축 결과: 23비트 (원래보다 73.9% 감소)
 
-## 참고 자료
+## 참고 문헌
 
-- **Stanford CS106B: Programming Abstractions.** 허프만 부호화 과제와 탐욕 알고리즘 분석을 다루는 강의 (https://cs106b.stanford.edu/)
-- **Princeton COS226: Algorithms and Data Structures.** 허프만, LZW, 엔트로피를 다루는 데이터 압축 강의 (https://www.cs.princeton.edu/courses/archive/spring24/cos226/)
-- Sahni, S. *Data Structures, Algorithms, and Applications in C++*, Chapter 13 (Greedy Method)
+- "Assignment 7: Huffman Coding," *CS106B: Programming Abstractions*, Stanford University, Autumn 2026. https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1272/assignments/7-huffman/
+- R. Sedgewick and K. Wayne, "5.5 Data Compression," lecture slides, *COS 226*, Princeton University, Spring 2023. https://www.cs.princeton.edu/courses/archive/spring23/cos226/lectures/55DataCompression.pdf
+- S. Sahni, *Data Structures, Algorithms, and Applications in C++*. Boston, MA, USA: WCB/McGraw-Hill, 1998, Sec. 9.5.3.

@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-11-10
+> **Last Updated:** 2026-11-18
 
 > **Learning Objectives:**
 > 1. Apply tree terms such as root, leaf, level, height, and degree to a given tree
@@ -41,7 +41,6 @@
 - [6. Appendix](#6-appendix)
   - [6.1 Traversal Time Complexity](#61-traversal-time-complexity)
   - [6.2 Common Binary Tree Operations](#62-common-binary-tree-operations)
-  - [6.3 Interview Tips](#63-interview-tips)
 - [Summary](#summary)
 - [Self-Check Questions](#self-check-questions)
 
@@ -94,7 +93,7 @@ The element at the top of the hierarchy is the root. Elements next in the hierar
 | **Descendant** | A node in the subtree rooted at the node (excluding itself) | The descendants of Mary are Mark, Sue |
 | **Node degree** | The number of children a node has | Joe 3, Ann 2, Mary, John, Mark 1 |
 | **Tree degree** | The maximum of all node degrees in the tree | 3 |
-| **Level** | Root is at level 1; children of a level-$i$ node are at level $i+1$ | Sue is at level 4 |
+| **Level** | Root is at level 1; children of a node at level $i$ are at level $i+1$ | Sue is at level 4 |
 | **Height (depth)** | The number of levels of the tree (Section 1.4) | 4 |
 
 *Table 1. Tree terms with examples from Figure 1*
@@ -103,11 +102,13 @@ The element at the top of the hierarchy is the root. Elements next in the hierar
 
 ### 1.4 Levels and Height
 
-> **Definition:** In this course the root is at **level 1**, and the children of a level-$i$ node are at level $i+1$. The **height** of a tree is the number of levels in the tree, also called its **depth**. Thus the height equals the level of the deepest node and the number of nodes on the path from the root to the farthest leaf.
+> **Definition:** The **level** of a node is the number assigned by placing the root at level 1 and the children of a node at level $i$ at level $i+1$.
+
+> **Definition:** The **height** of a tree is the number of levels in the tree, also called its depth. Thus the height equals the level of the deepest node and the number of nodes on the path from the root to the farthest leaf.
 
 The tree of Figure 1 has 4 levels, Joe (level 1), Ann, Mary, John (level 2), Mike, Al, Mark, Chris (level 3), and Sue (level 4), so its height is 4. A tree with a single node has height 1, and an empty binary tree has height 0.
 
-> **Caution:** Other materials put the root at level 0 or define height as the number of edges on the path from the root to the farthest leaf. Under the edge definition the height is 1 less than in this course (height 0 for a single-node tree, -1 for an empty tree), and the formulas of Section 2 change as well. For example, the maximum number of nodes of a binary tree of height $h$ becomes $2^{h+1} - 1$, and the minimum height of a binary tree with $n$ nodes becomes $\lceil \log_2(n+1) \rceil - 1$. In such materials the depth of a node means the number of edges from the root to that node, which must be distinguished from this course's use of depth as another name for the height of the tree. All formulas in this note use height counted in levels.
+> **Caution:** Other materials put the root at level 0 or define height as the number of edges on the path from the root to the farthest leaf. Under the edge definition the height is 1 less than in this note (height 0 for a single-node tree, -1 for an empty tree), and the formulas of Section 2 change as well. For example, the maximum number of nodes of a binary tree of height $h$ becomes $2^{h+1} - 1$, and the minimum height of a binary tree with $n$ nodes becomes $\lceil \log_2(n+1) \rceil - 1$. In such materials the depth of a node means the number of edges from the root to that node, which must be distinguished from this note's use of depth as another name for the height of the tree. All formulas in this note use height counted in levels.
 
 ### 1.5 Binary Tree Definition
 
@@ -401,9 +402,9 @@ Preorder(node):
 ```mermaid
 graph TD
     r(("/")) --> q1(("*"))
-    r --> q2(("+"))
-    q1 --> q3(("+"))
-    q1 --> s(("-"))
+    r --> q2(("#43;"))
+    q1 --> q3(("#43;"))
+    q1 --> s(("#45;"))
     q2 --> e(("e"))
     q2 --> f(("f"))
     q3 --> a(("a"))
@@ -481,6 +482,8 @@ LevelOrder(root):
 
 *Table 4. Queue changes during the level-order traversal of the tree in Figure 8*
 
+> **Note:** **Relation to breadth-first search.** Level-order traversal is the same as the breadth-first search (BFS) of Lecture 6, Section 6.2, applied to a tree starting from the root. In a general graph a vertex can be reached along several paths, so visited vertices are marked and only unvisited neighbors are enqueued, but in a tree there is only one path from the root to each node, so all children are enqueued without marking. Just as breadth-first search visits the vertices closest to the start vertex first, level-order traversal visits the nodes on the levels closest to the root first.
+
 > **Key Point:** Preorder, inorder, and postorder use **recursion** (or a stack). Level-order uses a **queue**. All four traversals visit $n$ nodes in $O(n)$ time.
 
 ---
@@ -500,29 +503,29 @@ A binary operator node has two children, and a unary sign operator node (e.g., t
 
 ```mermaid
 graph TD
-    la["(a)"] ~~~ a1(("+"))
+    la["(a)"] ~~~ a1(("#43;"))
     a1 --> a2(("*"))
     a1 --> a3(("/"))
     a2 --> a4(("a"))
     a2 --> a5(("b"))
     a3 --> a6(("c"))
     a3 --> a7(("d"))
-    lb["(b)"] ~~~ b1(("+"))
-    b1 --> b2(("+"))
+    lb["(b)"] ~~~ b1(("#43;"))
+    b1 --> b2(("#43;"))
     b1 --> b3(("d"))
-    b2 --> b4(("+"))
+    b2 --> b4(("#43;"))
     b2 --> b5(("c"))
     b4 --> b6(("a"))
     b4 --> b7(("b"))
     lc["(c)"] ~~~ c1(("/"))
-    c1 --> c2(("+"))
+    c1 --> c2(("#43;"))
     c1 --> c3(("*"))
-    c2 --> c4(("-"))
-    c2 --> c5(("+"))
+    c2 --> c4(("#45;"))
+    c2 --> c5(("#43;"))
     c4 --> c6(("a"))
     c5 --> c7(("x"))
     c5 --> c8(("y"))
-    c3 --> c9(("+"))
+    c3 --> c9(("#43;"))
     c3 --> c10(("*"))
     c9 --> c11(("b"))
     c10 --> c12(("c"))
@@ -537,9 +540,9 @@ graph TD
 
 ```mermaid
 graph TD
-    r(("+")) --> n3(("3"))
+    r(("#43;")) --> n3(("3"))
     r --> m(("*"))
-    m --> p(("+"))
+    m --> p(("#43;"))
     m --> n2(("2"))
     p --> n5(("5"))
     p --> n9(("9"))
@@ -584,12 +587,6 @@ All four traversals (preorder, inorder, postorder, level-order) have $O(n)$ time
 - The tree is deleted in $O(n)$ using postorder; deleting the children first avoids losing access to them after the parent is deleted.
 - An expression tree is evaluated in $O(n)$ using postorder.
 - The parenthesized form of an expression tree is obtained in $O(n)$ using fully parenthesized inorder traversal.
-
-### 6.3 Interview Tips
-
-- Know how to reconstruct a binary tree from two traversals (e.g., preorder and inorder).
-- Understand the difference between full, complete, and perfect binary trees. The full binary tree of this note is a perfect binary tree, and some materials use full binary tree to mean a proper binary tree (Section 2.2).
-- Level-order traversal is the basis for breadth-first search (BFS) on trees.
 
 ---
 
@@ -649,7 +646,7 @@ All four traversals (preorder, inorder, postorder, level-order) have $O(n)$ time
 
    </details>
 
-4. **Comparing height definitions:** Find the height of a complete binary tree with 10 nodes under this course's definition (number of levels) and under the definition that counts edges.
+4. **Comparing height definitions:** Find the height of a complete binary tree with 10 nodes under this note's definition (number of levels) and under the definition that counts edges.
 
    <details>
    <summary>Answer</summary>
@@ -663,6 +660,6 @@ All four traversals (preorder, inorder, postorder, level-order) have $O(n)$ time
    <details>
    <summary>Answer</summary>
 
-   The first element of the preorder traversal, A, is the root. In the inorder traversal, D, B, E to the left of A form the left subtree and F, C to the right form the right subtree. In the left subtree's preorder B D E, B is the root, and its inorder D B E makes D the left child and E the right child of B. In the right subtree's preorder C F, C is the root, and its inorder F C makes F the left child of C. The postorder traversal is therefore D E B F C A.
+   The first element of the preorder traversal, A, is the root. In the inorder traversal, D, B, E to the left of A form the left subtree and F, C to the right form the right subtree. In the left subtree's preorder B D E, B is the root, and its inorder D B E makes D the left child and E the right child of B. In the right subtree's preorder C F, C is the root, and its inorder F C makes F the left child of C. The postorder traversal is therefore D E B F C A. When the elements of the nodes are all distinct, the binary tree is determined uniquely if the inorder traversal is given together with the preorder (or postorder) traversal. The preorder and postorder traversals alone, however, may not determine it uniquely. For example, a tree consisting of a root A and a single child B has the preorder A B and the postorder B A whether B is the left child or the right child.
 
    </details>

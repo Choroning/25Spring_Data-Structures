@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-11-04
+> **Last Updated:** 2026-11-17
 
 > **Learning Objectives:**
 > 1. Implement the heap data structure using an array
@@ -449,7 +449,7 @@ graph TD
 
 *Figure 9. The s-value of each node of Figure 8*
 
-A value used alongside the s-value is the **w-value**. The w-value $w(x)$ of a node $x$ is the number of internal nodes in the subtree rooted at $x$. Whereas the s-value is based on path length, the w-value is based on the number of nodes. In Figure 8, $w(A) = 9$, $w(B) = 5$, and $w(C) = 3$. The leftist trees of this lecture are defined by s-values.
+A value used alongside the s-value is the **w-value**. The w-value $w(x)$ of a node $x$ is the number of internal nodes in the subtree rooted at $x$. Whereas the s-value is based on path length, the w-value is based on the number of nodes. In Figure 8, $w(A) = 9$, $w(B) = 5$, and $w(C) = 3$. The leftist trees of this note are defined by s-values.
 
 ### 4.4 Leftist Tree Definition
 
@@ -683,7 +683,7 @@ The finish time is 16, shorter than the 21 of the schedule in Figure 14. Since t
 ### 5.3 Real-World Applications
 
 - **Heaps** are used in Dijkstra's shortest path algorithm, A* search, OS task scheduling, and median maintenance.
-- **Leftist trees** are used in external sorting and as mergeable priority queues in graph algorithms.
+- **Leftist trees** are used in applications that must meld two priority queues frequently.
 - A **Huffman code** is built by putting trees weighted by character frequencies into a min priority queue and repeatedly removing the two trees of smallest weight and inserting the tree that combines them.
 
 ---

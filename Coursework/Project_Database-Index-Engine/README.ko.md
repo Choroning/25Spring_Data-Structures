@@ -2,7 +2,7 @@
 
 [레포지토리 안내](../../README.ko.md) | [English](README.md) | [한국어](README.ko.md)
 
-> **최종 수정일:** 2026-10-26
+> **최종 수정일:** 2026-11-18
 
 ---
 
@@ -16,8 +16,8 @@
 
 - **점 질의:** 키 하나를 $O(\log_M n)$에 탐색한다.
 - **범위 질의:** 리프 연결 리스트를 따라 $[low, high]$ 안의 모든 키를 $O(\log_M n + k)$에 가져온다. 여기서 $k$는 돌려주는 키의 수이다.
-- **삽입:** 키와 값의 쌍을 노드 자동 분할과 함께 $O(\log_M n)$에 삽입한다.
-- **삭제:** 키를 언더플로 처리와 함께 $O(\log_M n)$에 삭제한다.
+- **삽입:** 키와 값의 쌍을 삽입하고, 노드가 넘치면 자동으로 분할한다. 삽입할 리프는 $O(\log_M n)$에 찾지만, 분할할 때는 부모 노드를 루트부터 트리 전체를 훑어 찾으므로 분할이 일어나는 삽입은 $O(n)$ 시간이 든다.
+- **삭제:** 키를 리프에서 $O(\log_M n)$에 삭제한다. 언더플로가 생긴 노드의 재분배와 합병은 하지 않는다.
 - **차수 설정:** 템플릿 매개변수로 분기 계수를 조정할 수 있다.
 
 ## 파일 구성
@@ -47,12 +47,15 @@ g++ -std=c++17 -O2 -o index_engine BPlusTree.cpp main.cpp
 | 연산 | 시간 | 비고 |
 |:----------|:-----|:------|
 | 탐색 | $O(\log_M n)$ | 키 하나의 조회 |
-| 삽입 | $O(\log_M n)$ | 분할이 일어날 수 있음 |
-| 삭제 | $O(\log_M n)$ | 합병이 일어날 수 있음 |
+| 삽입 | 분할이 없으면 $O(\log_M n)$, 분할이 일어나면 $O(n)$ | 부모 노드를 찾을 때 트리 전체를 훑는다 |
+| 삭제 | $O(\log_M n)$ | 언더플로를 처리하지 않는다 |
 | 범위 질의 | $O(\log_M n + k)$ | $k$는 결과의 수 |
 
-## 참고 자료
+> **참고:** **완전한 구현과의 차이.** 이 구현은 구조를 직관적으로 보이도록 두 부분을 단순화했다. 첫째, 분할할 때 부모 노드를 루트부터 트리 전체를 훑어 찾는다. 완전한 구현은 루트에서 리프로 내려가며 지나온 노드를 스택에 기록하거나 노드마다 부모 포인터를 두어 부모를 $O(1)$에 얻는다. 그러면 분할이 리프에서 루트까지 이어지더라도 레벨마다 노드 하나만 나누므로, 노드 하나를 처리하는 비용을 상수로 보면 삽입 전체가 $O(\log_M n)$이다. 둘째, 삭제한 뒤 노드의 키가 최소 개수보다 적어지는 언더플로를 처리하지 않는다. 완전한 구현에서는 루트가 아닌 내부 노드가 자식을 $\lceil M/2 \rceil$개 이상, 루트가 아닌 리프가 키를 $\lceil (M-1)/2 \rceil$개 이상 가져야 한다. 언더플로가 생기면 최소 개수보다 많은 키를 가진 인접 형제에게서 키 하나를 옮겨 오고 부모의 구분 키를 고친다(재분배, 내부 노드에서는 부모의 구분 키가 내려오고 형제의 키가 그 자리로 올라간다). 키를 빌려 줄 형제가 없으면 형제와 합병하고 부모에서 구분 키 하나와 자식 포인터 하나를 지운다. 리프를 합병할 때는 리프 연결 리스트의 `next`도 고치고, 내부 노드를 합병할 때는 부모의 구분 키를 합친 노드로 내려 보낸다. 합병으로 부모에도 언더플로가 생기면 같은 처리를 루트 쪽으로 반복하며, 루트에 자식이 하나만 남으면 그 자식이 새 루트가 되어 높이가 1 줄어든다. 이 처리도 경로의 노드마다 상수 개의 노드만 다루므로 삭제는 여전히 $O(\log_M n)$이다. 언더플로를 처리하지 않으면 노드가 점점 비어 공간 사용률이 떨어지고, 높이가 줄지 않으므로 이 구현의 시간 복잡도에서 $n$은 현재의 키 수가 아니라 트리가 지금까지 가졌던 가장 많은 키 수로 읽어야 한다.
 
-- **CMU 15-445: Database Systems.** B+ 트리 구현과 버퍼 풀 관리를 다루는 Andy Pavlo의 강의 (https://15445.courses.cs.cmu.edu/)
-- **Stanford CS245: Principles of Data-Intensive Systems.** 현대 데이터베이스 엔진에서의 B+ 트리 인덱싱을 다루는 강의 (https://cs245.stanford.edu/)
-- Sahni, S. *Data Structures, Algorithms, and Applications in C++*, Chapters 10-11
+## 참고 문헌
+
+- "Project #1 - Buffer Pool," *CMU 15-445/645: Intro to Database Systems*, Carnegie Mellon University, Fall 2022. https://15445.courses.cs.cmu.edu/fall2022/project1/
+- "Project #2 - B+Tree," *CMU 15-445/645: Intro to Database Systems*, Carnegie Mellon University, Fall 2022. https://15445.courses.cs.cmu.edu/fall2022/project2/
+- M. Zaharia, "Data Storage & Indexes," lecture slides, *CS 245: Principles of Data-Intensive Systems*, Stanford University, Winter 2021. https://cs245.stanford.edu/slides/05-Storage-Formats-p2.pdf
+- S. Sahni, *Data Structures, Algorithms, and Applications in C++*. Boston, MA, USA: WCB/McGraw-Hill, 1998, Sec. 11.4.

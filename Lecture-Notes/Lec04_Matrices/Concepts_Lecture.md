@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-10-26
+> **Last Updated:** 2026-11-17
 
 > **Learning Objectives:**
 > 1. Explain the memory representation of 1D and 2D arrays and compute their space overhead
@@ -575,7 +575,7 @@ The output is as follows, with the terms of the transpose in row-major order.
 (2, 2, 6) (2, 4, 4) (3, 4, 5) (4, 1, 2) (4, 3, 9) (5, 2, 7) (6, 3, 8) (7, 1, 1) (8, 2, 3)
 ```
 
-The term array is scanned twice ($O(t)$) and the array of column size once ($O(n)$), so the total time is $O(t + n)$.
+The term array is scanned twice ($`O(t)`$) and the array of column size once ($`O(n)`$), so the total time is $O(t + n)$.
 
 ---
 

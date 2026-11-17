@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Assignment-Explanation.md) | [한국어](Assignment-Explanation.ko.md)
 
-> **Last Updated:** 2026-11-16
+> **Last Updated:** 2026-11-17
 
 > **Learning Objectives:**
 > 1. Describe the structure of a circular linked list with a head node and the shape of the empty list
@@ -190,14 +190,14 @@ After the three calls to `InsertFront`, the list changes to `1`, `2->1`, `3->2->
 
 ### 4.2 Results with the Test Driver
 
-When `Test-Driver.cpp` is compiled with the commands above and 2 is entered, the program prints the output of Figure 4; the exit message on the last line is added by the IDE. Entering 4 prints "4 is at the index 5", and entering 9 prints the message that the value is absent. Other cases give the following results.
+When `Test-Driver.cpp` is compiled with the commands above and 2 is entered, the program prints the output of Figure 4; the exit message on the last line is added by the IDE. Entering 4 prints "4 is at the index 5", and entering 9 prints the message that the value is absent. Calling the two functions in other orders gives the following lists.
 
 | Case | Result |
 |:-----|:-----|
 | Insert 7 and 8 into an empty list with `InsertRear` | It changes to `7`, `7->8` (the empty-list case of Section 3.2) |
 | `InsertFront` 5, `InsertRear` 6, `InsertFront` 4 | It becomes `4->5->6` |
 
-*Table 2. Results with the test driver*
+*Table 2. Lists produced by different call orders*
 
 ---
 

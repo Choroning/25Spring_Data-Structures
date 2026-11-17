@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-11-10
+> **Last Updated:** 2026-11-17
 
 > **Learning Objectives:**
 > 1. Classify algorithms by time complexity classes
@@ -279,9 +279,9 @@ This rule is very important for comparing complexity orders. Computing the limit
 
 | $\lim_{n \to \infty} f(n)/g(n)$ | Conclusion |
 |------|------|
-| $0$ | $f(n) = o(g(n))$ (so $f(n) = O(g(n))$ but $f(n) \ne \Theta(g(n))$) |
+| $0$ | $f(n) = o(g(n))$ (so $f(n) = O(g(n))$ but $`f(n) \ne \Theta(g(n))`$) |
 | A constant $c$ with $0 < c < \infty$ | $f(n) = \Theta(g(n))$ |
-| $\infty$ | $f(n) = \omega(g(n))$ (so $f(n) = \Omega(g(n))$ but $f(n) \ne \Theta(g(n))$) |
+| $\infty$ | $f(n) = \omega(g(n))$ (so $f(n) = \Omega(g(n))$ but $`f(n) \ne \Theta(g(n))`$) |
 
 *Table 5. Deciding asymptotic relations from the limit value*
 

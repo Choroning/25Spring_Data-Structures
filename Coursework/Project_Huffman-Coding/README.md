@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](README.md) | [한국어](README.ko.md)
 
-> **Last Updated:** 2026-10-26
+> **Last Updated:** 2026-11-18
 
 ---
 
@@ -66,15 +66,15 @@ Input: `"ABRACADABRA"` (11 chars = 88 bits)
 | Char | Freq | Code | Bits Used |
 |:-----|:-----|:-----|:----------|
 | A | 5 | 0 | 5 |
-| B | 2 | 10 | 4 |
-| R | 2 | 110 | 6 |
-| C | 1 | 1110 | 4 |
-| D | 1 | 1111 | 4 |
+| R | 2 | 10 | 4 |
+| B | 2 | 110 | 6 |
+| D | 1 | 1110 | 4 |
+| C | 1 | 1111 | 4 |
 
-Compressed: 23 bits (73.9% compression ratio)
+Compressed: 23 bits (73.9% smaller than the original)
 
 ## References
 
-- **Stanford CS106B: Programming Abstractions.** Huffman encoding assignment and greedy algorithm analysis (https://cs106b.stanford.edu/)
-- **Princeton COS226: Algorithms and Data Structures.** Data compression lecture covering Huffman, LZW, and entropy (https://www.cs.princeton.edu/courses/archive/spring24/cos226/)
-- Sahni, S. *Data Structures, Algorithms, and Applications in C++*, Chapter 13 (Greedy Method)
+- "Assignment 7: Huffman Coding," *CS106B: Programming Abstractions*, Stanford University, Autumn 2026. https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1272/assignments/7-huffman/
+- R. Sedgewick and K. Wayne, "5.5 Data Compression," lecture slides, *COS 226*, Princeton University, Spring 2023. https://www.cs.princeton.edu/courses/archive/spring23/cos226/lectures/55DataCompression.pdf
+- S. Sahni, *Data Structures, Algorithms, and Applications in C++*. Boston, MA, USA: WCB/McGraw-Hill, 1998, Sec. 9.5.3.

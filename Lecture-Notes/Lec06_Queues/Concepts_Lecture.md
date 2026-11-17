@@ -2,7 +2,7 @@
 
 [Repository Guide](../../README.md) | [English](Concepts_Lecture.md) | [한국어](Concepts_Lecture.ko.md)
 
-> **Last Updated:** 2026-11-04
+> **Last Updated:** 2026-11-17
 
 > **Learning Objectives:**
 > 1. Define a queue as a FIFO linear list and compare it with a stack
@@ -422,6 +422,7 @@ With a singly linked list, `popBack` must find the previous node that becomes th
 ### 6.2 Breadth-First Search (BFS)
 
 ```text
+mark start visited
 enqueue(start)
 while queue is not empty:
     node = dequeue()
@@ -432,19 +433,6 @@ while queue is not empty:
 ```
 
 A queue removes the vertex discovered first before the others, so breadth-first search visits vertices in order of their closeness to the start vertex.
-
-> **Note:** The pseudocode above does not mark the start vertex as visited. When a neighbor connected to the start vertex is processed, the start vertex therefore looks unvisited and can enter the queue again. The start vertex must be marked before it is enqueued, and the corrected pseudocode is as follows.
-
-```text
-mark start visited
-enqueue(start)
-while queue is not empty:
-    node = dequeue()
-    for each neighbor of node:
-        if not visited:
-            mark visited
-            enqueue(neighbor)
-```
 
 > **[Algorithms]** A graph consists of vertices and edges that join two vertices, and two vertices joined by an edge are neighbors of each other. Breadth-first search is a basic graph algorithm: because the queue releases vertices in order of their number of edges from the start vertex, it finds shortest paths (in number of edges) from the start vertex in an unweighted graph.
 
@@ -535,7 +523,7 @@ while queue is not empty:
 
    </details>
 
-5. **Breadth-first search:** Run breadth-first search from A with the corrected pseudocode of Section 6.2 on the undirected graph with edges A-B, A-C, B-D, C-D, D-E. Processing neighbors in alphabetical order, give the order in which vertices leave the queue.
+5. **Breadth-first search:** Run breadth-first search from A with the pseudocode of Section 6.2 on the undirected graph with edges A-B, A-C, B-D, C-D, D-E. Processing neighbors in alphabetical order, give the order in which vertices leave the queue.
 
    <details>
    <summary>Answer</summary>
